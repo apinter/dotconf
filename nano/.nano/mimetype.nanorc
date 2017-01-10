@@ -1,0 +1,7 @@
+syntax "mimetype" "mime.types"
+icolor cyan "[.A-Z_]*/"
+color brightwhite "/"
+color green "[[:space:]].*$"
+
+## Comments
+color green "#.*$"

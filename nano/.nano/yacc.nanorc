@@ -1,0 +1,15 @@
+syntax "yacc" "\.y$"
+color red "%[a-zA-Z0-9]*"
+
+## Strings
+# NOTE: You will in general want your comments and strings to come last, because syntax highlighting rules will be applied in the order they are read in.
+color brightyellow "<[^=        ]*>" ""(\\.|[^"])*""
+# NOTE: Very resource intensive.
+color brightyellow start=""(\\.|[^"])*\\[[:space:]]*$" end="^(\\.|[^"])*""
+
+## Comments
+color brightblue start="/\*" end="\*/"
+
+## Trailing whitespace
+color ,green "[[:space:]]+$"
+

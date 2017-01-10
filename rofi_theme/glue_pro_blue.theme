@@ -1,0 +1,9 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! User: Rasi
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.color-window: argb:b23f3f3f, argb:0002b36, argb:0000000
+rofi.color-normal: argb:03f3f3f, #ffffff, argb:03f3f3f, argb:61586e75, #ffffff
+rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
+rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c

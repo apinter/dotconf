@@ -1,0 +1,14 @@
+syntax "ascii art todo" "todo\.txt$"
+
+## [√] Done
+color green "\[√\]"
+
+## [~] In-progress
+color yellow "\[~.*"
+
+## [x] Failed or canceled
+color red "\[x\]"
+
+## [B] Blocked
+color cyan "\[B.*"
+

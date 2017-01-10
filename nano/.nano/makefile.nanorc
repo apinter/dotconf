@@ -1,0 +1,12 @@
+syntax "makefile" "(m|M)akefile$" "\.mak$"
+color brightgreen "((C|CXX|LD)FLAGS)|LIBADD|LIBS|include"
+icolor cyan start="\{" end="\}"
+icolor cyan start="\(" end="\)"
+color brightyellow "\$"
+color green "#.*$"
+
+color red "[:=]"
+color magenta "\<(if|ifeq|else|endif)\>"
+color blue "\$\{.*}"
+color brightblue "\w+:"
+color green "#.*$"

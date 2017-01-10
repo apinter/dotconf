@@ -1,0 +1,2 @@
+syntax "emailquote" "/tmp/mutt-*"
+color green "^>.*"

@@ -1,0 +1,26 @@
+syntax "cython" "\.pyx$" "\.pxd$" "\.pyi$"
+icolor brightred "def [ 0-9A-Z_]+"
+icolor brightred "cpdef [ 0-9A-Z_]+\(.\*?\):"
+icolor brightred "cdef cppclass [ 0-9A-Z_]+\(.\*?\):"
+
+## Python keywords
+color green "\<(and|as|assert|class|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|map|not|or|pass|print|raise|try|while|with)\>"
+color brightmagenta "\<(continue|break|return)\>"
+
+## Cython keywords
+color green "\<(cdef|cimport|cpdef|cppclass|ctypedef|extern|include|namespace|property|struct)\>"
+color red "\<(bint|char|double|int|public|void)\>"
+
+## Operators
+color yellow "[.:;,+*|=!\%]" "<" ">" "/" "-" "&"
+
+## Braces and parentheses
+color magenta "[(){}]" "\[" "\]"
+
+## Strings
+color cyan "['][^']*[^\\][']" "[']{3}.*[^\\][']{3}"
+color cyan "["][^"]*[^\\]["]" "["]{3}.*[^\\]["]{3}"
+color cyan start=""""[^"]" end=""""" start="'''[^']" end="'''"
+
+## Comments
+color brightblue "#.*$"

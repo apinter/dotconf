@@ -1,0 +1,10 @@
+syntax "changelog" "ChangeLog$"
+
+color brightgreen "^\+.*"
+color green "^\+\+\+.*"
+color brightblue "^ .*"
+color brightred "^-.*"
+color red "^---.*"
+color red "(\d\d\s\w\+\s\d\{4\})"
+color brightyellow "^@@.*"
+color magenta "^diff.*"
