@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -D 8123 -f -C -q -N -p 54637 ishida@103.28.58.198 -i ~/.ssh/ishida
