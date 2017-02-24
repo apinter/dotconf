@@ -1,0 +1,7 @@
+pane	base	0	:~/Project/git	1	:*M	0	:/home/apinter/Project/git	1	zsh	:
+pane	base	0	:~/Project/git	1	:*M	1	:/home/apinter/.tmux	0	ssh	:ssh adathor
+pane	base	0	:~/Project/git	1	:*M	2	:/home/apinter	0	python	:/usr/bin/python /usr/bin/glances
+pane	base	1	:~	0	:-	0	:/home/apinter	1	zsh	:
+window	base	0	1	:*M	0707,142x53,0,0{58x53,0,0,0,83x53,59,0[83x26,59,0,4,83x26,59,27,6]}
+window	base	1	0	:-	5d72,142x53,0,0,13
+state	base	

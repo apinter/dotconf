@@ -1,0 +1,13 @@
+pane	0	0	:~	1	:*	0	:/home/apinter	1	zsh	:
+pane	base	0	:..-Core/usr/bin	0	:-	0	:/home/apinter/Project/git/Lynx/Lynx-Core/usr/bin	0	zsh	:
+pane	base	0	:..-Core/usr/bin	0	:-	1	:/home/apinter/Project/OS/CentOS-7-x86_64-NetInstall-1611	1	zsh	:zsh
+pane	base	0	:..-Core/usr/bin	0	:-	2	:/home/apinter	0	htop	:htop
+pane	base	3	:~/Downloads	1	:*Z	0	:/home/apinter/Project/git	0	ssh	:ssh 192.168.0.202
+pane	base	3	:~/Downloads	1	:*Z	1	:/home/apinter/Downloads	1	zsh	:
+pane	base	3	:~/Downloads	1	:*Z	2	:/home/apinter/Project/git	0	zsh	:
+pane	base	3	:~/Downloads	1	:*Z	3	:/home/apinter/Project/git	0	python3	:/usr/bin/python3 -Es /usr/bin/firewall-cmd --reload
+pane	base	3	:~/Downloads	1	:*Z	4	:/home/apinter/Project/OS/CentOS-7-x86_64-NetInstall-1611	0	zsh	:
+window	0	0	1	:*	bc9e,284x53,0,0,1
+window	base	0	0	:-	7f38,174x50,0,0{81x50,0,0,3,92x50,82,0[92x25,82,0,16,92x24,82,26,4]}
+window	base	3	1	:*Z	02bf,173x50,0,0[174x25,0,0{72x25,0,0,18,68x25,73,0,38,32x25,142,0,21},174x24,0,26{87x24,0,26,23,86x24,88,26,36}]
+state	base	

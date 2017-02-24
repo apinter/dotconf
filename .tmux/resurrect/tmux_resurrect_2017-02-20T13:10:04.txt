@@ -1,0 +1,13 @@
+pane	0	0	:~	1	:*	0	:/home/apinter	1	zsh	:
+pane	base	0	:cp	0	:-	0	:/home/apinter/Downloads	0	cp	:cp streamsets-datacollector-2.3.0.1-all-rpms.tgz /home/apinter/Project/bitWafl/
+pane	base	0	:cp	0	:-	1	:/mnt	1	ssh	:ssh -p 54637 103.28.58.198 -i /home/apinter/Project/VPS/Hringorin/new_hringhorin
+pane	base	0	:cp	0	:-	2	:/home/apinter	0	htop	:htop
+pane	base	1	:~/Project/git	1	:*	0	:/home/apinter/Project/git	0	zsh	:
+pane	base	1	:~/Project/git	1	:*	1	:/home/apinter/Project/git	1	zsh	:
+pane	base	2	:~/Project/git	0	:	0	:/home/apinter/Project/git	0	zsh	:
+pane	base	2	:~/Project/git	0	:	1	:/home/apinter/Project/git	1	zsh	:
+window	0	0	1	:*	bc9e,284x53,0,0,1
+window	base	0	0	:-	673e,284x53,0,0{137x53,0,0,2,146x53,138,0[146x26,138,0,3,146x26,138,27,4]}
+window	base	1	1	:*	3f65,284x53,0,0{142x53,0,0,5,141x53,143,0,6}
+window	base	2	0	:	bf69,284x53,0,0{142x53,0,0,8,141x53,143,0,9}
+state	base	0

@@ -1,0 +1,5 @@
+pane	base	0	:..t/git/dotconf	1	:*M	0	:/home/apinter/Project/git/dotconf	1	zsh	:
+pane	base	0	:..t/git/dotconf	1	:*M	1	:/home/apinter/.tmux	0	zsh	:
+pane	base	0	:..t/git/dotconf	1	:*M	2	:/home/apinter	0	python	:/usr/bin/python /usr/bin/glances
+window	base	0	1	:*M	d2e9,284x53,0,0{100x53,0,0,0,183x53,101,0[183x26,101,0,4,183x26,101,27,6]}
+state	base	

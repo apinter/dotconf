@@ -1,0 +1,17 @@
+pane	0	0	:~	1	:*	0	:/home/apinter	1	zsh	:
+pane	base	0	:~/Downloads	0	:	0	:/home/apinter/Downloads	1	zsh	:
+pane	base	0	:~/Downloads	0	:	1	:/mnt	0	ssh	:ssh -p 54637 103.28.58.198 -i /home/apinter/Project/VPS/Hringorin/new_hringhorin
+pane	base	0	:~/Downloads	0	:	2	:/home/apinter	0	htop	:htop
+pane	base	1	:192.168.0.197	1	:*	0	:/home/apinter/Project/git	0	ssh	:ssh -AX adathor -v
+pane	base	1	:192.168.0.197	1	:*	1	:/home/apinter/Project/git	1	ssh	:ssh 192.168.0.199
+pane	base	1	:192.168.0.197	1	:*	2	:/home/apinter/Project/git	0	ssh	:ssh 192.168.0.200
+pane	base	1	:192.168.0.197	1	:*	3	:/home/apinter/Project/git	0	ssh	:ssh 192.168.0.100
+pane	base	1	:192.168.0.197	1	:*	4	:/home/apinter/Project/git	0	ssh	:ssh 192.168.0.198
+pane	base	1	:192.168.0.197	1	:*	5	:/home/apinter/Project/git	0	ssh	:ssh 192.168.0.197
+pane	base	2	:~/Project/git	0	:-	0	:/home/apinter/Project/git	0	zsh	:
+pane	base	2	:~/Project/git	0	:-	1	:/home/apinter/Project/git	1	zsh	:
+window	0	0	1	:*	bc9e,284x53,0,0,1
+window	base	0	0	:	673e,284x53,0,0{137x53,0,0,2,146x53,138,0[146x26,138,0,3,146x26,138,27,4]}
+window	base	1	1	:*	4360,284x53,0,0{142x53,0,0[142x26,0,0,5,142x26,0,27{71x26,0,27,13,70x26,72,27,14}],141x53,143,0[141x26,143,0,6,141x26,143,27{70x26,143,27,12,70x26,214,27,15}]}
+window	base	2	0	:-	bf69,284x53,0,0{142x53,0,0,8,141x53,143,0,9}
+state	base	0
