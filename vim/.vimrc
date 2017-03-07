@@ -1,3 +1,11 @@
+"Make sure vim-plug is isntalled than during the first
+"start of vim you can install the plugins with:
+"		:PlugInstall
+"For valloric/youcompleteme you will need to install
+"dependencies and compile, by running 
+"	~/.vim/plugged/youcompleteme/install.py --all
+"Manual here: ~/.vim/plugged/youcompleteme/doc/youcompleteme.txt
+"Syntastic manual here: ~/.vim/plugged/syntastic/doc
 syntax on
 colorscheme afterglow 
 set number
