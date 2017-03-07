@@ -23,6 +23,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirs<CR>
+nnoremap tl :tablast<CR>
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
