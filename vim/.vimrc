@@ -8,6 +8,7 @@
 "	~/.vim/plugged/youcompleteme/install.py --all
 "Manual here: ~/.vim/plugged/youcompleteme/doc/youcompleteme.txt
 "Syntastic manual here: ~/.vim/plugged/syntastic/doc
+"For Tagbar you need to install ctags!
 syntax on
 colorscheme afterglow 
 set number
