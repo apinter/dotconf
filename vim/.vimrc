@@ -18,6 +18,21 @@ let g:airline_theme='simple'
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_max_signs = 500  " default value
 
+"Syntastics
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_ansible_checkers = ['ansible-lint']
+let g:syntastic_json_checkers = ['jsonlint']  
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
@@ -56,4 +71,5 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Initialize plugin system
 call plug#end()
+
 
