@@ -80,6 +80,9 @@ Plug 'bling/vim-airline'
 "Install vim-airline-themes
 Plug 'vim-airline/vim-airline-themes'
 
+"Install emmet-vim
+Plug 'mattn/emmet-vim'
+
 " Initialize plugin system
 call plug#end()
 
