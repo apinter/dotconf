@@ -10,7 +10,7 @@
 "Syntastic manual here: ~/.vim/plugged/syntastic/doc
 "For Tagbar you need to install ctags!
 syntax on
-colorscheme afterglow 
+colorscheme wombat256dave  
 set number
 set encoding=utf-8
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
