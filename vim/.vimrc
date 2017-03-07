@@ -1,5 +1,7 @@
-"Make sure vim-plug is isntalled than during the first
-"start of vim you can install the plugins with:
+"Make sure vim-plug is installed:
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"than during the first"start of vim you can install the plugins with:
 "		:PlugInstall
 "For valloric/youcompleteme you will need to install
 "dependencies and compile, by running 
