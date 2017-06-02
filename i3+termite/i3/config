@@ -28,8 +28,8 @@ font pango:Inconsolata 11
 #i3gaps enabler
 for_window [class="^.*"] border pixel 0
 # Set inner/outer gaps
-gaps inner 5
-gaps outer 5
+gaps inner 20
+gaps outer 8 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -172,32 +172,48 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	position top
-        #status_command i3status
-	#status_command i3blocks -c /home/apinter/.config/i3/i3blocks.conf
-	status_command i3blocks
-colors {
-		background #222222
-		separator  #222222
-		statusline #dddddd		
+#bar {
+	#position top
+        ##status_command i3status
+	##status_command i3blocks -c /home/apinter/.config/i3/i3blocks.conf
+	#status_command i3blocks
+#colors {
+		#background #222222
+		#separator  #222222
+		#statusline #dddddd		
 	
-		focused_workspace  $color  $color  #ffffff
-		active_workspace   #333333 #333333 #888888
-		inactive_workspace #333333 #333333 #888888
-		urgent_workspace   #900000 #900000 #ffffff
-	}
+		#focused_workspace  $color  $color  #ffffff
+		#active_workspace   #333333 #333333 #888888
+		#inactive_workspace #333333 #333333 #888888
+		#urgent_workspace   #900000 #900000 #ffffff
+	#}
+#}
+
+bar {
+font pango:Inconsolata 10
+	position top
+	tray_output none
+	status_command bumblebee-status -m nic disk:root cpu memory battery date time pasink pasource -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t powerline 
 }
 
 #CUSTOM AREA
 #
+#Shortcuts
+
+bindsym $mod+mod1+q exec qutebrowser
+
 #Wallpaper
-set $wallpaper /home/apinter/Pictures/wallhaven-440724.png
+set $wallpaper /home/apinter/.config/i3/wall
 
 exec --no-startup-id synclient TapButton1=1 TapButton2=1 TapButton3=1
 exec --no-startup-id nm-applet
+
+#Power&lock settings
 bindsym $mod+shift+x exec i3lock -i $wallpaper && systemctl suspend
 bindsym $mod+mod1+x exec i3lock -i $wallpaper 
+
+#Set screen layout and resolution
+exec --no-starup-id /home/apinter/.screenlayout/default.sh 
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -210,6 +226,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+#Hide mouse cursor autoamtically
+exec_always --no-startup-id xbanish 
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -231,8 +250,11 @@ exec_always feh --bg-scale $wallpaper
 assign [class="Firefox"] $workspace2
 assign [class="Rhythmbox"] $workspace4
 assign [class="skypeforlinux"] $workspace3
+assign [class="Wire"] $workspace3
 assign [class="Thunderbird"] $workspace5
 assign [class="Transmission-gtk"] $workspace6
+assign [class="Chromium"] $workspace5
+assign [class="qutebrowser"] $workspace2
 
 #Startup apps
 #exec termite
