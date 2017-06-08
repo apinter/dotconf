@@ -106,6 +106,10 @@ fi
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+export ANSIBLE_NOCOWS=1
+   
 alias ls="ls -alh"
 alias tmux="tmux -f ~/.tmux/tmux.conf"
 alias cdp="cd ~/Project"
