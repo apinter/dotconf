@@ -2,7 +2,9 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh
+#ZSH=/usr/share/oh-my-zsh
+  export ZSH=/home/apinter/.oh-my-zsh
+
 DEFAULT_USER=apinter
 prompt_context(){}
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -104,14 +106,14 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 export ANSIBLE_NOCOWS=1
    
-alias ls="ls -alh --color=auto"
-alias tmux="tmux -f ~/.tmux/tmux.conf -u"
+alias ls="ls -alh"
+alias tmux="tmux -u -f ~/.tmux/tmux.conf"
 alias cdp="cd ~/Project"
 alias cda="cd ~/Project/Ansible"
 alias cdg="cd ~/Project/git"

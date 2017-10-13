@@ -1,5 +1,0 @@
-pane	base	0	:~/.tmux	1	:*M	0	:/home/apinter/Project/git	0	zsh	:
-pane	base	0	:~/.tmux	1	:*M	1	:/home/apinter/.tmux	1	zsh	:
-pane	base	0	:~/.tmux	1	:*M	2	:/home/apinter	0	python	:/usr/bin/python /usr/bin/glances
-window	base	0	1	:*M	0707,142x53,0,0{58x53,0,0,0,83x53,59,0[83x26,59,0,4,83x26,59,27,6]}
-state	base	

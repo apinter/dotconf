@@ -187,5 +187,3 @@ A few Wallpapers.
    
 ## Next?   
 I. Move Arch-Installer to an ansible playbook   
-II. More config to come on other applications   
-III. Add more details under tools where it is required   

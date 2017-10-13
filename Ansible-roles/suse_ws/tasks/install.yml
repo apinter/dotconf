@@ -1,0 +1,47 @@
+---    
+  - name: Install required packages
+    zypper:
+      update_cache: yes
+      name: "{{ item }}"
+      state: latest
+    with_items:
+      - mc
+      - git
+      - zsh
+      - vim
+      - cifs-utils
+      - nload
+      - yakuake
+      - dkms
+      - tmux
+      - weechat
+      - wget
+      - nodejs
+      - npm
+      - automake
+      - autoconf
+      - gcc-c++
+      - gcc7-c++
+      - vlc
+      - clementine
+
+  - name: Copy zshrc
+    copy:
+      src: .zshrc
+      dest: /home/apinter/.zshrc
+
+  - name: Copy Atom.io installer
+    copy:
+      src: atom.x86_64.rpm
+      dest: /tmp/atom.x86_64.rpm
+
+  - name: Install Atom.io
+    zypper:
+      name: /tmp/atom.x86_64.rpm
+      state: present
+      disable_gpg_check: yes
+
+  - name: Full system upgrade
+    zypper:
+      name: '*'
+      state: latest
