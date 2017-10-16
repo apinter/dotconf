@@ -1,0 +1,3 @@
+---
+# tasks file for arch_ws
+   - include_tasks: install.yml
