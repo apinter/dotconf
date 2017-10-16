@@ -1,3 +1,5 @@
 ---
 # tasks file for arch_ws
    - include_tasks: install.yml
+   - include_taks: hostname.yml
+   - icnlude_tasks: clone_configs.yml
