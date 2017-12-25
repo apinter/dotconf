@@ -186,4 +186,4 @@ A few Wallpapers.
    
    
 ## Next?   
-I. Move Arch-Installer to an ansible playbook   
+I. Update README...   
