@@ -172,22 +172,29 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+#bar {
+#	position top
+#        #status_command i3status
+#	#status_command i3blocks -c /home/apinter/.config/i3/i3blocks.conf
+#	status_command i3blocks
+#colors {
+#		background #222222
+#		separator  #222222
+#		statusline #dddddd		
+#	
+#		focused_workspace  $color  $color  #ffffff
+#		active_workspace   #333333 #333333 #888888
+#		inactive_workspace #333333 #333333 #888888
+#		urgent_workspace   #900000 #900000 #ffffff
+#	}
+#}
+
 bar {
+	font pango:Inconsolata 10
 	position top
-        #status_command i3status
-	#status_command i3blocks -c /home/apinter/.config/i3/i3blocks.conf
-	status_command i3blocks
-colors {
-		background #222222
-		separator  #222222
-		statusline #dddddd		
-	
-		focused_workspace  $color  $color  #ffffff
-		active_workspace   #333333 #333333 #888888
-		inactive_workspace #333333 #333333 #888888
-		urgent_workspace   #900000 #900000 #ffffff
-	}
+	status_command bumblebee-status -m nic pacman cpu memory battery date time pasink pasource -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t gruvbox-powerline
 }
+
 
 #CUSTOM AREA
 #
@@ -217,6 +224,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+
+
 #Screenshot
 # scrot - root
 bindsym --release Print exec scrot -e 'mv $f /home/apinter/Pictures/Screenshot/'
@@ -226,7 +235,42 @@ bindsym --release Shift+Print exec scrot -s -e 'mv $f /home/apinter/Pictures/Scr
 #Wallpaper
 exec_always feh --bg-scale $wallpaper
 
-#Workspace assigns
+#Workspace assignsset $mode_gaps Gaps: (o) outer, (i) inner
+set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+bindsym $mod+Shift+g mode "$mode_gaps"
+
+mode "$mode_gaps" {
+        bindsym o      mode "$mode_gaps_outer"
+        bindsym i      mode "$mode_gaps_inner"
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$mode_gaps_inner" {
+        bindsym plus  gaps inner current plus 5
+        bindsym minus gaps inner current minus 5
+        bindsym 0     gaps inner current set 0
+
+        bindsym Shift+plus  gaps inner all plus 5
+        bindsym Shift+minus gaps inner all minus 5
+        bindsym Shift+0     gaps inner all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+mode "$mode_gaps_outer" {
+        bindsym plus  gaps outer current plus 5
+        bindsym minus gaps outer current minus 5
+        bindsym 0     gaps outer current set 0
+
+        bindsym Shift+plus  gaps outer all plus 5
+        bindsym Shift+minus gaps outer all minus 5
+        bindsym Shift+0     gaps outer all set 0
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
 #assign [class="Termite"] $workspace1
 assign [class="Firefox"] $workspace2
 assign [class="Rhythmbox"] $workspace4

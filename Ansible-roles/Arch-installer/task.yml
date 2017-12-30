@@ -1,0 +1,3 @@
+    - hosts: all
+      roles:
+         - arch_ws 
