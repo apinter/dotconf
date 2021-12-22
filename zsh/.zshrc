@@ -1,28 +1,33 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
 
 # Path to your oh-my-zsh installation.
-ZSH=/usr/share/oh-my-zsh
+ZSH=/home/apinter/.oh-my-zsh
 DEFAULT_USER=apinter
 prompt_context(){}
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster" #agnoster
+ZSH_THEME="sunrise" #agnoster
 
-POWERLINE_DATE_FORMAT="%D{%d-%m}"
-POWERLINE_HIDE_HOST_NAME="true"
-POWERLINE_DETECT_SSH="true"
-POWERLINE_GIT_CLEAN="✔"
-POWERLINE_GIT_DIRTY="✘"
-POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
-POWERLINE_GIT_MODIFIED="%F{blue}✹%F{black}"
-POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
-POWERLINE_GIT_UNTRACKED="%F{cyan}✭%F{black}"
-POWERLINE_GIT_RENAMED="➜"
-POWERLINE_GIT_UNMERGED="═"
-POWERLINE_RIGHT_A_COLOR_FRONT="black"
-POWERLINE_RIGHT_A_COLOR_BACK="red"
+#POWERLINE_DATE_FORMAT="%D{%d-%m}"
+#POWERLINE_HIDE_HOST_NAME="true"
+#POWERLINE_DETECT_SSH="true"
+#POWERLINE_GIT_CLEAN="✔"
+#POWERLINE_GIT_DIRTY="✘"
+#POWERLINE_GIT_ADDED="%F{green}✚%F{black}"
+#POWERLINE_GIT_MODIFIED="%F{blue}✹%F{black}"
+#POWERLINE_GIT_DELETED="%F{red}✖%F{black}"
+#POWERLINE_GIT_UNTRACKED="%F{cyan}✭%F{black}"
+#POWERLINE_GIT_RENAMED="➜"
+#POWERLINE_GIT_UNMERGED="═"
+#POWERLINE_RIGHT_A_COLOR_FRONT="black"
+#POWERLINE_RIGHT_A_COLOR_BACK="red"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -32,7 +37,7 @@ POWERLINE_RIGHT_A_COLOR_BACK="red"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+#DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -66,7 +71,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git rsync gcloud)
 
 
 # User configuration
@@ -105,17 +110,56 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-zstyle ':completion:*' use-cache on
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
+#zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on 
 zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' rehash true
 export ANSIBLE_NOCOWS=1
-   
+
+## System Stuff
 alias ls="ls -alh --color=auto"
 alias tmux="tmux -f ~/.tmux/tmux.conf -u"
 alias cdp="cd ~/Project"
+alias cdh="cd ~/Project/Home"
 alias cda="cd ~/Project/Ansible"
+alias cdpa="cd ~/Project/Antavo"
 alias cdg="cd ~/Project/git"
 alias cdd="cd ~/Downloads"
-alias Y="yaourt"
+alias cdm="cd ~/Media"
 alias e="vim"
 alias se="emacs -nw"
+
+## Entertainment Stuff
+alias allmediaup="sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
+alias allmediadown="sudo umount /home/apinter/Project/Home/Aurora/Reno"
+alias bminecraft="cp -r ~/.minecraft ~/Games/BK/minecraft_BK-$(date +%Y%m%d_%H%M%S)"
+alias msce="rclone"
+alias sup="sudo zypper ref; sudo zypper dup; sudo flatpak update -y; flatpak --user update -y"
+alias antavoup="sudo openvpn ~/Project/Antavo/antavo-dev-attilapinter.conf"
+alias cdga="cd /home/apinter/Project/Antavo/git"
+
+## Security Stuff
+alias knoxup="cryfs ~/.local/share/plasma-vault/Knox.enc ~/Vaults/Knox"
+alias knoxdown="cryfs-unmount /home/apinter/Vaults/Knox"
+
+## Kubectl stuff
+alias k='kubectl'
+alias kg='kubectl get'
+alias kgns='kubectl get ns'
+alias kgsvc='kubectl get services'
+alias kging='kubectl get ing'
+alias kgpo='kubectl get pod'
+alias ksysgpo='kubectl --namespace=kube-system get pod'
+alias krm='kubectl delete'
+alias krmf='kubectl delete'
+alias krming='kubectl delete ingress'
+alias krmingl='kubectl delete ingress -l'
+alias krmingall='kubectl delete ingress --all-namespaces'
+alias kgsvcoyaml='kubectl get service -o=yaml'
+alias kgsvcwn='watch kubectl get service --namespace'
+alias kgsvcslwn='watch kubectl get service --show-labels --namespace'
+alias kgwf='watch kubectl get'
+
+source ~/.helmrc
+source <(kubectl completion zsh)
