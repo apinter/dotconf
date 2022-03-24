@@ -5,6 +5,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
 fi
 
+export EDITOR='vim'
+export VISUAL='vim'
+
 
 # Path to your oh-my-zsh installation.
 ZSH=/home/apinter/.oh-my-zsh
@@ -107,7 +110,7 @@ ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
 if [[ ! -d $ZSH_CACHE_DIR ]]; then
   mkdir $ZSH_CACHE_DIR
 fi
-
+fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
@@ -116,19 +119,24 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 zstyle ':completion:*' rehash true
 export ANSIBLE_NOCOWS=1
+export XDG_CONFIG_DIR=$HOME/.config
 
 ## System Stuff
+#alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
 alias ls="ls -alh --color=auto"
 alias tmux="tmux -f ~/.tmux/tmux.conf -u"
 alias cdp="cd ~/Project"
 alias cdh="cd ~/Project/Home"
 alias cda="cd ~/Project/Ansible"
 alias cdpa="cd ~/Project/Antavo"
+alias cdpag="cd ~/Project/Antavo/git"
+alias cdpaa="cd ~/Project/Antavo/ansible"
 alias cdg="cd ~/Project/git"
 alias cdd="cd ~/Downloads"
 alias cdm="cd ~/Media"
 alias e="vim"
 alias se="emacs -nw"
+alias tf="terraform"
 
 ## Entertainment Stuff
 alias allmediaup="sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
@@ -146,7 +154,7 @@ alias knoxdown="cryfs-unmount /home/apinter/Vaults/Knox"
 ## Kubectl stuff
 alias k='kubectl'
 alias ksys='kubectl --namespace=kube-system'
-alias ka='kubectl apply --recursive -f'
+alias ka='kubectl apply -f'
 alias ksysa='kubectl --namespace=kube-system apply --recursive -f'
 alias kak='kubectl apply -k'
 alias kk='kubectl kustomize'
@@ -935,6 +943,13 @@ alias kgwslowiden='kubectl get --watch --show-labels -o=wide --namespace'
 alias kgpowslowiden='kubectl get pods --watch --show-labels -o=wide --namespace'
 alias kgdepwslowiden='kubectl get deployment --watch --show-labels -o=wide --namespace'
 
-
+## K8S autocompletion
 source ~/.helmrc
 source <(kubectl completion zsh)
+
+## Poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+#poetry completions zsh > ~/.zfunc/_poetry
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
