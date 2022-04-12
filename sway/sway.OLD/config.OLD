@@ -14,17 +14,17 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty --config-file /etc/alacritty/alacritty.yml
+set $term konsole
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-# it is set in config.d/50-openSUSE.conf
+set $menu wofi --show run | xargs swaymsg exec --
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/apinter/Desktop/8323blkca0m81.jpg fill
 #
 # Example configuration:
 #
@@ -36,10 +36,10 @@ set $term alacritty --config-file /etc/alacritty/alacritty.yml
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+          timeout 300 'swaylock -f -c 000000' \
+          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+          before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -64,7 +64,7 @@ set $term alacritty --config-file /etc/alacritty/alacritty.yml
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $$term
+    bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+q kill
@@ -81,9 +81,8 @@ set $term alacritty --config-file /etc/alacritty/alacritty.yml
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 #
 # Moving around:
 #
@@ -201,20 +200,41 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-# it is set in config.d/50-openSUSE.conf
-#bar {
-#    position top
-#
-#    # When the status_command prints a new line to stdout, swaybar updates.
-#    # The default just shows the current date and time.
-#    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-#
-#    colors {
-#        statusline #ffffff
-#        background #323232
-#        inactive_workspace #32323200 #32323200 #5c5c5c
-#    }
-#}
+# bar {
+#     position top
 
-include /etc/sway/config.d/*.conf
-include ~/.config/sway/config.d/*
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
+
+## Custom
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86Search exec bemenu-run
+
+gaps inner 5
+gaps outer 5
+default_border pixel 2
+
+bar {
+	swaybar_command waybar
+}
+font pango: SauceCode Medium 12
+
+bindsym Print exec grim
+
+include /etc/sway/config.d/*

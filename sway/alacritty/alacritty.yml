@@ -1,0 +1,8 @@
+#background_opacity: 0.4
+
+font:
+  normal:
+    family: "ShureTechMono Nerd Font"
+  size: 10.0
+window:
+  opacity: 1.0
