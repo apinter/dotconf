@@ -10,29 +10,37 @@
 "Syntastic manual here: ~/.vim/plugged/syntastic/doc
 "For Tagbar you need to install ctags!
 syntax on
+:set laststatus=2
+set backspace=indent,eol,start
 colorscheme wombat256dave  
+set relativenumber
 set number
 set encoding=utf-8
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 map <C-n> :NERDTreeToggle<CR>
 map <C-%> :vsplit
 map <C-"> :split
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-J> <C-W>j<C-J>
+nnoremap <C-K> <C-W>k<C-K>
+nnoremap <C-L> <C-W>l<C-L>
+nnoremap <C-H> <C-W>h<C-H>
 nnoremap tn :tabnew<Space>
 nnoremap tk :tabnext<CR>
 nnoremap tj :tabprev<CR>
 nnoremap th :tabfirs<CR>
 nnoremap tl :tablast<CR>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='simple'
 let g:gitgutter_sign_column_always = 1
 let g:gitgutter_max_signs = 500  " default value
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
 
 "Syntastics
 set statusline+=%#warningmsg#
