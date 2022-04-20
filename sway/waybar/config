@@ -14,7 +14,7 @@
     "sway/workspaces": {
         "all-outputs": false,
         "disable-scroll": true,
-        }
+        "format": " {icon} ",
     },
     "sway/window": {
         "max-length": 80,
