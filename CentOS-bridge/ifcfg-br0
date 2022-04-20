@@ -1,4 +1,0 @@
-DEVICE="br0"
-BOOTPROTO="dhcp"
-ONBOOT=yes
-TYPE=Bridge

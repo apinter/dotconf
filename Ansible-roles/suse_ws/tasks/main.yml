@@ -1,4 +1,0 @@
----
-# tasks file for suse_ws
-  - include_tasks: repos.yml
-  - include_tasks: install.yml
