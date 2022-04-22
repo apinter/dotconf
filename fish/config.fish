@@ -11,7 +11,7 @@ source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc
 
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
-alias ls="ls -alh --color=auto"
+alias ll="ls -alh --color=auto"
 alias diablo2="WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
 alias tmux="tmux -f ~/.tmux/tmux.conf -u"
 alias cdp="cd ~/Project"
