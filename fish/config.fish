@@ -2,15 +2,25 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+## XDG vars
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+
+## NIX stuff
 set NIX_LINK $HOME/.nix-profile
 export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
-export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$HOME/.cargo/bin:$NIX_LINK/bin
 
+## Gcloud
 source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
+## PATH
+export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$HOME/.cargo/bin:$NIX_LINK/bin
 
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
+alias cdgd="cd $HOME/Project/git/dotconf"
 alias ll="ls -alh --color=auto"
 alias diablo2="WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
 alias tmux="tmux -f ~/.tmux/tmux.conf -u"
