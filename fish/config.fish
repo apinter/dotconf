@@ -19,6 +19,7 @@ export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export TMUX_CONF=~/.config/tmux/tmux.conf
 
 ## NIX stuff
 set NIX_LINK $HOME/.nix-profile
@@ -33,14 +34,16 @@ export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/b
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
 alias cdgd="cd $HOME/Project/git/dotconf"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
 alias ll="ls -alh --color=auto"
 alias diablo2="WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
-alias tmux="tmux -f ~/.tmux/tmux.conf -u"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf -u"
 alias cdp="cd ~/Project"
 alias cdh="cd ~/Project/Home"
 alias cda="cd ~/Project/Ansible"
 alias cdpa="cd ~/Project/Antavo"
 alias cdpag="cd ~/Project/Antavo/git"
+alias cdpagg="cd ~/Project/Antavo/git/GitlabClone"
 alias cdpaa="cd ~/Project/Antavo/ansible"
 alias cdg="cd ~/Project/git"
 alias cdd="cd ~/Downloads"
