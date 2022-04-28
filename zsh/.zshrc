@@ -140,6 +140,8 @@ fi
 fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
 #source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor]=underline
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 #zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on 
