@@ -869,6 +869,3 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/bin/terraform terraform
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/apinter/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/apinter/Downloads/google-cloud-sdk/path.fish.inc'; end

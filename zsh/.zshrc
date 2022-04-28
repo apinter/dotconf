@@ -1,5 +1,28 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin
+# Required packages:
+# https://github.com/marlonrichert/zsh-autocomplete
+# https://github.com/zsh-users/zsh-autosuggestions/
+# https://github.com/zsh-users/zsh-syntax-highlighting/
+
+set NIX_LINK $HOME/.nix-profile
+export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
+export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$HOME/.cargo/bin:$NIX_LINK/bin
+
+#source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
+source ~/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+## Envs
+export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
+export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
+export AZURE_CONFIG_DIR=$XDG_DATA_HOME/azure
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export GEM_HOME="$XDG_DATA_HOME"/gem
+export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export TMUX_CONF=~/.config/tmux/tmux.conf
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
         source /etc/profile.d/vte.sh
@@ -7,7 +30,6 @@ fi
 
 export EDITOR='vim'
 export VISUAL='vim'
-
 
 # Path to your oh-my-zsh installation.
 ZSH=/home/apinter/.oh-my-zsh
@@ -74,7 +96,12 @@ ZSH_THEME="sunrise" #agnoster
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rsync gcloud)
+plugins=(git 
+	rsync 
+	gcloud
+	zsh-syntax-highlighting
+	zsh-autosuggestions
+)
 
 
 # User configuration
@@ -112,7 +139,7 @@ if [[ ! -d $ZSH_CACHE_DIR ]]; then
 fi
 fpath+=~/.zfunc
 source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 #zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on 
@@ -123,13 +150,17 @@ export XDG_CONFIG_DIR=$HOME/.config
 
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
-alias ls="ls -alh --color=auto"
-alias tmux="tmux -f ~/.tmux/tmux.conf -u"
+alias cdgd="cd $HOME/Project/git/dotconf"
+alias dotfiles='/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
+alias ll="ls -alh --color=auto"
+alias diablo2="WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
+alias tmux="tmux -f ~/.config/tmux/tmux.conf -u"
 alias cdp="cd ~/Project"
 alias cdh="cd ~/Project/Home"
 alias cda="cd ~/Project/Ansible"
 alias cdpa="cd ~/Project/Antavo"
 alias cdpag="cd ~/Project/Antavo/git"
+alias cdpagg="cd ~/Project/Antavo/git/GitlabClone"
 alias cdpaa="cd ~/Project/Antavo/ansible"
 alias cdg="cd ~/Project/git"
 alias cdd="cd ~/Downloads"
@@ -137,6 +168,7 @@ alias cdm="cd ~/Media"
 alias e="vim"
 alias se="emacs -nw"
 alias tf="terraform"
+
 
 ## Entertainment Stuff
 alias allmediaup="sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
@@ -951,10 +983,16 @@ source <(kubectl completion zsh)
 export PATH="$HOME/.poetry/bin:$PATH"
 #poetry completions zsh > ~/.zfunc/_poetry
 
-autoload -U +X bashcompinit && bashcompinit
+#autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 if [ -e /home/apinter/.nix-profile/etc/profile.d/nix.sh ]; then . /home/apinter/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/apinter/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/apinter/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/apinter/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/apinter/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
