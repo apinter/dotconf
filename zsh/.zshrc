@@ -9,7 +9,7 @@ export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
 export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$HOME/.cargo/bin:$NIX_LINK/bin
 
 #source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
-source ~/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+#source ~/.oh-my-zsh/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 ## Envs
 export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
