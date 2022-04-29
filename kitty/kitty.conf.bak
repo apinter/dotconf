@@ -1,5 +1,5 @@
 # BEGIN_KITTY_THEME
-# Material Dark
+# Grape
 include current-theme.conf
 # END_KITTY_THEME
 font_family      ShureTechMono Nerd Font Mono
@@ -9,7 +9,7 @@ italic_font      auto
 bold_italic_font auto
 font_size 10.0
 enable_audio_bell no
-visual_bell_color none
+# visual_bell_color none
 window_alert_on_bell yes
 bell_on_tab yes
 initial_window_width  640
@@ -32,3 +32,8 @@ hide_window_decorations yes
 
 open_url_with default
 detect_urls yes
+# url_color #0087bd
+url_style curly
+url_prefixes file ftp ftps gemini git gopher http https irc ircs kitty mailto news sftp cursor_shape
+sync_to_monitor yes
+background_opacity 1.0
