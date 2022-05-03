@@ -4,7 +4,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_allmediadown:sudo\x20umount\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_allmediaup:sudo\x20mount\x20172\x2e168\x2e1\x2e3\x3a/shirayuki/Aurora\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_antavoup:sudo\x20openvpn\x20\x7e/Project/Antavo/antavo\x2ddev\x2dattilapinter\x2econf
-SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220503_103524
+SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220503_115556
 SETUVAR _fish_abbr_cda:cd\x20\x7e/Project/Ansible
 SETUVAR _fish_abbr_cdd:cd\x20\x7e/Downloads
 SETUVAR _fish_abbr_cdg:cd\x20\x7e/Project/git
@@ -20,6 +20,8 @@ SETUVAR _fish_abbr_cdpagg:cd\x20\x7e/Project/Antavo/git/GitlabClone
 SETUVAR _fish_abbr_diablo2:WINEARCH\x3dwin32\x20WINEPREFIX\x3d\x7e/\x2ewine32\x20wine\x20\x7e/\x2ewine/drive_c/Program\x5c\x20Files\x5c\x20\x5c\x28x86\x5c\x29/Diablo\x5c\x20II/Diablo\x5c\x20II\x2eexe\x20\x2dw
 SETUVAR _fish_abbr_dotfiles:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d\x24HOME/Project/git/dotconf/\x2egit\x20\x2d\x2dwork\x2dtree\x3d\x24HOME/Project/git/dotconf
 SETUVAR _fish_abbr_e:vim
+SETUVAR _fish_abbr_grc:git\x20remote\x20\x2dv
+SETUVAR _fish_abbr_grv:git\x20remote\x20\x2dv
 SETUVAR _fish_abbr_icat:kitty\x20\x2bkitten\x20icat
 SETUVAR _fish_abbr_k:kubectl
 SETUVAR _fish_abbr_ka:kubectl\x20apply\x20\x2df

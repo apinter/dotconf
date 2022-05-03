@@ -33,6 +33,7 @@ export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/b
 
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
+abbr grv "git remote -v"
 abbr icat "kitty +kitten icat"
 abbr cdgd "cd $HOME/Project/git/dotconf"
 abbr dotfiles '/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
