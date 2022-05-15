@@ -1,12 +1,12 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+function fish_right_prompt; end
 
 set -g theme_display_docker_machine yes
 set -g theme_display_k8s_context no
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
 set -g fish_prompt_pwd_dir_length 0
-
 
 ## XDG vars
 export XDG_CONFIG_HOME=$HOME/.config
@@ -26,6 +26,8 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export TMUX_CONF=~/.config/tmux/tmux.conf
+export EDITOR=vim
+export VISUAL=vim
 
 ## NIX stuff
 set NIX_LINK $HOME/.nix-profile
@@ -36,31 +38,32 @@ source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc
 
 ## PATH
 export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin
-
+alias z="z"
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
-abbr z "cd"
 abbr g "git" 
 abbr grv "git remote -v"
 abbr icat "kitty +kitten icat"
-abbr zgd "cd $HOME/Project/git/dotconf"
+abbr cdgd "cd $HOME/Project/git/dotconf"
 abbr dotfiles '/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
 abbr ll "ls -alh --color=auto"
 abbr diablo2 "WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
 abbr tmux "tmux -f ~/.config/tmux/tmux.conf -u"
-abbr zp "cd ~/Project"
-abbr zh "cd ~/Project/Home"
-abbr za "cd ~/Project/Ansible"
-abbr zpa "cd ~/Project/Antavo"
-abbr zpag "cd ~/Project/Antavo/git"
-abbr zpagg "cd ~/Project/Antavo/git/GitlabClone"
-abbr zpaa "cd ~/Project/Antavo/ansible"
-abbr zg "cd ~/Project/git"
-abbr zd "cd ~/Downloads"
-abbr zm "cd ~/Media"
+abbr cdp "cd ~/Project"
+abbr cdh "cd ~/Project/Home"
+abbr cda "cd ~/Project/Ansible"
+abbr cdpa "cd ~/Project/Antavo"
+abbr cdpag "cd ~/Project/Antavo/git"
+abbr cdpagg "cd ~/Project/Antavo/git/GitlabClone"
+abbr cdpaa "cd ~/Project/Antavo/ansible"
+abbr cdg "cd ~/Project/git"
+abbr cdd "cd ~/Downloads"
+abbr cdm "cd ~/Media"
 abbr e "vim"
 abbr se "emacs -nw"
 abbr tf "terraform"
+abbr antavoup "sudo openvpn ~/Project/Antavo/antavo-dev-attilapinter.conf"
+abbr cdga "cd /home/apinter/Project/Antavo/git"
 
 ## Entertainment Stuff
 abbr allmediaup "sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
@@ -68,8 +71,6 @@ abbr allmediadown "sudo umount /home/apinter/Project/Home/Aurora/Reno"
 abbr bminecraft "cp -r ~/.minecraft ~/Games/BK/minecraft_BK-$(date +%Y%m%d_%H%M%S)"
 abbr msce "rclone"
 abbr sup "sudo zypper ref; sudo zypper dup; sudo flatpak update -y; flatpak --user update -y"
-abbr antavoup "sudo openvpn ~/Project/Antavo/antavo-dev-attilapinter.conf"
-abbr cdga "cd /home/apinter/Project/Antavo/git"
 
 ## Security Stuff
 abbr knoxup "cryfs ~/.local/share/plasma-vault/Knox.enc ~/Vaults/Knox"
