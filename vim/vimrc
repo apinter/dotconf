@@ -1,0 +1,77 @@
+"Make sure vim-plug is installed:
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"than during the first"start of vim you can install the plugins with:
+"		:PlugInstall
+"For valloric/youcompleteme you will need to install
+"dependencies and compile, by running 
+"	~/.vim/plugged/youcompleteme/install.py --all
+"Manual here: ~/.vim/plugged/youcompleteme/doc/youcompleteme.txt
+"Syntastic manual here: ~/.vim/plugged/syntastic/doc
+"For Tagbar you need to install ctags!
+syntax on
+set laststatus=2
+set backspace=indent,eol,start
+"colorscheme wombat256dave  
+set number
+set relativenumber
+set encoding=utf-8
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+
+map <C-%> :vsplit
+map <C-"> :split
+nnoremap <C-J> <C-W>j<C-J>
+nnoremap <C-K> <C-W>k<C-K>
+nnoremap <C-L> <C-W>l<C-L>
+nnoremap <C-H> <C-W>h<C-H>
+nnoremap tn :tabnew<Space>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap th :tabfirs<CR>
+nnoremap tl :tablast<CR>
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yml setlocal ts=2 sts=2 sw=2 expandtab
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='google_dark'
+let g:gitgutter_sign_column_always = 1
+
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
+call plug#begin('~/.vim/plugged')
+
+"Install The NERD commenter
+Plug 'https://github.com/tpope/vim-commentary' " gcc or gc
+Plug 'airblade/vim-gitgutter'
+Plug 'https://github.com/preservim/nerdtree' " NerdTree
+Plug 'tpope/vim-surround' 
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/ryanoasis/vim-devicons' " Developer Icons
+Plug 'https://github.com/preservim/tagbar' " Tagbar for code navigation
+" Plug 'https://github.com/terryma/vim-multiple-cursors' " CTRL + N for multiple cursors
+
+
+call plug#end()
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+inoremap <expr> <Tab> pumvisible() ? coc#_select_confirm() : "<Tab>"
+
