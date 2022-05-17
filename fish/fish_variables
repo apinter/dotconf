@@ -9,7 +9,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_allmediadown:sudo\x20umount\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_allmediaup:sudo\x20mount\x20172\x2e168\x2e1\x2e3\x3a/shirayuki/Aurora\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_antavoup:sudo\x20openvpn\x20\x7e/Project/Antavo/antavo\x2ddev\x2dattilapinter\x2econf
-SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220516_092728
+SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220517_223114
 SETUVAR _fish_abbr_cda:cd\x20\x7e/Project/Ansible
 SETUVAR _fish_abbr_cdd:cd\x20\x7e/Downloads
 SETUVAR _fish_abbr_cdg:cd\x20\x7e/Project/git
@@ -821,7 +821,9 @@ SETUVAR _fish_abbr_ksysrmsvc:kubectl\x20\x2d\x2dnamespace\x3dkube\x2dsystem\x20d
 SETUVAR _fish_abbr_ksysrmsvcall:kubectl\x20\x2d\x2dnamespace\x3dkube\x2dsystem\x20delete\x20service\x20\x2d\x2dall
 SETUVAR _fish_abbr_ksysrmsvcl:kubectl\x20\x2d\x2dnamespace\x3dkube\x2dsystem\x20delete\x20service\x20\x2dl
 SETUVAR _fish_abbr_ksysrun:kubectl\x20\x2d\x2dnamespace\x3dkube\x2dsystem\x20run\x20\x2d\x2drm\x20\x2d\x2drestart\x3dNever\x20\x2d\x2dimage\x2dpull\x2dpolicy\x3dIfNotPresent\x20\x2di\x20\x2dt
-SETUVAR _fish_abbr_ll:ls\x20\x2dalh\x20\x2d\x2dcolor\x3dauto
+SETUVAR _fish_abbr_la:logo\x2dls\x20\x2da
+SETUVAR _fish_abbr_ll:logo\x2dls\x20\x2dalh\x20
+SETUVAR _fish_abbr_ls:logo\x2dls
 SETUVAR _fish_abbr_msce:rclone
 SETUVAR _fish_abbr_se:emacs\x20\x2dnw
 SETUVAR _fish_abbr_sup:sudo\x20zypper\x20ref\x3b\x20sudo\x20zypper\x20dup\x3b\x20sudo\x20flatpak\x20update\x20\x2dy\x3b\x20flatpak\x20\x2d\x2duser\x20update\x20\x2dy
