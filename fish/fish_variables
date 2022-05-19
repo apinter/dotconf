@@ -9,7 +9,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_allmediadown:sudo\x20umount\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_allmediaup:sudo\x20mount\x20172\x2e168\x2e1\x2e3\x3a/shirayuki/Aurora\x20/home/apinter/Project/Home/Aurora/Reno
 SETUVAR _fish_abbr_antavoup:sudo\x20openvpn\x20\x7e/Project/Antavo/antavo\x2ddev\x2dattilapinter\x2econf
-SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220519_075736
+SETUVAR _fish_abbr_bminecraft:cp\x20\x2dr\x20\x7e/\x2eminecraft\x20\x7e/Games/BK/minecraft_BK\x2d20220519_102751
 SETUVAR _fish_abbr_cda:cd\x20\x7e/Project/Ansible
 SETUVAR _fish_abbr_cdd:cd\x20\x7e/Downloads
 SETUVAR _fish_abbr_cdg:cd\x20\x7e/Project/git

@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-function fish_right_prompt; end
+function fish_greeting
+end
 
 set -g theme_display_docker_machine yes
 set -g theme_display_k8s_context no
