@@ -16,13 +16,16 @@ sudo zypper ref
 sudo zypper in -y -t pattern devel_C_C++ devel_basis devel_python3
 sudo zypper in -y brave-browser code vim python38 python38-devel python38-pip kitty alacritty fish zsh ripgrep opi ffmpeg mlocate sshpass cryfs wireguard-tools pwgen htop kubernetes1.23-client k9s go bat git openssh-common openssh-clients
 
+## Install GUI app dependencies 
+sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
+sudo gdk-pixbuf-query-loaders-64 --update-cache
+
 ## Install PyPi packages
 pip install ansible ansible-vault ara google-auth pymongo
-
-## Install OMF
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 ## Install logo-ls
 cd $HOME/Project/git/ && curl -LO https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.rpm
 sudo zypper in -y logo-ls_amd64.rpm
 
+## Install OMF
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
