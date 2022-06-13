@@ -26,7 +26,7 @@ fi
 ## Install packages
 sudo zypper ref
 sudo zypper in -y -t pattern devel_C_C++ devel_basis devel_python3
-sudo zypper in -y tmux ranger fontawesome-fonts font-manager fira-code-fonts font-manager brave-browser code vim python38 python38-devel python38-pip kitty alacritty fish zsh ripgrep opi ffmpeg mlocate sshpass cryfs wireguard-tools pwgen htop kubernetes1.23-client k9s go bat git openssh-common openssh-clients nodejs-common npm xdg-desktop-portal-gnome xdg-desktop-portal-wlr  
+sudo zypper in -y Mesa tmux ranger fontawesome-fonts font-manager fira-code-fonts font-manager brave-browser code vim python38 python38-devel python38-pip kitty alacritty fish zsh ripgrep opi ffmpeg mlocate sshpass cryfs wireguard-tools pwgen htop kubernetes1.23-client k9s go bat git openssh-common openssh-clients nodejs-common npm xdg-desktop-portal-gnome xdg-desktop-portal-wlr  
 
 ## Install GUI app dependencies 
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders

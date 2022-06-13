@@ -8,6 +8,7 @@ set -g theme_display_k8s_context no
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
 set -g fish_prompt_pwd_dir_length 0
+set -gx GPG_TTY (tty)
 
 ## XDG vars
 export XDG_CONFIG_HOME=$HOME/.config
@@ -40,6 +41,7 @@ source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc
 ## PATH
 export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin
 alias z="z"
+
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
 abbr g "git" 
@@ -67,6 +69,9 @@ abbr se "emacs -nw"
 abbr tf "terraform"
 abbr antavoup "sudo openvpn ~/Project/Antavo/antavo-dev-attilapinter.conf"
 abbr cdga "cd /home/apinter/Project/Antavo/git"
+abbr dtw "distrobox-enter tw2"
+abbr dar "distrobox-enter arch-box"
+abbr dubi "distrobox-enter ubuntu-box"
 
 ## Entertainment Stuff
 abbr allmediaup "sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
