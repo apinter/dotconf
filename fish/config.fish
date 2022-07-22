@@ -4,10 +4,15 @@ function fish_greeting
 end
 
 set -g theme_display_docker_machine yes
-set -g theme_display_k8s_context no
+set -g theme_display_k8s_context no 
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
-set -g fish_prompt_pwd_dir_length 0
+#set -g fish_prompt_pwd_dir_length 0
+set -g theme_color_scheme dark
+set -g theme_display_git yes
+set -g theme_display_hostname ssh
+set -g theme_display_date no
+
 set -gx GPG_TTY (tty)
 
 ## XDG vars
@@ -30,6 +35,7 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export TMUX_CONF=~/.config/tmux/tmux.conf
 export EDITOR=vim
 export VISUAL=vim
+export GPG_TTY=$(tty)
 
 ## NIX stuff
 set NIX_LINK $HOME/.nix-profile

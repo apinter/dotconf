@@ -31,3 +31,9 @@ detect_urls no
 #url_color #0087bd
 #sync_to_monitor yes
 background_opacity 1.0
+
+
+# BEGIN_KITTY_THEME
+# Farin
+include current-theme.conf
+# END_KITTY_THEME

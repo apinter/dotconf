@@ -17,3 +17,5 @@
 	authors = !git log --format='%aN <%aE>' | grep -v 'users.noreply.github.com' | sort -u --ignore-case
 [safe]
 	directory = ${PWD}
+[gpg]
+	program = /usr/bin/gpg
