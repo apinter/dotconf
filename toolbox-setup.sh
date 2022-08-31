@@ -4,7 +4,7 @@ set -e
 
 code_repo=$(sudo zypper lr | grep code | awk '{print $3}')
 brave_repo=$(sudo zypper lr | grep brave | awk '{print $3}')
-
+edge_repo=$(sudo zypper lr | grep edge | awk '{print $3}')
 sudo zypper in -y openssl curl 
 
 if [ "$code_repo" ]; then
@@ -13,6 +13,14 @@ else
 	## Add repo for VSCode
 	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
 	sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-#md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
+fi 
+
+if [ "$edge_repo" ]; then
+	echo "MSEdge repo is already present"
+else
+	## Add repo for VSCode
+	sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc && \
+	sudo zypper ar https://packages.microsoft.com/yumrepos/edge microsoft-edge-beta
 fi 
 
 if [ "$brave_repo" ]; then
@@ -26,7 +34,7 @@ fi
 ## Install packages
 sudo zypper ref
 sudo zypper in -y -t pattern devel_C_C++ devel_basis devel_python3
-sudo zypper in -y Mesa tmux ranger pinentry-gnome3 fontawesome-fonts font-manager fira-code-fonts font-manager brave-browser code vim python38 python38-devel python38-pip kitty alacritty fish zsh ripgrep opi ffmpeg mlocate sshpass cryfs wireguard-tools pwgen htop kubernetes1.23-client k9s go bat git openssh-common openssh-clients nodejs-common npm xdg-desktop-portal-gnome xdg-desktop-portal-wlr  
+sudo zypper in -y Mesa microsoft-edge-beta tmux ranger pinentry-gnome3 fontawesome-fonts font-manager fira-code-fonts font-manager brave-browser code vim python38 python38-devel python38-pip kitty alacritty fish zsh ripgrep opi ffmpeg mlocate sshpass cryfs wireguard-tools pwgen htop kubernetes1.23-client k9s go bat git openssh-common openssh-clients nodejs-common npm xdg-desktop-portal-gnome xdg-desktop-portal-wlr  
 
 ## Install GUI app dependencies 
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
