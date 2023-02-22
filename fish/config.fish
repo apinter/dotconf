@@ -45,7 +45,7 @@ export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
 source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
 ## PATH
-export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin
+export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin
 alias z="z"
 
 ## System Stuff
@@ -73,22 +73,24 @@ abbr cdm "cd ~/Media"
 abbr e "vim"
 abbr se "emacs -nw"
 abbr tf "terraform"
-abbr antavoup "sudo openvpn ~/Project/Antavo/antavo-dev-attilapinter.conf"
+abbr antavoup "sudo openvpn /home/apinter/Project/Antavo/AttilaPinter_VPN/Antavo_AttilaPinter_Internal.ovpn"
 abbr cdga "cd /home/apinter/Project/Antavo/git"
 abbr dtw "distrobox-enter tw2"
 abbr dar "distrobox-enter arch-box"
 abbr dubi "distrobox-enter ubuntu-box"
-
+abbr dhe "distrobox-host-exec"
 ## Entertainment Stuff
 abbr allmediaup "sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
 abbr allmediadown "sudo umount /home/apinter/Project/Home/Aurora/Reno"
 abbr bminecraft "cp -r ~/.minecraft ~/Games/BK/minecraft_BK-$(date +%Y%m%d_%H%M%S)"
 abbr msce "rclone"
 abbr sup "sudo zypper ref; sudo zypper dup; sudo flatpak update -y; flatpak --user update -y"
+abbr dhe "distrobox-host-exec"
 
 ## Security Stuff
 abbr knoxup "cryfs ~/.local/share/plasma-vault/Knox.enc ~/Vaults/Knox"
 abbr knoxdown "cryfs-unmount /home/apinter/Vaults/Knox"
+abbr agcp "export HTTPS_PROXY=localhost:8888"
 
 ## Kubectl stuff
 abbr k 'kubectl'
