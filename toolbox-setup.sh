@@ -5,7 +5,7 @@ set -e
 code_repo=$(sudo zypper lr | grep code | awk '{print $3}')
 brave_repo=$(sudo zypper lr | grep brave | awk '{print $3}')
 edge_repo=$(sudo zypper lr | grep edge | awk '{print $3}')
-sudo zypper in -y openssl curl 
+sudo zypper in openssl curl 
 
 if [ "$code_repo" ]; then
 	echo "VSCode repo is already present"
@@ -33,8 +33,8 @@ fi
 
 ## Install packages
 sudo zypper ref
-sudo zypper in -y -t pattern devel_C_C++ devel_basis devel_python3
-sudo zypper in -y Mesa microsoft-edge-beta \
+sudo zypper in -t pattern devel_C_C++ devel_basis devel_python3
+sudo zypper in Mesa microsoft-edge-beta \
      tmux ranger pinentry-gnome3 \
      fontawesome-fonts font-manager \
      fira-code-fonts font-manager \
