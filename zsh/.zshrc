@@ -998,3 +998,7 @@ if [ -f '/home/apinter/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/apinter/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/apinter/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/apinter/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

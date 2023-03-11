@@ -93,6 +93,7 @@ abbr knoxdown "cryfs-unmount /home/apinter/Vaults/Knox"
 abbr agcp "export HTTPS_PROXY=localhost:8888"
 
 ## Kubectl stuff
+abbr kx 'kubectx'
 abbr k 'kubectl'
 abbr ksys 'kubectl --namespace=kube-system'
 abbr ka 'kubectl apply -f'
@@ -902,3 +903,7 @@ if [ -f '/home/apinter/Downloads/google-cloud-sdk/path.fish.inc' ]; . '/home/api
 
 end
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+set --export --prepend PATH "/home/apinter/.rd/bin"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

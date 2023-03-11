@@ -19,3 +19,5 @@
 	directory = ${PWD}
 [gpg]
 	program = /usr/bin/gpg
+[core]
+	editor = code-insiders --wait
