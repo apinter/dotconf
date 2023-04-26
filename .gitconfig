@@ -21,3 +21,5 @@
 	program = /usr/bin/gpg
 [core]
 	editor = code-insiders --wait
+[diff]
+	external = difft

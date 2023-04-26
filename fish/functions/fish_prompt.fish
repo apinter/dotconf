@@ -1,1 +1,1 @@
-/home/apinter/.local/share/omf/themes/neolambda/fish_prompt.fish
+/home/apinter/.local/share/omf/themes/sashimi/fish_prompt.fish
