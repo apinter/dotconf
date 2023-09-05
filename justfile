@@ -4,9 +4,18 @@ default:
 
 # Setup Aeon host system
 host-setup:
-  mkdir -p ~/Project/git
+  mkdir -p ~/Project/git; \
   cd ~/Project/git && git clone https://github.com/apinter/up-and-running.git -b microos
-  cd up-and-running && anible-playbook up-and-running.yml 
+  cd up-and-running && anible-playbook up-and-running.yml
+  ln -s $HOME/Project/git/dotconf/fish $HOME/.config/fish
+  ln -s $HOME/Project/git/dotconf/.gitconfig $HOME/.config/.gitconfig
+  ln -s $HOME/Project/git/dotconf/vim/vim $HOME/.vim
+  ln -s $HOME/Project/git/dotconf/vim/vimrc $HOME/.vimrc
+  ln -s $HOME/Project/git/dotconf/fonts $HOME/.local/share/fonts/
+  ln -s $HOME/Project/git/dotconf/ranger $HOME/.config/ranger
+  ln -s $HOME/Project/git/dotconf/zathura $HOME/.config/zathura
+  ln -s $HOME/Project/git/dotconf/bat $HOME/.config/bat
+  ln -s $HOME/Project/git/dotconf/kitty/ $HOME/.config/kitty
 
 # Clean up system
 clean:
@@ -22,7 +31,7 @@ distrobox-opensuse:
 # Setup openSUSE container
 distrobox-opensuse-setup:
   sudo zypper ref && sudo zypper dup -y
-  cd /home/apinter/Project/git/dotconf && bash toolbox-setup.sh
+  cd $HOME/Project/git/dotconf && bash toolbox-setup.sh
 
 # Create a Fedora container
 distrobox-fedora:
@@ -63,7 +72,8 @@ pip-update:
 
 # Update systems
 fleet-update:
-  cd /home/apinter/Project/git/system-updater && ansible-playbook -i inventory system_updater.yml
+  cd $HOME/Project/git/system-updater && ansible -i inventory TW -m ping 
+  cd $HOME/Project/git/system-updater && ansible-playbook -i inventory system_updater.yml
 
 # Install syft and grype for vulnerability scanning
 vuln-scan-setup:
