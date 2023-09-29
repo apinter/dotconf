@@ -21,7 +21,6 @@ host-setup:
 clean:
   podman image prune -a -f
   flatpak --user uninstall --unused
-  sudo transactional-update cleanup
 
 # Create an openSUSE container
 distrobox-opensuse:
@@ -62,7 +61,7 @@ distrobox-ubuntu:
 
 # Update system, flatpaks, and containers all at once
 update:
-  sudo transactional-update cleanup dup
+  #sudo transactional-update cleanup dup
   flatpak upgrade --user -y
   distrobox upgrade -a
 
@@ -84,5 +83,4 @@ vuln-scan-setup:
 # Update grype databases
 grype-db-update:
   grype db status
-  grype db check
   grype db update
