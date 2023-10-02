@@ -87,6 +87,7 @@ in
     yubikey-personalization
     wireguard-tools
     cryfs
+    gnome.nautilus
   ];
 
   fonts.fonts =  with pkgs; [
@@ -106,8 +107,9 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       <home-manager/nixos>
-      #./networking/wg.nix
       ./systemd-user/flatpak-auto-update.nix
+      #./networking/wg.nix
+      # ./print/printer.nix
     ];
 
   ## Grub configuration
@@ -133,21 +135,6 @@ in
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-  services.printing.enable = true;
-  services.avahi.enable = true;
-  services.avahi.nssmdns = true;
-  services.printing.drivers = [ pkgs.gutenprint ];
-  # for a WiFi printer
-  services.avahi.openFirewall = true;
-  services.avahi.publish.enable = true;
-  services.avahi.publish.userServices = true;
-  services.printing.browsing = true;
-  services.printing.listenAddresses = [ "*:631" ]; # Not 100% sure this is needed and you might want to restrict to the local network
-  services.printing.allowFrom = [ "all" ]; # this gives access to anyone on the interface you might want to limit it see the official documentation
-  services.printing.defaultShared = true; # If you want
-
   ## Enalbe hw accelerated video decoding
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
@@ -170,12 +157,6 @@ in
     pulse.enable = true;
   };
 
-  # xdg-desktop-portal works by exposing a series of D-Bus interfaces
-  # known as portals under a well-known name
-  # (org.freedesktop.portal.Desktop) and object path
-  # (/org/freedesktop/portal/desktop).
-  # The portal interfaces include APIs for file access, opening URIs,
-  # printing and others.
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
@@ -190,7 +171,7 @@ in
     home = "/home/apinter";
     initialPassword = "pw123";
     description = "Attila Pinter";
-    extraGroups = [ "wheel" "devops" "docker" ];
+    extraGroups = [ "wheel" "devops" "docker" "scanner" "lp" ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICACL0UUvhrkRty9z3mv629Qg+v3AVt6G8mlMVj9iBE/ Attila Pinter" ];
   };
 
