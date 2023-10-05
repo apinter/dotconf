@@ -52,7 +52,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	xdg-user-dirs-gtk pinentry bind-utils \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
-	terraform fd fzf
+	terraform fd fzf gnome-keyring
 
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
