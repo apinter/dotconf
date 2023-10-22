@@ -51,8 +51,8 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  networking.hostName = "nathan"; # Define your hostname.
+  boot.loader.efi.efiSysMountPoint = "/boot";
+  networking.hostName = "throtur"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -96,6 +96,7 @@ users.groups.devops.gid = 5000;
    wget
    curl
    ranger
+   nfs-utils
    git
    firefox
    policycoreutils
@@ -128,18 +129,19 @@ users.groups.devops.gid = 5000;
   # Or disable the firewall altogether.
  zramSwap.enable = true;
  networking.firewall.enable = false;
- fileSystems."/home/nathan/Common" = {
+ fileSystems."/home/throtur/Common" = {
     device = "172.168.1.3:/shirayuki/Common";
     fsType = "nfs";
  };
 
- fileSystems."/home/nathan/Reno" = {
-    device = "172.168.1.3:/shirayuki/Home/nathan";
+ fileSystems."/home/throtur/Reno" = {
+    device = "172.168.1.3:/shirayuki/Home/apinter_jr";
     fsType = "nfs";
  };
  services.blueman.enable = true;
  hardware.bluetooth.enable = true;
-  
+ nixpkgs.config.allowUnfree = true;  
+
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
