@@ -1,7 +1,6 @@
 { config, pkgs, callPackage, ... }:
 {
   #nixpkgs.config.pulseaudio = true;
-
   ## Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
   security.rtkit.enable = true;
@@ -51,7 +50,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  boot.loader.efi.efiSysMountPoint = "/boot";
   networking.hostName = "nathan"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -92,6 +91,7 @@ users.groups.devops.gid = 5000;
   # $ nix search wget
  environment.systemPackages = with pkgs; [
    bash
+   nfs-utils
    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    wget
    curl
@@ -118,6 +118,7 @@ users.groups.devops.gid = 5000;
   systemd.package = pkgs.systemd.override { withSelinux = true; };
 
   # Enable the OpenSSH daemon.
+ services.fstrim.enable = true;
  services.openssh.enable = true;
   # Scanner 
  hardware.sane.enable = true;
@@ -139,7 +140,7 @@ users.groups.devops.gid = 5000;
  };
  services.blueman.enable = true;
  hardware.bluetooth.enable = true;
-  
+ nixpkgs.config.allowUnfree = true;  
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
