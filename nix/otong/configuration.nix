@@ -44,7 +44,7 @@
       #./systemd-root/node-exporter.nix
       ./monitoring/node-exporter.nix
       ./systemd-user/flatpak-auto-update.nix
-      ./print/printer.nix
+      # ./print/printer.nix
       ./hardware/accel.nix
     ];
 
@@ -52,7 +52,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  networking.hostName = "sofie"; # Define your hostname.
+  networking.hostName = "nathan"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -61,10 +61,10 @@
   time.timeZone = "Asia/Jakarta";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-users.users.sofie = {
+users.users.nathan = {
   initialPassword = "pw123";
   isNormalUser = true;
-  extraGroups = [ "wheel" "scanner" "lp" ]; # Enable ‘sudo’ for the user.
+  extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   #   packages = with pkgs; [
   #     firefox
   #     thunderbird
@@ -128,13 +128,13 @@ users.groups.devops.gid = 5000;
   # Or disable the firewall altogether.
  zramSwap.enable = true;
  networking.firewall.enable = false;
- fileSystems."/home/sofie/Common" = {
+ fileSystems."/home/nathan/Common" = {
     device = "172.168.1.3:/shirayuki/Common";
     fsType = "nfs";
  };
 
- fileSystems."/home/sofie/Reno" = {
-    device = "172.168.1.3:/shirayuki/Home/sofie";
+ fileSystems."/home/nathan/Reno" = {
+    device = "172.168.1.3:/shirayuki/Home/nathan";
     fsType = "nfs";
  };
  services.blueman.enable = true;
