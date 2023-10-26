@@ -27,9 +27,9 @@
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
-[gpg]
-	program = /usr/bin/gpg
 [core]
 	editor = code-insiders --wait
 [diff]
 	external = difft
+[gpg]
+	program = /usr/bin/gpg2

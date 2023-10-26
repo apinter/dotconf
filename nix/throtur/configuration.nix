@@ -46,6 +46,7 @@
       ./systemd-user/flatpak-auto-update.nix
       # ./print/printer.nix
       ./hardware/accel.nix
+      ./containers/containers.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
