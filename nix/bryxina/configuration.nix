@@ -120,19 +120,17 @@ users.groups.devops.gid = 5000;
    crun
    slirp4netns
    su
+   mesa
+   glxinfo
+   wineWowPackages.stable
+   winetricks
+
 ];
 
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   # List services that you want to enable:
+ hardware. opengl. enable = true; 
+ hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+ hardware.opengl.driSupport32Bit = true;
 
   # Enable the OpenSSH daemon.
  services.openssh.enable = true;

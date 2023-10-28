@@ -113,10 +113,15 @@ users.groups.devops.gid = 5000;
    slirp4netns
    su
    microsoft-edge
+   mesa
+   glxinfo
+   wineWowPackages.stable
+   winetricks
 ];
 
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
-
+ hardware. opengl. enable = true; 
+ hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+ hardware.opengl.driSupport32Bit = true;
   # Enable the OpenSSH daemon.
  services.openssh.enable = true;
   # Scanner 

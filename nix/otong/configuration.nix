@@ -1,5 +1,6 @@
 { config, pkgs, callPackage, ... }:
 {
+
   #nixpkgs.config.pulseaudio = true;
   ## Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -90,9 +91,13 @@ users.groups.devops.gid = 5000;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
  environment.systemPackages = with pkgs; [
-   bash
    nfs-utils
-   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+   mesa
+   glxinfo
+   wineWowPackages.stable
+   winetricks
+   bash
+   vim
    wget
    curl
    ranger
@@ -115,8 +120,9 @@ users.groups.devops.gid = 5000;
    microsoft-edge
 ];
 
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
-
+ hardware. opengl. enable = true; 
+ hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+ hardware.opengl.driSupport32Bit = true;
   # Enable the OpenSSH daemon.
  services.fstrim.enable = true;
  services.openssh.enable = true;

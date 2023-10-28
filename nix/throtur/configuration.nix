@@ -93,7 +93,11 @@ users.groups.devops.gid = 5000;
   # $ nix search wget
  environment.systemPackages = with pkgs; [
    bash
-   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+   vim
+   mesa
+   glxinfo
+   wineWowPackages.stable
+   winetricks
    wget
    curl
    ranger
@@ -117,7 +121,9 @@ users.groups.devops.gid = 5000;
    microsoft-edge
 ];
 
-  systemd.package = pkgs.systemd.override { withSelinux = true; };
+ hardware. opengl. enable = true; 
+ hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+ hardware.opengl.driSupport32Bit = true;
 
   # Enable the OpenSSH daemon.
  services.openssh.enable = true;

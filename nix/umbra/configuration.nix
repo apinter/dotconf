@@ -88,6 +88,8 @@ in
     wireguard-tools
     cryfs
     gnome.nautilus
+    mesa
+    glxinfo
   ];
 
   fonts.fonts =  with pkgs; [
@@ -235,7 +237,10 @@ in
   
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  
+ hardware. opengl. enable = true; 
+ hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
+ hardware.opengl.driSupport32Bit = true;
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 22 ];
