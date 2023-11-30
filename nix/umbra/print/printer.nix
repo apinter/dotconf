@@ -1,10 +1,7 @@
 { pkgs, ...  }:
 { 
-
-# Scanner
-hardware.sane.enable = true;
 nixpkgs.config.allowUnfree = true;
-# Enable CUPS to print documents.
+ # Enable CUPS to print documents.
   # services.printing.enable = true;
   services.printing.enable = true;
   services.avahi.enable = true;
@@ -26,4 +23,11 @@ nixpkgs.config.allowUnfree = true;
     };
   };
 
+# Scanner
+ hardware.sane.enable = true;
+ #hardware.sane.extraBackends = [ pkgs.sane-backends ];
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ 25565 ];
+  # networking.firewall.allowedUDPPorts = [ 25565 ];
+  # Or disable the firewall altogether.
 }

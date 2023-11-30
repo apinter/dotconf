@@ -66,6 +66,7 @@ in
     wdisplays # tool to configure displays
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    tmux
     curl
     just
     ranger
@@ -88,8 +89,9 @@ in
     wireguard-tools
     cryfs
     gnome.nautilus
-    mesa
-    glxinfo
+    playerctl
+    brightnessctl
+    pamixer
   ];
 
   fonts.fonts =  with pkgs; [
@@ -109,10 +111,13 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       <home-manager/nixos>
-      ./systemd-user/flatpak-auto-update.nix
       #./networking/wg.nix
-      # ./print/printer.nix
+      ./systemd-user/flatpak-auto-update.nix
+      #./print/printer.nix
     ];
+
+  ## Kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   ## Grub configuration
   boot.loader.efi.canTouchEfiVariables = true;
@@ -137,6 +142,21 @@ in
   # Set your time zone.
   time.timeZone = "Asia/Jakarta";
 
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
+  #services.printing.enable = true;
+  #services.avahi.enable = true;
+  #services.avahi.nssmdns = true;
+  #services.printing.drivers = [ pkgs.gutenprint ];
+  # for a WiFi printer
+  #services.avahi.openFirewall = true;
+  #services.avahi.publish.enable = true;
+  #services.avahi.publish.userServices = true;
+  #services.printing.browsing = true;
+  #services.printing.listenAddresses = [ "*:631" ]; # Not 100% sure this is needed and you might want to restrict to the local network
+  #services.printing.allowFrom = [ "all" ]; # this gives access to anyone on the interface you might want to limit it see the official documentation
+  #services.printing.defaultShared = true; # If you want
+
   ## Enalbe hw accelerated video decoding
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
@@ -159,6 +179,12 @@ in
     pulse.enable = true;
   };
 
+  # xdg-desktop-portal works by exposing a series of D-Bus interfaces
+  # known as portals under a well-known name
+  # (org.freedesktop.portal.Desktop) and object path
+  # (/org/freedesktop/portal/desktop).
+  # The portal interfaces include APIs for file access, opening URIs,
+  # printing and others.
   services.dbus.enable = true;
   xdg.portal = {
     enable = true;
@@ -202,10 +228,12 @@ in
     wrapperFeatures.gtk = true;
   };
   programs.light.enable = true;
-
+  zramSwap.enable = true;
   programs.sway.extraSessionCommands = ''
     export GNOME_KEYRING_CONTROL=/run/user/$UID/keyring
     export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
+    eval $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh);
+    export SSH_AUTH_SOCK;
   '';
 
 
@@ -237,10 +265,7 @@ in
   
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
- hardware. opengl. enable = true; 
- hardware.opengl.extraPackages = [ pkgs.mesa.drivers ];
- hardware.opengl.driSupport32Bit = true;
-
+  
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 80 443 22 ];
@@ -271,6 +296,11 @@ in
   environment.etc."sway/config.d/50-openSUSE.conf" = {
     mode = "0666";
     source = ./sway/config.d/50-openSUSE.conf;
+  };
+
+  environment.etc."sway/config.d/40-inputs.conf" = {
+    mode = "0666";
+    source = ./sway/config.d/40-inputs.conf;
   };
 
   system.stateVersion = "23.05";
