@@ -1,0 +1,15 @@
+[Unit]
+After=docker.service docker.socket
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/harbor_hc.yml
+#ConfigMap=/home/adathor/.config/containers/systemd/harbor-cm.yml
+#ConfigMap=/home/adathor/.config/containers/systemd/harbor-cm2.yml
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=-/usr/bin/podman pod rm harbor-hc
+ExecStartPre=/usr/bin/sleep 5

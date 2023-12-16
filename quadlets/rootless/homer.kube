@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount ara.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/homer.yml
+PublishPort=9985:8080
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5

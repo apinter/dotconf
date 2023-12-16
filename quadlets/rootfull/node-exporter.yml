@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.containers.autoupdate: registry
+  labels:
+    app: node-exporter-pod
+  name: node-exporter-pod
+spec:
+  containers:
+  - name: node-exporter
+    image: quay.io/prometheus/node-exporter:latest
+    args:
+    - --path.rootfs=/host
+    volumeMounts:
+    - mountPath: /host
+      name: root-host-0
+      readOnly: true
+  hostNetwork: true
+  hostname: vegas
+  volumes:
+  - hostPath:
+      path: /
+      type: Directory
+    name: root-host-0

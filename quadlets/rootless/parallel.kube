@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount homer.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/parallel.yml
+PublishPort=8008:8008
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5

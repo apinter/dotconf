@@ -84,3 +84,11 @@ vuln-scan-setup:
 grype-db-update:
   grype db status
   grype db update
+
+# encrypt quadlets
+qencrypt:
+  ansible-vault encrypt ./quadlets/rootless/*.yml
+
+# decrypt quadlets
+qdecrypt:
+  ansible-vault decrypt ./quadlets/rootless/*.yml

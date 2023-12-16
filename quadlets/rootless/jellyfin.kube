@@ -1,0 +1,12 @@
+[Unit]
+After=home-podman_vol-transmission-TankDL.mount
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/jellyfin.yml
+PublishPort=8096:8096
+
+[Service]
+TimeoutStartSec=900

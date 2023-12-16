@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount hedgedoc.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/drone.yml
+PublishPort=9880:80
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 10

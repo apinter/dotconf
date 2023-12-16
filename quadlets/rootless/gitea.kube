@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/gitea.yml
+PublishPort=2222:2222
+PublishPort=3001:3000
+
+[Service]
+TimeoutStartSec=900

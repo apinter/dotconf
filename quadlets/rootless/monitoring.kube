@@ -1,0 +1,13 @@
+[Unit]
+After= home-podman_vol.mount hedgedoc.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/monitoring.yml
+PublishPort=3030:3000
+PublishPort=9099:9090
+
+[Service]
+TimeoutStartSec=900

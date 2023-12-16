@@ -1,0 +1,16 @@
+[Unit]
+After=home-podman_vol.mount unifi.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/etc/containers/systemd/pihole.yml
+PublishPort=53:53
+PublishPort=53:53/udp
+PublishPort=443:443
+PublishPort=8082:80
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5

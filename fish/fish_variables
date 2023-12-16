@@ -1,5 +1,8 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export MARONNE:1000
+SETUVAR --export SHELL:/usr/bin/fish
+SETUVAR --export UID:1000
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/home/apinter/\x2elocal/share/z/data

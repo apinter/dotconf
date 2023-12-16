@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount parallel.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/transmission.yml
+PublishPort=9091:9091
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5

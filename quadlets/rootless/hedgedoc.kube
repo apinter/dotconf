@@ -1,0 +1,12 @@
+[Unit]
+After=home-podman_vol.mount gitea.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/hedgedoc.yml
+PublishPort=3010:3010
+
+[Service]
+TimeoutStartSec=900

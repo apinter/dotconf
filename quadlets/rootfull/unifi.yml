@@ -1,0 +1,42 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.containers.autoupdate: registry
+  labels:
+    app: unifi-controller-pod
+  name: unifi-controller-pod
+spec:
+  containers:
+  - name: unifi-controller
+    image: docker.io/linuxserver/unifi-controller:latest
+    env:
+    - name: MEM_STARTUP
+      value: "1024"
+    - name: MEM_LIMIT
+      value: "1024"
+    - name: PUID
+      value: "1000"
+    - name: PGID
+      value: "1000"
+    volumeMounts:
+    - mountPath: /config
+      name: unifi-pvc
+  hostNetwork: true
+  hostname: vegas
+  volumes:
+  - name: unifi-pvc
+    persistentVolumeClaim:
+      claimName: unifi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unifi
+  labels:
+    app: unifi-controller-pod
+spec:
+  accessModes:
+    - ReadWriteOnce
+

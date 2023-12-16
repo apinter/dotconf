@@ -1,0 +1,14 @@
+[Unit]
+After=home-podman_vol.mount drone.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/osc-www.yml
+PublishPort=6443:443
+PublishPort=6880:80
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5
