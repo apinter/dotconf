@@ -150,6 +150,12 @@ users.groups.devops.gid = 5000;
     device = "172.168.1.3:/shirayuki/Home/apinter_jr";
     fsType = "nfs";
  };
+ fileSystems."/home/throtur/VMs" = {
+    device = "/dev/disk/by-uuid/4cca616f-6396-4baa-9370-a2b345b9c57c";
+    fsType = "btrfs";
+    options = [ "compress = zstd:1" ];
+ };
+
  services.blueman.enable = true;
  hardware.bluetooth.enable = true;
  nixpkgs.config.allowUnfree = true;  
