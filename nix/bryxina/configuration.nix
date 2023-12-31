@@ -1,6 +1,7 @@
 { config, pkgs, callPackage, ... }:
 {
   #nixpkgs.config.pulseaudio = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   zramSwap.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -40,12 +41,13 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./systemd-user/flatpak-auto-update.nix
+      ./monitoring/node-exporter.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
+  boot.loader.efi.efiSysMountPoint = "/boot/";
   networking.hostName = "bryxina";
   networking.networkmanager.enable = true;
 
