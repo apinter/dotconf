@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-
   system.autoUpgrade.enable = true;
   system.autoUpgrade.dates = "daily";
   system.autoUpgrade.persistent = true;
@@ -12,5 +11,4 @@
       upper = "05:00";
     };
   system.autoUpgrade.randomizedDelaySec = "15min";
-
 }

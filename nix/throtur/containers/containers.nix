@@ -14,7 +14,6 @@ virtualisation.oci-containers.containers."minecraft" = {
     JVM_XX_OPTS = "-XX:MaxRAMPercentage=65";
     EULA = "TRUE";
     MEMORY = "4G";
+    };
   };
-};
-
 }

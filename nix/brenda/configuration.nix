@@ -17,32 +17,13 @@
   boot.loader.grub.memtest86.enable = true;
   boot.loader.grub.efiSupport = false;
   security.rtkit.enable = true;
-
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings = {
-        dns_enabled = true;
-      };
-    };
-  };
-  
-  virtualisation.oci-containers.backend = "podman";
   networking.hostName = "brenda";
   networking.networkmanager.enable = true;
-
-  time.timeZone = "Asia/Jakarta";
-
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.forceImportAll = false;
   networking.hostId = "d1a3152c";
-  services.nfs.server = {
-    enable = true;
-  };
+
+  time.timeZone = "Asia/Jakarta";
 
   users.users.apinter = {
     isNormalUser = true;
@@ -68,17 +49,28 @@
     cryptsetup
   ];
 
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings = {
+        dns_enabled = true;
+      };
+    };
+  };
+  
+  virtualisation.oci-containers.backend = "podman";
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  services.nfs.server = {
+    enable = true;
+  };
+
   services.openssh.enable = true;
   networking.firewall.enable = false;
   zramSwap.enable = true;
-  services.zfs.trim.enable = true;
-  services.zfs.autoScrub.enable = true;
-  services.zfs.autoScrub.interval = "Sun, 01:00";
-  services.zfs.autoSnapshot.daily = 7;
-  services.zfs.autoSnapshot.weekly = 4;
-  services.zfs.autoSnapshot.monthly = 12;
 
   system.stateVersion = "23.11";
-
 }
 

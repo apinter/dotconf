@@ -3,10 +3,14 @@
 {
 systemd.user.services.flatpak-auto-update = {
       enable = true;
+      description = "Update user Flatpaks";
+      unitConfig = {
+      };
       serviceConfig = {
         Type = "oneshot";
         ExecStart = "${pkgs.flatpak}/bin/flatpak --user update -y";
       };
+      #wantedBy = [ "default.target" ];
     };
 
 systemd.user.timers.flatpak-auto-update = {
@@ -15,7 +19,7 @@ systemd.user.timers.flatpak-auto-update = {
       timerConfig = {
         OnCalendar = "daily";
         Persistent = "true";
+      wantedBy = [ "multi-user.target" ];
       };
     };
 }
-
