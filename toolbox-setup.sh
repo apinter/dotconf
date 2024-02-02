@@ -39,7 +39,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	fontawesome-fonts font-manager \
 	fira-code-fonts font-manager \
 	brave-browser code-insiders vim \
-	python38 python38-devel python38-pip \
+	python311 python311-devel python311-pip \
 	kitty alacritty fish zsh ripgrep opi \
 	ffmpeg mlocate sshpass cryfs \
 	wireguard-tools pwgen htop neovim \
@@ -52,7 +52,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	xdg-user-dirs-gtk pinentry bind-utils \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
-	terraform fd fzf gnome-keyring
+	terraform fd fzf gnome-keyring zellij
 
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
