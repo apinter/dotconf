@@ -54,12 +54,15 @@ sudo zypper in Mesa microsoft-edge-beta \
 	apache2-utils wine jq \
 	terraform fd fzf gnome-keyring zellij
 
+## install Nix
+curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
+
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
 sudo gdk-pixbuf-query-loaders-64 --update-cache
 
 ## Install PyPi packages
-pip install ansible ansible-vault ara google-auth pymongo
+pip install ansible ansible-vault ara pymongo
 
 ## Install logo-ls
 cd $HOME/Project/git/ && curl -LO https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.rpm
