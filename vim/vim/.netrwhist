@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/apinter/Project/git/nix-config'
+let g:netrw_dirhist_5='/home/apinter/Project/git/nix-config/.github'
+let g:netrw_dirhist_4='/home/apinter/Project/git/nix-config/.github/workflows'
+let g:netrw_dirhist_3='/home/apinter/Project/git/nix-config/.github'
+let g:netrw_dirhist_2='/home/apinter/Project/git/nix-config'
 let g:netrw_dirhist_1='/home/apinter'
