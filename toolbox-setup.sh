@@ -31,6 +31,12 @@ else
 		sudo zypper addrepo --refresh https://brave-browser-rpm-release.s3.brave.com/x86_64/ brave-browser
 fi
 
+## Install Nix
+curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
+## Install home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-env -i home-manager
+
 ## Install packages
 sudo zypper ref
 sudo zypper in -t pattern devel_C_C++ devel_basis devel_python3

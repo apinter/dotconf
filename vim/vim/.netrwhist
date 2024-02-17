@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =0
+let g:netrw_dirhist_0='/home/apinter/Project'
 let g:netrw_dirhist_9='/home/apinter/.config/nvim/lua/plugins'
 let g:netrw_dirhist_8='/home/apinter/.config/nvim/lua'
 let g:netrw_dirhist_7='/home/apinter/.config/nvim'

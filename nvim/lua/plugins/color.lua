@@ -10,6 +10,7 @@ return {
 	--  },
 	-- },
 	{ "nordtheme/vim", name = "nord" },
+	{ "ellisonleao/gruvbox.nvim" },
 	{
 		"LazyVim/LazyVim",
 		opts = {
