@@ -1,3 +1,0 @@
-syntax "html" "\.htm[l]?$"
-color cyan start="<" end=">"
-color red "&[^;[[:space:]]]*;"
