@@ -1,0 +1,12 @@
+[Unit]
+Description=Start Crate pod
+After=network-online.target home-podman_vol.mount gitea.service
+
+[Service]
+Type=oneshot
+TimeoutStartSec=900
+ExecStart=/home/apinter/bin/ddup
+RemainAfterExit=yes
+
+[Install]
+WantedBy=default.target

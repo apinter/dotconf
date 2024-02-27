@@ -59,7 +59,8 @@ sudo zypper in Mesa microsoft-edge-beta \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
 	terraform fd fzf gnome-keyring zellij \
-	zioxide yazi
+	zioxide yazi \
+	broot dust
 
 ## install Nix
 curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes

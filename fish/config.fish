@@ -4,7 +4,7 @@ function fish_greeting
 end
 
 set -g theme_display_docker_machine yes
-set -g theme_display_k8s_context no 
+set -g theme_display_k8s_context yes 
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
 #set -g fish_prompt_pwd_dir_length 0
@@ -42,11 +42,16 @@ set NIX_LINK $HOME/.nix-profile
 export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
 
 ## Gcloud
-source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
+# source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
 ## PATH
 export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin
 alias z="z"
+
+## Copilot
+abbr copilot 'gh copilot'
+abbr gcs 'gh copilot suggest -t shell'
+abbr gce 'gh copilot explain'
 
 ## System Stuff
 #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
@@ -73,17 +78,15 @@ abbr cdm "cd ~/Media"
 abbr e "vim"
 abbr se "emacs -nw"
 abbr tf "terraform"
-abbr antavoup "sudo openvpn /home/apinter/Project/Antavo/AttilaPinter_VPN/Antavo_AttilaPinter_Internal.ovpn"
-abbr antavoup2 "sudo openvpn /home/apinter/Project/Antavo/AttilaPinter_VPN/Antavo_AttilaPinter_Passthrough.ovpn"
 abbr cdga "cd /home/apinter/Project/Antavo/git"
 abbr dtw "distrobox-enter tw"
 abbr dar "distrobox-enter arch-box"
 abbr dubi "distrobox-enter ubuntu-box"
 abbr dhe "distrobox-host-exec"
+
 ## Entertainment Stuff
 abbr allmediaup "sudo mount 172.168.1.3:/shirayuki/Aurora /home/apinter/Project/Home/Aurora/Reno"
 abbr allmediadown "sudo umount /home/apinter/Project/Home/Aurora/Reno"
-abbr bminecraft "cp -r ~/.minecraft ~/Games/BK/minecraft_BK-$(date +%Y%m%d_%H%M%S)"
 abbr msce "rclone"
 abbr sup "sudo zypper ref; sudo zypper dup; sudo flatpak update -y; flatpak --user update -y"
 abbr dhe "distrobox-host-exec"
@@ -994,3 +997,6 @@ complete -c lin -n "__fish_seen_subcommand_from volumes" -x -a 'list create view
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 set --export --prepend PATH "/home/apinter/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+zoxide init --cmd cd fish | source
+

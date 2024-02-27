@@ -1,0 +1,13 @@
+[Unit]
+After=home-podman_vol.mount gitea.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/crate.yml
+PublishPort=8888:80
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5
