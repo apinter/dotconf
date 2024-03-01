@@ -59,7 +59,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
 	terraform fd fzf gnome-keyring zellij \
-	zioxide yazi \
+	zioxide yazi difftastic \
 	broot dust
 
 ## install Nix

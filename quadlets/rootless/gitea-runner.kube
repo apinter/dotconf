@@ -1,0 +1,12 @@
+[Unit]
+After=home-podman_vol.mount gitea.service
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/adathor/.config/containers/systemd/gitea-runner.yml
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 5
