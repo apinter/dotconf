@@ -20,6 +20,7 @@ host-setup:
 # Clean up system
 clean:
   podman image prune -a -f
+  podman container prune -f
   flatpak --user uninstall --unused
 
 # Create an openSUSE container
