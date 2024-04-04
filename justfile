@@ -47,7 +47,7 @@ distrobox-arch:
 distrobox-arch-setup:
   sudo pacman -Syyu
   sudo pacman -S base-devel git pipewire pipewire-pulse gnome-keyring
-  cd git && git clone https://aur.archlinux.org/yay.git && cd yay
+  cd $HOME/Project/git && git clone https://aur.archlinux.org/yay.git && cd yay
   makepkg -si
 
 # Create a Debian container
@@ -65,6 +65,7 @@ update:
   #sudo transactional-update cleanup dup
   flatpak upgrade --user -y
   distrobox upgrade -a
+  brew upgrade
 
 # Update some pip packages
 pip-update:

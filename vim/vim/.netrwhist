@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =0
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/apinter/Project/Antavo/git/GitlabClone/backup/portal-build'
+let g:netrw_dirhist_1='/home/apinter/Project/Antavo/git/GitlabClone/backup/sphinx-api-doc'
 let g:netrw_dirhist_0='/home/apinter/Project'
 let g:netrw_dirhist_9='/home/apinter/.config/nvim/lua/plugins'
 let g:netrw_dirhist_8='/home/apinter/.config/nvim/lua'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_6='/home/apinter/Project/git/nix-config'
 let g:netrw_dirhist_5='/home/apinter/Project/git/nix-config/.github'
 let g:netrw_dirhist_4='/home/apinter/Project/git/nix-config/.github/workflows'
 let g:netrw_dirhist_3='/home/apinter/Project/git/nix-config/.github'
-let g:netrw_dirhist_2='/home/apinter/Project/git/nix-config'
-let g:netrw_dirhist_1='/home/apinter'

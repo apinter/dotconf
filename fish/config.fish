@@ -998,6 +998,15 @@ complete -c lin -n "__fish_seen_subcommand_from volumes" -x -a 'list create view
 set --export --prepend PATH "/home/apinter/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
+function yy
+	set tmp (mktemp -t "yazi-cwd.XXXXX")
+	yazi $argv --cwd-file="$tmp"
+	if set cwd (cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+		cd -- "$cwd"
+	end
+	rm -f -- "$tmp"
+end
+
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 zoxide init --cmd cd fish | source

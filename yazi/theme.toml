@@ -4,18 +4,25 @@
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
+# : Flavor {{{
+
+[flavor]
+use = ""
+
+# : }}}
+
 # : Manager {{{
 
 [manager]
 cwd = { fg = "cyan" }
 
 # Hovered
-hovered         = { fg = "black", bg = "lightblue" }
+hovered         = { reversed = true }
 preview_hovered = { underline = true }
 
 # Find
-find_keyword  = { fg = "yellow", italic = true }
-find_position = { fg = "magenta", bg = "reset", italic = true }
+find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
+find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
 # Marker
 marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
@@ -24,14 +31,14 @@ marker_marked   = { fg = "lightyellow", bg = "lightyellow" }
 marker_selected = { fg = "lightblue",   bg = "lightblue" }
 
 # Tab
-tab_active   = { fg = "black", bg = "white" }
-tab_inactive = { fg = "white", bg = "darkgray" }
+tab_active   = { reversed = true }
+tab_inactive = {}
 tab_width    = 1
 
 # Count
-count_copied   = { fg = "black", bg = "lightgreen" }
-count_cut      = { fg = "black", bg = "lightred" }
-count_selected = { fg = "black", bg = "lightblue" }
+count_copied   = { fg = "white", bg = "green" }
+count_cut      = { fg = "white", bg = "red" }
+count_selected = { fg = "white", bg = "blue" }
 
 # Border
 border_symbol = "│"
@@ -48,12 +55,12 @@ syntect_theme = ""
 [status]
 separator_open  = ""
 separator_close = ""
-separator_style = { fg = "darkgray", bg = "darkgray" }
+separator_style = { fg = "gray", bg = "gray" }
 
 # Mode
-mode_normal = { fg = "black", bg = "lightblue", bold = true }
-mode_select = { fg = "black", bg = "lightgreen", bold = true }
-mode_unset  = { fg = "black", bg = "lightmagenta", bold = true }
+mode_normal = { bg = "blue", bold = true }
+mode_select = { bg = "red", bold = true }
+mode_unset  = { bg = "red", bold = true }
 
 # Progress
 progress_label  = { bold = true }
@@ -61,10 +68,10 @@ progress_normal = { fg = "blue", bg = "black" }
 progress_error  = { fg = "red", bg = "black" }
 
 # Permissions
-permissions_t = { fg = "lightgreen" }
-permissions_r = { fg = "lightyellow" }
-permissions_w = { fg = "lightred" }
-permissions_x = { fg = "lightcyan" }
+permissions_t = { fg = "green" }
+permissions_r = { fg = "yellow" }
+permissions_w = { fg = "red" }
+permissions_x = { fg = "cyan" }
 permissions_s = { fg = "darkgray" }
 
 # : }}}
@@ -74,7 +81,7 @@ permissions_s = { fg = "darkgray" }
 
 [select]
 border   = { fg = "blue" }
-active   = { fg = "magenta" }
+active   = { fg = "magenta", bold = true }
 inactive = {}
 
 # : }}}
@@ -95,7 +102,7 @@ selected = { reversed = true }
 
 [completion]
 border   = { fg = "blue" }
-active   = { bg = "darkgray" }
+active   = { reversed = true }
 inactive = {}
 
 # Icons
@@ -111,7 +118,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "blue" }
 title   = {}
-hovered = { underline = true }
+hovered = { fg = "magenta", underline = true }
 
 # : }}}
 
@@ -123,7 +130,7 @@ cols            = 3
 mask            = { bg = "black" }
 cand            = { fg = "lightcyan" }
 rest            = { fg = "darkgray" }
-desc            = { fg = "magenta" }
+desc            = { fg = "lightmagenta" }
 separator       = "  "
 separator_style = { fg = "darkgray" }
 
@@ -133,11 +140,26 @@ separator_style = { fg = "darkgray" }
 # : Help {{{
 
 [help]
-on      = { fg = "magenta" }
-exec    = { fg = "cyan" }
-desc    = { fg = "gray" }
-hovered = { bg = "darkgray", bold = true }
+on      = { fg = "cyan" }
+run     = { fg = "magenta" }
+desc    = {}
+hovered = { reversed = true, bold = true }
 footer  = { fg = "black", bg = "white" }
+
+# : }}}
+
+
+# : Notify {{{
+
+[notify]
+title_info  = { fg = "green" }
+title_warn  = { fg = "yellow" }
+title_error = { fg = "red" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
 
 # : }}}
 
@@ -150,7 +172,7 @@ rules = [
 	# Images
 	{ mime = "image/*", fg = "cyan" },
 
-	# Videos
+	# Media
 	{ mime = "video/*", fg = "yellow" },
 	{ mime = "audio/*", fg = "yellow" },
 
@@ -162,7 +184,7 @@ rules = [
 	{ mime = "application/x-bzip2",         fg = "magenta" },
 	{ mime = "application/x-7z-compressed", fg = "magenta" },
 	{ mime = "application/x-rar",           fg = "magenta" },
-	{ mime = "application/xz",              fg = "magenta" },
+	{ mime = "application/x-xz",            fg = "magenta" },
 
 	# Documents
 	{ mime = "application/doc",   fg = "green" },
@@ -182,6 +204,7 @@ rules = [
 	{ name = "*.c"    , text = "", fg = "#599eff" },
 	{ name = "*.cpp"  , text = "", fg = "#519aba" },
 	{ name = "*.class", text = "", fg = "#cc3e44" },
+	{ name = "*.cs"   , text = "󰌛", fg = "#596706" },
 	{ name = "*.css"  , text = "", fg = "#42a5f5" },
 	{ name = "*.elm"  , text = "", fg = "#4391d2" },
 	{ name = "*.fish" , text = "", fg = "#4d5a5e" },
@@ -195,6 +218,7 @@ rules = [
 	{ name = "*.jsx"  , text = "", fg = "#20c2e3" },
 	{ name = "*.lua"  , text = "", fg = "#51a0cf" },
 	{ name = "*.nix"  , text = "", fg = "#7ebae4" },
+	{ name = "*.nu"   , text = ">", fg = "#3aa675" },
 	{ name = "*.php"  , text = "", fg = "#a074c4" },
 	{ name = "*.py"   , text = "", fg = "#ffbc03" },
 	{ name = "*.rb"   , text = "", fg = "#701516" },
@@ -213,9 +237,10 @@ rules = [
 	{ name = "*.conf", text = "", fg = "#6d8086" },
 	{ name = "*.ini" , text = "", fg = "#6d8086" },
 	{ name = "*.json", text = "", fg = "#cbcb41" },
-	{ name = "*.md" ,  text = "", fg = "#ffffff" },
+	{ name = "*.kdl" , text = "", fg = "#6d8086" },
+	{ name = "*.md"  , text = "", fg = "#ffffff" },
 	{ name = "*.toml", text = "", fg = "#ffffff" },
-	{ name = "*.txt",  text = "", fg = "#89e051" },
+	{ name = "*.txt" , text = "", fg = "#89e051" },
 	{ name = "*.yaml", text = "", fg = "#6d8086" },
 	{ name = "*.yml" , text = "", fg = "#6d8086" },
 
