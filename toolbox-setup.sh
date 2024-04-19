@@ -32,10 +32,10 @@ else
 fi
 
 ## Install Nix
-curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
+#curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 ## Install home-manager
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-env -i home-manager
+#nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+#nix-env -i home-manager
 
 ## Install packages
 sudo zypper ref
@@ -59,11 +59,8 @@ sudo zypper in Mesa microsoft-edge-beta \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
 	terraform fd fzf gnome-keyring zellij \
-	zioxide yazi difftastic \
+	zoxide yazi difftastic \
 	broot dust
-
-## install Nix
-curl -L https://nixos.org/nix/install | sh -s -- --daemon --yes
 
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders

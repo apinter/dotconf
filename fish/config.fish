@@ -40,6 +40,7 @@ export GPG_TTY=$(tty)
 ## NIX stuff
 set NIX_LINK $HOME/.nix-profile
 export NIX_SSL_CERT_FILE=/etc/ssl/ca-bundle.pem
+#/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 
 ## Gcloud
 # source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
