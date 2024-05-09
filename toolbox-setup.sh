@@ -60,7 +60,8 @@ sudo zypper in Mesa microsoft-edge-beta \
 	apache2-utils wine jq \
 	terraform fd fzf gnome-keyring zellij \
 	zoxide yazi difftastic \
-	broot dust
+	broot dust \
+	gh just
 
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders

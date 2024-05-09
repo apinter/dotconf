@@ -1011,4 +1011,5 @@ end
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 zoxide init --cmd cd fish | source
+set -gx PATH $PATH $HOME/.krew/bin
 
