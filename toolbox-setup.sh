@@ -50,7 +50,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	ffmpeg mlocate sshpass cryfs \
 	wireguard-tools pwgen htop neovim \
 	command-not-found kubernetes1.24-client \
-	kubectx k9s go bat git openssh-common \
+	kubectx go git openssh-common \
 	openssh-clients nodejs-common npm \
 	xdg-desktop-portal-gnome xdg-desktop-portal-wlr \
 	xdg-dbus-proxy xdg-desktop-portal-gtk \
@@ -58,10 +58,16 @@ sudo zypper in Mesa microsoft-edge-beta \
 	xdg-user-dirs-gtk pinentry bind-utils \
 	noisetorch qrencode unzip zip \
 	apache2-utils wine jq \
-	terraform fd fzf gnome-keyring zellij \
+	fd fzf gnome-keyring zellij \
 	zoxide yazi difftastic \
-	broot dust \
-	gh just
+	broot dust
+
+echo -n "" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install gh just \
+	k9s bat
+
+/home/linuxbrew/.linuxbrew/bin/brew tap hashicorp/tap &&
+	home/linuxbrew/.linuxbrew/bin/brew install hashicorp/tap/terraform
 
 ## Install GUI app dependencies
 sudo zypper install adwaita-icon-theme xorg-x11-fonts libX11-xcb1 gsettings-desktop-schemas gdk-pixbuf-query-loaders
