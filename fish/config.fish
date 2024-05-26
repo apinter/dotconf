@@ -15,7 +15,7 @@ set -g theme_display_date no
 
 set -gx GPG_TTY (tty)
 
-## XDG vars
+### XDG vars
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
@@ -29,7 +29,7 @@ export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
 export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 export CARGO_HOME="$XDG_DATA_HOME"/cargo 
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+#export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export GEM_HOME="$XDG_DATA_HOME"/gem
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 export TMUX_CONF=~/.config/tmux/tmux.conf
