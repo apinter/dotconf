@@ -1,0 +1,33 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.containers.autoupdate: registry
+  labels:
+    app: uptime-pod
+  name: uptime-pod
+spec:
+  containers:
+  - name: uptime-kuma
+    image: docker.io/louislam/uptime-kuma:1
+    ports:
+    - containerPort: 3001
+      hostPort: 3001
+    volumeMounts:
+    - mountPath: /app/data
+      name: uptime-pvc
+  volumes:
+  - name: uptime-pvc
+    persistentVolumeClaim:
+      claimName: uptime
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: uptime
+  labels:
+    app: uptime-pod
+spec:
+  accessModes:
+    - ReadWriteOnce
