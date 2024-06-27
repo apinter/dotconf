@@ -61,9 +61,9 @@ abbr grv "git remote -v"
 abbr icat "kitty +kitten icat"
 abbr cdgd "cd $HOME/Project/git/dotconf"
 abbr dotfiles '/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
-abbr ll "logo-ls -alh "
-abbr ls "logo-ls"
-abbr la "logo-ls -a"
+#abbr ll "logo-ls -alh "
+#abbr ls "logo-ls"
+#abbr la "logo-ls -a"
 abbr diablo2 "WINEARCH=win32 WINEPREFIX=~/.wine32 wine ~/.wine/drive_c/Program\ Files\ \(x86\)/Diablo\ II/Diablo\ II.exe -w"
 abbr tmux "tmux -f ~/.config/tmux/tmux.conf -u"
 abbr cdp "cd ~/Project"
@@ -80,6 +80,7 @@ abbr e "vim"
 abbr se "emacs -nw"
 abbr tf "terraform"
 abbr cdga "cd /home/apinter/Project/Antavo/git"
+abbr dfe "distrobox-enter fedora"
 abbr dtw "distrobox-enter tw"
 abbr dar "distrobox-enter arch-box"
 abbr dubi "distrobox-enter ubuntu-box"
@@ -894,7 +895,7 @@ abbr kgdepwslowiden 'kubectl get deployment --watch --show-labels -o=wide --name
 # source ~/.helmrc
 # source <(kubectl completion zsh)
 
-kubectl completion fish | source
+# kubectl completion fish | source
 
 ## Poetry
 export PATH="$HOME/.poetry/bin:$PATH"
