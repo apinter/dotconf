@@ -62,7 +62,6 @@ distrobox-ubuntu:
 
 # Update system, flatpaks, and containers all at once
 update:
-  #sudo transactional-update cleanup dup
   flatpak upgrade --user -y
   distrobox upgrade -a
   brew upgrade
