@@ -17,6 +17,59 @@ host-setup:
   ln -s $HOME/Project/git/dotconf/bat $HOME/.config/bat
   ln -s $HOME/Project/git/dotconf/kitty/ $HOME/.config/kitty
 
+# Install brew packages
+brew-init:
+  brew install bat \
+    berkeley-db@5 \
+    binutils \
+    bzip2 \
+    ca-certificates \
+    cosign \
+    expat \
+    eza \
+    fd \
+    fzf \
+    gcc \
+    gh \
+    glab \
+    glances \
+    gmp \
+    helm \
+    isl \
+    jansson \
+    just \
+    krb5 \
+    kubernetes-cli \
+    lazygit \
+    libedit \
+    libevent \
+    libffi \
+    libgit2 \
+    libmpc \
+    libnsl \
+    libssh2 \
+    libtirpc \
+    libxcrypt \
+    lz4 \
+    mpdecimal \
+    mpfr \
+    mtr \
+    ncurses \
+    oniguruma \
+    openssl@3 \
+    python@3.12 \
+    readline \
+    sqlite \
+    terraform \
+    tmux \
+    unzip \
+    utf8proc \
+    xz \
+    yazi \
+    zlib \
+    zoxide \
+    zstd
+
 # Clean up system
 clean:
   podman image prune -a -f

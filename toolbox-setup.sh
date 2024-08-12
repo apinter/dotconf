@@ -60,7 +60,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 	apache2-utils wine jq \
 	fd fzf gnome-keyring zellij \
 	zoxide yazi difftastic \
-	broot dust
+	broot dust eza yq 
 
 echo -n "" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install gh just \
@@ -75,10 +75,6 @@ sudo gdk-pixbuf-query-loaders-64 --update-cache
 
 ## Install PyPi packages
 pip install ansible ansible-vault ara pymongo
-
-## Install logo-ls
-cd $HOME/Project/git/ && curl -LO https://github.com/Yash-Handa/logo-ls/releases/download/v1.3.7/logo-ls_amd64.rpm
-sudo zypper in $HOME/Project/git/logo-ls_amd64.rpm
 
 ## Install OMF
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
