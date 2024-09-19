@@ -56,9 +56,16 @@ if status is-interactive
     abbr copilot 'gh copilot'
     abbr gcs 'gh copilot suggest -t shell'
     abbr gce 'gh copilot explain'
+    abbr ghu "gh extension upgrade --all"
+
+    ## Logseq
+    abbr cdl 'cd ~/Project/logseq' 
+    abbr lsu 'cd ~/Project/logseq && git pull'
+    abbr lsp 'cd ~/Project/logseq && git add . && git commit -s -m "$(hostname)-$(date +'%d-%m-%Y')" && git push'
 
     ## System Stuff
     #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
+    abbr ju 'just -f ~/Project/git/dotconf/justfile update'
     abbr g git
     abbr grv "git remote -v"
     abbr icat "kitty +kitten icat"
