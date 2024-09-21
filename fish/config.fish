@@ -60,8 +60,8 @@ if status is-interactive
 
     ## Logseq
     abbr cdl 'cd ~/Project/logseq' 
-    abbr lsu 'cd ~/Project/logseq && git pull'
-    abbr lsp 'cd ~/Project/logseq && git add . && git commit -s -m "$(hostname)-$(date +'%d-%m-%Y')" && git push'
+    abbr lsu 'cd ~/Project/logseq && git pull || true && cd -'
+    abbr lsp 'cd ~/Project/logseq && git add . && git commit -s -m "$(hostname)-$(date +'%d-%m-%Y')" || true && git push && cd -'
 
     ## System Stuff
     #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
