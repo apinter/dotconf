@@ -49,7 +49,7 @@ if status is-interactive
     # source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
     ## PATH
-    export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:/home/apinter/.local/bin:/home/apinter/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin
+    export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin:$HOME/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin:$HOME/.npm-global/bin
     alias z="z"
 
     ## Copilot
@@ -93,6 +93,7 @@ if status is-interactive
     abbr dubi "distrobox-enter ubuntu-box"
     abbr dhe distrobox-host-exec
     abbr ll "eza -l --icons=auto --group-directories-first"
+    abbr lt "eza -l --sort oldest --icons=auto --group-directories-first"
     abbr l. "eza -d .*"
     abbr ls eza
     abbr l1 "eza -1"

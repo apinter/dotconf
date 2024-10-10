@@ -146,3 +146,8 @@ qencrypt:
 # decrypt quadlets
 qdecrypt:
   ansible-vault decrypt ./quadlets/rootless/*.yml
+
+# bw backup
+bw-backup:
+  bash $HOME/Vaults/Knox/bw_bk.sh
+
