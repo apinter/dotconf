@@ -95,7 +95,8 @@ if status is-interactive
     abbr ll "eza -l --icons=auto --group-directories-first"
     abbr lt "eza -l --sort oldest --icons=auto --group-directories-first"
     abbr l. "eza -d .*"
-    abbr ls eza
+    abbr ls "eza"
+    abbr lt "eza -al -snew"
     abbr l1 "eza -1"
 
     ## Entertainment Stuff
