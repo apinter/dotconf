@@ -64,7 +64,7 @@ sudo zypper in Mesa microsoft-edge-beta \
 
 echo -n "" | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew install gh just \
-  k9s bat
+  k9s bat zellij yazi broot dust
 
 /home/linuxbrew/.linuxbrew/bin/brew tap hashicorp/tap &&
   home/linuxbrew/.linuxbrew/bin/brew install hashicorp/tap/terraform

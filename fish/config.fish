@@ -88,9 +88,8 @@ if status is-interactive
     abbr tf terraform
     abbr cdga "cd /home/apinter/Project/Antavo/git"
     abbr dfe "distrobox-enter fedora"
-    abbr dtw "distrobox-enter tw"
+    abbr ddf "distrobox-enter devops"
     abbr dar "distrobox-enter arch-box"
-    abbr dubi "distrobox-enter ubuntu-box"
     abbr dhe distrobox-host-exec
     abbr ll "eza -l --icons=auto --group-directories-first"
     abbr lt "eza -l --sort oldest --icons=auto --group-directories-first"

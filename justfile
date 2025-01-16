@@ -151,3 +151,6 @@ qdecrypt:
 bw-backup:
   bash $HOME/Vaults/Knox/bw_bk.sh
 
+# Set Kitty terminfo on remote
+ks target:
+  infocmp -a xterm-kitty | ssh {{target}} tic -x -o \~/.terminfo /dev/stdin
