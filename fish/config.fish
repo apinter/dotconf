@@ -59,7 +59,7 @@ if status is-interactive
     abbr ghu "gh extension upgrade --all"
 
     ## Logseq
-    abbr cdl 'cd ~/Project/logseq' 
+    abbr cdl 'cd ~/Project/logseq'
     abbr lsu 'cd ~/Project/logseq && git pull || true && cd -'
     abbr lsp 'cd ~/Project/logseq && git add . && git commit -s -m "$(hostname)-$(date +'%d-%m-%Y')" || true && git push && cd -'
 
@@ -94,7 +94,7 @@ if status is-interactive
     abbr ll "eza -l --icons=auto --group-directories-first"
     abbr lt "eza -l --sort oldest --icons=auto --group-directories-first"
     abbr l. "eza -d .*"
-    abbr ls "eza"
+    abbr ls eza
     abbr lt "eza -al -snew"
     abbr l1 "eza -1"
 
@@ -218,10 +218,6 @@ complete -c lin -n "__fish_seen_subcommand_from tags" -x -a 'list create delete 
 complete -c linode-cli -n "__fish_seen_subcommand_from volumes" -x -a 'list create view update delete attach clone detach resize --help'
 complete -c linode -n "__fish_seen_subcommand_from volumes" -x -a 'list create view update delete attach clone detach resize --help'
 complete -c lin -n "__fish_seen_subcommand_from volumes" -x -a 'list create view update delete attach clone detach resize --help'
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-set --export --prepend PATH "/home/apinter/.rd/bin"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 function yy
     set tmp (mktemp -t "yazi-cwd.XXXXX")
