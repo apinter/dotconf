@@ -230,3 +230,4 @@ end
 
 
 set -gx PATH $PATH $HOME/.krew/bin
+source $XDG_CONFIG_HOME/fish/conf.d/fish_prompt.fish

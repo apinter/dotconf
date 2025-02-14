@@ -20,7 +20,6 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.updatetime = 40
-vim.opt.colorcolumn = "80"
 
 -- remaps
 vim.g.mapleader = " "

@@ -1,0 +1,1 @@
+/var/home/apinter/.local/share/omf/themes/sashimi/fish_prompt.fish
