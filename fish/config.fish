@@ -63,6 +63,10 @@ if status is-interactive
     abbr lsu 'cd ~/Project/logseq && git pull || true && cd -'
     abbr lsp 'cd ~/Project/logseq && git add . && git commit -s -m "$(hostname)-$(date +'%d-%m-%Y')" || true && git push && cd -'
 
+    ## Notes
+    abbr cdno 'cd ~/Project/vaults/personal/notes'
+    abbr cdne 'nvim ~/Project/vaults/personal/notes'
+
     ## System Stuff
     #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
     abbr ju 'just -f ~/Project/git/dotconf/justfile update'
@@ -83,7 +87,7 @@ if status is-interactive
     abbr cdg "cd ~/Project/git"
     abbr cdd "cd ~/Downloads"
     abbr cdm "cd ~/Media"
-    abbr e vim
+    abbr e nvim
     abbr se "emacs -nw"
     abbr tf terraform
     abbr cdga "cd /home/apinter/Project/Antavo/git"
