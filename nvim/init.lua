@@ -1,5 +1,6 @@
 require("config.lazy")
 require("plugins.harpoon")
+require('lualine').setup()
 
 vim.wo.relativenumber = true
 
