@@ -61,6 +61,7 @@ vim.keymap.set('n', '<leader>ob', ':ObsidianBacklinks<CR>', { desc = 'View backl
 vim.keymap.set('n', '<leader>ot', ':ObsidianToday<CR>', { desc = 'Open today’s daily note' })
 vim.keymap.set('n', '<leader>oy', ':ObsidianYesterday<CR>', { desc = 'Open yesterday’s daily note' })
 vim.keymap.set('n', '<leader>otm', ':ObsidianTemplate<CR>', { desc = 'Insert template' })
+vim.keymap.set('n', '<leader>oft', ':ObsidianNewFromTemplate<CR>', { desc = 'Create new note from template' })
 vim.keymap.set('n', '<leader>ol', ':ObsidianLink<CR>', { desc = 'Link to existing note' })
 vim.keymap.set('n', '<leader>oln', ':ObsidianLinkNew<CR>', { desc = 'Link to new note' })
 vim.keymap.set('n', '<leader>of', ':ObsidianFollowLink<CR>', { desc = 'Follow link under cursor' })

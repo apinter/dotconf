@@ -65,7 +65,7 @@ if status is-interactive
 
     ## Notes
     abbr cdno 'cd ~/Project/vaults/personal/notes'
-    abbr nen 'nvim ~/Project/vaults/personal/notes/TODO.md'
+    abbr nen 'cd ~/Project/vaults/personal/notes/ && nvim TODO.md'
 
     ## System Stuff
     #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
