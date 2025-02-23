@@ -1,4 +1,5 @@
 return {
+  -- "github/copilot.vim"
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   build = ":Copilot auth",
@@ -9,7 +10,7 @@ return {
       auto_trigger = true,
       hide_during_completion = vim.g.ai_cmp,
       keymap = {
-        accept = false, -- handled by nvim-cmp / blink.cmp
+        accept = "<M-y>",
         next = "<M-]>",
         prev = "<M-[>",
       },

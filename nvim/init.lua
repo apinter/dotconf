@@ -20,13 +20,26 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
+vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
+  pattern = "*",
+  command = "silent! write",
+  nested = true
+})
+
 vim.opt.updatetime = 40
 
--- remaps
 vim.g.mapleader = " "
 vim.opt.conceallevel = 1
 local builtin = require("telescope.builtin")
+
+-- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
+
+vim.keymap.set("n", "<leader>T", ":terminal<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bN", ":bNext<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
@@ -35,11 +48,25 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
-vim.keymap.set("n", "tn", ":tabnew ", { noremap = true, silent = false })
+vim.keymap.set("n", "tn", ":tabnew<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "tk", ":tabnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "tj", ":tabprev<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "th", ":tabfirst<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "tl", ":tablast<CR>", { noremap = true, silent = true })
+
+vim.keymap.set('n', '<leader>oo', ':ObsidianOpen<CR>', { desc = 'Open Obsidian note' })
+vim.keymap.set('n', '<leader>on', ':ObsidianNew<CR>', { desc = 'Create new Obsidian note' })
+vim.keymap.set('n', '<leader>os', ':ObsidianSearch<CR>', { desc = 'Search Obsidian vault' })
+vim.keymap.set('n', '<leader>ob', ':ObsidianBacklinks<CR>', { desc = 'View backlinks' })
+vim.keymap.set('n', '<leader>ot', ':ObsidianToday<CR>', { desc = 'Open today’s daily note' })
+vim.keymap.set('n', '<leader>oy', ':ObsidianYesterday<CR>', { desc = 'Open yesterday’s daily note' })
+vim.keymap.set('n', '<leader>otm', ':ObsidianTemplate<CR>', { desc = 'Insert template' })
+vim.keymap.set('n', '<leader>ol', ':ObsidianLink<CR>', { desc = 'Link to existing note' })
+vim.keymap.set('n', '<leader>oln', ':ObsidianLinkNew<CR>', { desc = 'Link to new note' })
+vim.keymap.set('n', '<leader>of', ':ObsidianFollowLink<CR>', { desc = 'Follow link under cursor' })
+vim.keymap.set('n', '<leader>oq', ':ObsidianQuickSwitch<CR>', { desc = 'Quick switch between notes' })
+vim.keymap.set('n', '<leader>oi', ':ObsidianOpenInObsidian<CR>', { desc = 'Open note in Obsidian app' })
+vim.keymap.set('n', '<leader>oh', ':ObsidianCheckHealth<CR>', { desc = 'Check plugin health' })
 
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
