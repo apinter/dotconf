@@ -154,3 +154,9 @@ bw-backup:
 # Set Kitty terminfo on remote
 ks target:
   infocmp -a xterm-kitty | ssh {{target}} tic -x -o \~/.terminfo /dev/stdin
+
+# Setup Fisher and Tide
+fisher-setup:
+  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+  fisher install IlanCosman/tide@v6
+
