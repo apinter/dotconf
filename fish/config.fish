@@ -72,6 +72,7 @@ if status is-interactive
     abbr ju 'just -f ~/Project/git/dotconf/justfile update'
     abbr g git
     abbr grv "git remote -v"
+    abbr gst "git status"
     abbr icat "kitty +kitten icat"
     abbr cdgd "cd $HOME/Project/git/dotconf"
     abbr dotfiles '/usr/bin/git --git-dir=$HOME/Project/git/dotconf/.git --work-tree=$HOME/Project/git/dotconf'
