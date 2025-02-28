@@ -155,6 +155,10 @@ bw-backup:
 ks target:
   infocmp -a xterm-kitty | ssh {{target}} tic -x -o \~/.terminfo /dev/stdin
 
+# Check k3s versions
+k3s-version channel:
+  curl -L https://update.k3s.io/v1-release/channels | jq '.data[] | select(.id == "{{ channel }}")'
+
 # Setup Fisher and Tide
 fisher-setup:
   curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
