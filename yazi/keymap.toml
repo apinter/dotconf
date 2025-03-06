@@ -365,4 +365,3 @@ on   = "!"
 run  = 'shell "$SHELL" --block'
 desc = "Open shell here"
 
-
