@@ -3,7 +3,7 @@ require("plugins.harpoon")
 require('lualine').setup()
 
 vim.wo.relativenumber = true
-
+vim.opt.mouse = ""
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
