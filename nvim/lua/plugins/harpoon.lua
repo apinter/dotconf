@@ -8,7 +8,6 @@ return {
 
         vim.keymap.set("n", "<leader>m", function() harpoon:list():add() end)
         vim.keymap.set("n", "<leader>ht", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-
         -- Telescope integration
         vim.keymap.set("n", "<leader>sh", function()
             local harpoon_files = harpoon:list()
