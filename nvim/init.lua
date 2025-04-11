@@ -35,7 +35,10 @@ local builtin = require("telescope.builtin")
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 
-vim.keymap.set("n", "<leader>T", ":terminal<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>T", ":tabnew <BAR> :terminal<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>C", ":CopilotChat<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>Cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
