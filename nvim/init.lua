@@ -2,7 +2,7 @@ require("config.lazy")
 require("plugins.harpoon")
 require('lualine').setup()
 
-vim.wo.relativenumber = true
+vim.wo.number = true
 vim.opt.mouse = ""
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -36,6 +36,7 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 
 vim.keymap.set("n", "<leader>T", ":terminal<CR>", { noremap = true, silent = true })
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true })

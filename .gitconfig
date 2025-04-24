@@ -44,3 +44,6 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+[includeIf "gitdir:~/Project/git/Work/"]
+  path = .gitconfig-adathor-gl
+
