@@ -49,8 +49,8 @@ if status is-interactive
     # source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
     ## PATH
-    export PATH=/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin:$HOME/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin:$HOME/.npm-global/bin
-    alias z="z"
+    export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin:$HOME/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin:$HOME/.npm-global/bin
+    # alias z="z"
 
     ## Copilot
     abbr copilot 'gh copilot'
