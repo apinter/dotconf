@@ -35,6 +35,9 @@ local builtin = require("telescope.builtin")
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 
+vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
+
 vim.keymap.set("n", "<leader>T", ":terminal<CR>", { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
