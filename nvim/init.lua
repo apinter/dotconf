@@ -38,7 +38,7 @@ vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>T", ":terminal<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>T", ":tabnew | terminal<CR>", { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true })
@@ -75,3 +75,11 @@ vim.keymap.set('n', '<leader>oh', ':ObsidianCheckHealth<CR>', { desc = 'Check pl
 
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
+
+vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>cr", ":CopilotChatReview<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
+
