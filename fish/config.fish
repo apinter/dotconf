@@ -1,7 +1,13 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
     function fish_greeting
+    set -l distro (cat /etc/os-release | grep ^ID= | cut -d= -f2)
+
+    if test $distro != nixos
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    end
+
+        # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
         atuin init fish | source
         zoxide init --cmd cd fish | source
     end
@@ -49,7 +55,11 @@ if status is-interactive
     # source /home/apinter/Downloads/google-cloud-sdk/path.fish.inc  
 
     ## PATH
+    set -l distro (cat /etc/os-release | grep ^ID= | cut -d= -f2)
+
+    if test $distro != nixos
     export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin:$HOME/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin:$HOME/.npm-global/bin
+    end
     # alias z="z"
 
     ## Copilot
