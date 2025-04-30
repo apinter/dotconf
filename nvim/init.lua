@@ -82,4 +82,5 @@ vim.keymap.set("v", "<leader>cr", ":CopilotChatReview<CR>", { noremap = true, si
 vim.keymap.set("v", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
 
