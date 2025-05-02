@@ -34,7 +34,8 @@ return {
                 "lua_ls",
 --                "ansiblels",
 --                "bashls",
-		"markdown_oxide",
+                "markdown_oxide",
+                "pyright",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

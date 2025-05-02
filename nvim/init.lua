@@ -27,10 +27,21 @@ vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
 })
 
 vim.opt.updatetime = 40
-
 vim.g.mapleader = " "
 vim.opt.conceallevel = 1
 local builtin = require("telescope.builtin")
+
+-- Spell check
+vim.api.nvim_create_autocmd("FileType", {
+    -- You can set pattern = "*" but it will also display spell errors in buffers like lazygit
+    pattern = { "lua", "javascript", "typescript", "python", "markdown" },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_us"
+        vim.opt_local.spelloptions = "camel"
+        vim.opt_local.spellcapcheck = ""
+    end,
+})
 
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
