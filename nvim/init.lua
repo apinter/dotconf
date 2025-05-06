@@ -87,11 +87,11 @@ vim.keymap.set('n', '<leader>oh', ':ObsidianCheckHealth<CR>', { desc = 'Check pl
 vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
 
-vim.keymap.set("n", "<leader>cc", ":CopilotChat<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>cr", ":CopilotChatReview<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
-vim.keymap.set("v", "<leader>cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>Cc", ":CopilotChat<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Ce", ":CopilotChatExplain<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Cr", ":CopilotChatReview<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Cf", ":CopilotChatFix<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>Cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
 
