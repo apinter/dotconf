@@ -37,6 +37,13 @@ return {
           sync_install = false,
           highlight = { enable = true },
           indent = { enable = true },
+        keymaps = {
+          init_selection = "<C-n>",
+          node_incremental = "<C-n>",
+          scope_incremental = "<C-s>",
+          node_decremental = "<C-m>",
+        }
+
         })
     end
 }

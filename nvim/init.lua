@@ -18,6 +18,7 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d"})
 vim.opt.termguicolors = true
 
 vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
@@ -29,6 +30,7 @@ vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
 vim.opt.updatetime = 40
 vim.g.mapleader = " "
 vim.opt.conceallevel = 1
+vim.lsp.set_log_level("debug")
 local builtin = require("telescope.builtin")
 
 -- Spell check
@@ -42,6 +44,8 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.opt_local.spellcapcheck = ""
     end,
 })
+
+vim.lsp.enable('terraformls')
 
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
