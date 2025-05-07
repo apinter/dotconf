@@ -1,5 +1,5 @@
 require("config.lazy")
-require("plugins.harpoon")
+-- require("plugins.harpoon")
 require('lualine').setup()
 
 vim.wo.number = true
