@@ -60,6 +60,14 @@ return {
                     vim.g.zig_fmt_autosave = 0
 
                 end,
+                ["terraformls"] = function()
+                  require("lspconfig").terraformls.setup()
+                end,
+
+                ["tflint"] = function()
+                  require("lspconfig").tflint.setup()
+                end,
+
                 ["lua_ls"] = function()
                     local lspconfig = require("lspconfig")
                     lspconfig.lua_ls.setup {
@@ -119,5 +127,5 @@ return {
         severity_sort = true,
 
         })
-    end
+    end,
 }

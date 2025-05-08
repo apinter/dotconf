@@ -47,6 +47,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.lsp.enable('terraformls')
 
+-- Terraform
+vim.cmd([[let g:terraform_fmt_on_save=1]])
+vim.cmd([[let g:terraform_align=1]])
+
+
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 

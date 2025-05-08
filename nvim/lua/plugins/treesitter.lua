@@ -32,6 +32,7 @@ return {
         "terraform",
 				"heex",
         "javascript",
+        "hcl",
         "nix",
 				"html"},
           sync_install = false,
