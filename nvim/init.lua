@@ -18,10 +18,10 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d"})
+vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d" })
 vim.opt.termguicolors = true
 
-vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost" }, {
   pattern = "*",
   command = "silent! write",
   nested = true
@@ -30,27 +30,45 @@ vim.api.nvim_create_autocmd({"InsertLeave", "TextChanged", "FocusLost"}, {
 vim.opt.updatetime = 40
 vim.g.mapleader = " "
 vim.opt.conceallevel = 1
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("warn")
 local builtin = require("telescope.builtin")
 
 -- Spell check
 vim.api.nvim_create_autocmd("FileType", {
-    -- You can set pattern = "*" but it will also display spell errors in buffers like lazygit
-    pattern = { "lua", "javascript", "typescript", "python", "markdown" },
-    callback = function()
-        vim.opt_local.spell = true
-        vim.opt_local.spelllang = "en_us"
-        vim.opt_local.spelloptions = "camel"
-        vim.opt_local.spellcapcheck = ""
-    end,
+  -- You can set pattern = "*" but it will also display spell errors in buffers like lazygit
+  pattern = { "lua", "javascript", "typescript", "python", "markdown" },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = "en_us"
+    vim.opt_local.spelloptions = "camel"
+    vim.opt_local.spellcapcheck = ""
+  end,
 })
 
 vim.lsp.enable('terraformls')
+vim.lsp.enable('yamlls')
 
 -- Terraform
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
 
+-- Folding
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "yaml", "yml" },
+  callback = function()
+    vim.opt_local.foldmethod = "indent"
+    vim.opt_local.foldlevel = 1
+
+    vim.api.nvim_buf_set_keymap(0, "n", "zj", ':lua NavigateFold("j")<CR>', { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
+  end,
+})
+
+
+-- vim.opt_local.foldmethod = "indent"
+-- vim.opt.foldlevel = 1
+-- vim.api.nvim_buf_set_keymap(0, "n", "zj", ':lua NavigateFold("j")<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
 
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
@@ -103,4 +121,4 @@ vim.keymap.set("v", "<leader>Cf", ":CopilotChatFix<CR>", { noremap = true, silen
 vim.keymap.set("v", "<leader>Cd", ":CopilotChatDocs<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>Ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
 vim.keymap.set("v", "<leader>Cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
-
+vim.api.nvim_buf_set_keymap(0, "n", "<leader>yl", ":!yamllint %<CR>", { noremap = true, silent = true })
