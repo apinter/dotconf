@@ -1,0 +1,11 @@
+[user]
+	name = Attila Pinter
+	email = adathor@opensuse.org
+	signingkey = E2320A10549E2E37
+[commit]
+	gpgsign = true
+[core]
+    sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/adathor-gl -F /dev/null"
+[gpg]
+    program = /usr/bin/gpg
+
