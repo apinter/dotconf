@@ -21,26 +21,64 @@ return {
     })
     local cmp = require('cmp')
     -- local cmp_lsp = require("cmp_nvim_lsp")
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    -- local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- local capabilities = vim.tbl_deep_extend(
     --   "force",
     --   {},
     --   vim.lsp.protocol.make_client_capabilities(),
     --   cmp_lsp.default_capabilities())
+    local icons = {
+      Class = " ",
+      Color = " ",
+      Constant = " ",
+      Constructor = " ",
+      Enum = " ",
+      EnumMember = " ",
+      Event = " ",
+      Field = " ",
+      File = " ",
+      Folder = " ",
+      Function = "󰊕 ",
+      Interface = " ",
+      Keyword = " ",
+      Method = "ƒ ",
+      Module = "󰏗 ",
+      Property = " ",
+      Snippet = " ",
+      Struct = " ",
+      Text = " ",
+      Unit = " ",
+      Value = " ",
+      Variable = " ",
+    }
+    local completion_kinds = vim.lsp.protocol.CompletionItemKind
+    for i, kind in ipairs(completion_kinds) do
+      completion_kinds[i] = icons[kind] and icons[kind] .. kind or kind
+    end
+
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = true,
+      lineFoldingOnly = true,
+    }
+
+    capabilities.textDocument.semanticTokens.multilineTokenSupport = true
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "ansiblels",
-        "bashls",
-        "markdown_oxide",
-        "pyright",
-      },
+      -- ensure_installed = {
+      --   "lua_ls",
+      --   "ansiblels",
+      --   "bashls",
+      --   "markdown_oxide",
+      --   "pyright",
+      -- },
       handlers = {
-        function(server_name) -- default handler (optional)
+        function(server_name)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities
           }
@@ -62,6 +100,20 @@ return {
           vim.g.zig_fmt_autosave = 0
         end,
 
+        ["bashls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.lspconfig.setup({
+            cmd = { "bash-language-server", "start" },
+            filetypes = { "bash", "sh", "zsh" },
+            root_markers = { ".git", vim.uv.cwd() },
+            settings = {
+              bashIde = {
+                globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+              },
+            },
+          })
+        end,
+
         ["terraformls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.terraformls.setup({
@@ -79,32 +131,36 @@ return {
         ["yamlls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.yamlls.setup({
-            capabilities = capabilities,
+            -- capabilities = capabilities,
             settings = {
               yaml = {
                 format = {
                   enable = true,
                 },
+                schemaStore = {
+                  enable = false,
+                },
                 validate = true,
                 completion = true,
                 hover = true,
                 schemas = {
-                  kubernetes = "*.yaml, *.yml",
                   ["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
-                  -- ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] = "/*.{yml,yaml}",
+                  ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.4-standalone-strict/all.json"] =
+                  "/**/*.{yml,yaml}",
                   -- Additional
-                  ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.29.0-standalone-strict/all.json"] = { "*.yml", "*.yaml" },
+                  ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                   ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
                   ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-                  ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                  ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/tasks"] =
+                  "roles/tasks/*.{yml,yaml}",
+                  ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json#/$defs/playbook"] =
+                  "*.{yml,yaml}",
                   ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
-                  ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-                  ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}",
                   ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
                   ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
-                  ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
-                  ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] =
-                  "*api*.{yml,yaml}",
+                  ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] =
+                  "*gitlab-ci*.{yml,yaml}",
+                  ["https://json.schemastore.org/grpc-api-gateway.json"] = "*api*.{yml,yaml}",
                   ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
                   "*docker-compose*.{yml,yaml}",
                   ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] =
@@ -169,7 +225,10 @@ return {
         ['<C-y>'] = cmp.mapping.confirm({ select = true }),
         ["<C-Space>"] = cmp.mapping.complete(),
       }),
-      sources = {             --cmp.config.sources({
+      -- sources = {
+      --   default = { "lsp", "path", "snippets", "buffer" },
+      -- },
+      sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' }, -- For luasnip users.
         { name = 'buffer' },
@@ -191,7 +250,6 @@ return {
 
       }
     })
-
     vim.diagnostic.config({
       -- update_in_insert = true,
       float = {

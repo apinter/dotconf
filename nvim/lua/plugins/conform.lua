@@ -35,5 +35,4 @@ return {
       },
     },
   },
-  -- other plugins like nvim-lspconfig, mason, cmp, etc. go here...
 }

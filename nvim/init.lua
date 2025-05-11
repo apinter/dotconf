@@ -1,5 +1,4 @@
 require("config.lazy")
--- require("plugins.harpoon")
 require('lualine').setup()
 
 vim.wo.number = true
@@ -21,6 +20,7 @@ vim.opt.incsearch = true
 vim.api.nvim_set_hl(0, "VisualNonText", { fg = "#5D5F71", bg = "#24282d" })
 vim.opt.termguicolors = true
 
+-- autosave
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost" }, {
   pattern = "*",
   command = "silent! write",
@@ -45,8 +45,8 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.lsp.enable('terraformls')
-vim.lsp.enable('yamlls')
+-- vim.lsp.enable('terraformls')
+-- vim.lsp.enable('yamlls')
 
 -- Terraform
 vim.cmd([[let g:terraform_fmt_on_save=1]])
@@ -63,12 +63,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
   end,
 })
-
-
--- vim.opt_local.foldmethod = "indent"
--- vim.opt.foldlevel = 1
--- vim.api.nvim_buf_set_keymap(0, "n", "zj", ':lua NavigateFold("j")<CR>', { noremap = true, silent = true })
--- vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
 
 -- remaps
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
