@@ -117,5 +117,19 @@ vim.keymap.set("v", "<leader>Ct", ":CopilotChatTests<CR>", { noremap = true, sil
 vim.keymap.set("n", "<leader>Cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>yl", ":!yamllint %<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
-vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)
+-- Diagnostics
+
+local diagnostic_goto = function(next, severity)
+  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+  severity = severity and vim.diagnostic.severity[severity] or nil
+  return function()
+    go({ severity = severity })
+  end
+end
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
+vim.keymap.set("n", "]g", diagnostic_goto(true), { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[g", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
+vim.keymap.set("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
+vim.keymap.set("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
+vim.keymap.set("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
