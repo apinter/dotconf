@@ -39,8 +39,8 @@ return {
         'pyright',
         'zls',
         'hadolint',
-        'ruff_lsp',
         'ruff',
+        'ruff-lsp',
         'jsonls'
       },
     })
