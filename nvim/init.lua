@@ -116,3 +116,6 @@ vim.keymap.set("v", "<leader>Cd", ":CopilotChatDocs<CR>", { noremap = true, sile
 vim.keymap.set("v", "<leader>Ct", ":CopilotChatTests<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>Cm", ":CopilotChatModels<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>yl", ":!yamllint %<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "]g", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[g", vim.diagnostic.goto_prev)

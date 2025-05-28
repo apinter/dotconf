@@ -40,7 +40,6 @@ return {
         'zls',
         'hadolint',
         'ruff',
-        'ruff-lsp',
         'jsonls'
       },
     })
