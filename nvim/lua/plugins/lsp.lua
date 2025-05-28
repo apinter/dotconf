@@ -158,19 +158,14 @@ return {
             end,
           })
         end,
-
         ["yamlls"] = function()
           local lspconfig = require("lspconfig")
+
           lspconfig.yamlls.setup({
-            -- capabilities = capabilities,
             settings = {
               yaml = {
-                format = {
-                  enable = true,
-                },
-                schemaStore = {
-                  enable = false,
-                },
+                format = { enable = true },
+                schemaStore = { enable = false },
                 validate = true,
                 completion = true,
                 hover = true,
@@ -178,7 +173,6 @@ return {
                   ["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
                   ["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.4-standalone-strict/all.json"] =
                   "/**/*.{yml,yaml}",
-                  -- Additional
                   ["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
                   ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
                   ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
@@ -199,6 +193,13 @@ return {
                 },
               },
             },
+            on_attach = function(client, buffer)
+              if vim.bo[buffer].filetype == "helm" then
+                vim.schedule(function()
+                  vim.cmd("LspStop ++force yamlls")
+                end)
+              end
+            end,
           })
         end,
 

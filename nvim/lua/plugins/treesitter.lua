@@ -38,6 +38,7 @@ return {
           "ninja",
           "rst",
           "nix",
+          "helm",
           "html" },
         sync_install = false,
         highlight = { enable = true },
