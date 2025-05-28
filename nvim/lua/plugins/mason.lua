@@ -38,6 +38,9 @@ return {
         'yamlls',
         'pyright',
         'zls',
+        'hadolint',
+        'ruff_lsp',
+        'ruff',
         'jsonls'
       },
     })

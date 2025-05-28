@@ -114,6 +114,13 @@ return {
           })
         end,
 
+        ["dockerls"] = function()
+          local lspconfig = require("lspconfig")
+          lspconfig.dockerls.setup({
+            capabilities = capabilities,
+          })
+        end,
+
         ["terraformls"] = function()
           local lspconfig = require("lspconfig")
           lspconfig.terraformls.setup({
@@ -125,6 +132,30 @@ return {
           local lspconfig = require("lspconfig")
           lspconfig.tflint.setup({
             capabilities = capabilities,
+          })
+        end,
+
+        ["jsonls"] = function()
+          local lspconfig = require("lspconfig")
+          local schemastore = require("schemastore")
+
+          lspconfig.jsonls.setup({
+            capabilities = capabilities,
+            settings = {
+              json = {
+                format = {
+                  enable = true,
+                },
+                validate = {
+                  enable = true,
+                },
+                schemas = schemastore.json.schemas(),
+              },
+            },
+            on_new_config = function(new_config)
+              new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+              vim.list_extend(new_config.settings.json.schemas, schemastore.json.schemas())
+            end,
           })
         end,
 
