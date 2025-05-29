@@ -2,10 +2,13 @@
 	name = Attila Pinter
 	email = adathor@opensuse.org
 	signingkey = E2320A10549E2E37
+
 [pull]
 	ff = only
+
 [commit]
 	gpgsign = true
+
 [alias]
 	graph = log --oneline --graph --decorate
 	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
@@ -15,6 +18,7 @@
 	local-branches = !git branch -vv | cut -c 3- | awk '$3 !~/\\[/ { print $1 }'
 	recent-branches = !git branch --sort=-committerdate | head
 	authors = !git log --format='%aN <%aE>' | grep -v 'users.noreply.github.com' | sort -u --ignore-case
+
 [safe]
 	directory = ${PWD}
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
@@ -27,23 +31,55 @@
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
 	directory = /home/apinter/Project/actions-runner/_work/devops-toolbox/devops-toolbox
+
 [core]
 	editor = code-insiders --wait
+
 [diff]
 	external = difft
+
 [gpg]
 	program = /usr/bin/gpg2
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[init]
+    defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
 [credential "https://github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/home/linuxbrew/.linuxbrew/bin/gh auth git-credential
+
 [includeIf "gitdir:~/Project/git/Work/"]
   path = .gitconfig-adathor-gl
+
+[color "branch"]
+    current  = magenta
+    local    = default
+    remote   = yellow
+    upstream = green
+    plain    = blue
+
+[color "diff"]
+    meta       = black bold
+    frag       = magenta
+    context    = white
+    whitespace = yellow reverse
 

@@ -63,7 +63,28 @@ if status is-interactive
     if test $distro != nixos
     export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:$HOME/bin:/usr/local/bin:/usr/bin:/bin:$HOME/.local/bin:$HOME/.local/bin:/snap/bin:$HOME/.local/share/flatpak/exports/bin:$XDG_DATA_HOME/cargo/bin:$NIX_LINK/bin:$HOME/go/bin:$HOME/.npm-global/bin
     end
-    # alias z="z"
+    # abbr z="z"
+
+    ## git
+    abbr ga 'git add'
+    abbr gap 'ga --patch'
+    abbr gb 'git branch'
+    abbr gba 'gb --all'
+    abbr gc 'git commit'
+    abbr gca 'gc --amend --no-edit'
+    abbr gce 'gc --amend'
+    abbr gsw 'git switch'
+    abbr gcl 'git clone --recursive'
+    abbr gd 'git diff --output-indicator-new=" " --output-indicator-old=" "'
+    abbr gds 'gd --staged'
+    abbr gi 'git init'
+    abbr gl 'git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
+    abbr gm 'git merge'
+    abbr gn 'git switch -c'
+    abbr gp 'git push'
+    abbr gr 'git reset'
+    abbr gs 'git status --short'
+    abbr gu 'git pull'
 
     ## Copilot
     abbr copilot 'gh copilot'
@@ -81,7 +102,7 @@ if status is-interactive
     abbr nen 'cd ~/Project/vaults/personal/notes/ && nvim TODO.md'
 
     ## System Stuff
-    #alias sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
+    #abbr sup="sudo zypper ref; sudo zypper dup -y -l; flatpak update --user -y"
     abbr ju 'just -f ~/Project/git/dotconf/justfile update'
     abbr g git
     abbr grv "git remote -v"
