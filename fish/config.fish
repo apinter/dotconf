@@ -70,7 +70,7 @@ if status is-interactive
     abbr gap 'ga --patch'
     abbr gb 'git branch'
     abbr gba 'gb --all'
-    abbr gc 'git commit'
+    abbr gc 'git commit -s'
     abbr gca 'gc --amend --no-edit'
     abbr gce 'gc --amend'
     abbr gsw 'git switch'
