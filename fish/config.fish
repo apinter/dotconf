@@ -31,6 +31,7 @@ if status is-interactive
     export XDG_STATE_HOME=$HOME/.local/state
 
     ## Envs
+    export MANPAGER='nvim +Man!'
     export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
     export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
     export AZURE_CONFIG_DIR=$XDG_DATA_HOME/azure
