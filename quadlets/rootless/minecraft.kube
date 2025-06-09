@@ -1,0 +1,14 @@
+[Unit]
+After=home-apinter-Storage.mount
+
+[Install]
+WantedBy=default.target
+
+[Kube]
+Yaml=/home/apinter/.config/containers/systemd/minecraft.yml
+PublishPort=25565:25565
+
+[Service]
+TimeoutStartSec=900
+ExecStartPre=/usr/bin/sleep 30
+

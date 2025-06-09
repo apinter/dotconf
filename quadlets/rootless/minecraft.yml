@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    bind-mount-options: /var/home/apinter/Project/Minecraft_foreever_world/minecraft5/_data:z
+    io.containers.autoupdate: registry
+  labels:
+    app: minecraft-pod
+  name: minecraft-pod
+spec:
+  containers:
+  - env:
+    - name: DIFFICULTY
+      value: normal
+    - name: SIMULATION_DISTANCE
+      value: "32"
+    - name: USE_AIKAR_FLAGS
+      value: "true"
+    - name: OPS
+      value: adathor,SlicedMother
+    - name: EULA
+      value: "TRUE"
+    - name: MEMORY
+      value: 6G
+    - name: ICON
+      value: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticg.sportskeeda.com%2Feditor%2F2022%2F12%2F31a05-16709054062680-1920.jpg
+    - name: ENABLE_COMMAND_BLOCK
+      value: "true"
+    - name: VIEW_DISTANCE
+      value: "32"
+    image: docker.io/itzg/minecraft-server:latest
+    name: minecraft
+    ports:
+    - containerPort: 25565
+      hostPort: 25565
+    volumeMounts:
+    - mountPath: /data
+      name: var-home-apinter-project-minecraft-foreever-world-minecraft5--data-host-0
+  volumes:
+  - hostPath:
+      path: /var/home/apinter/Project/Minecraft_foreever_world/minecraft5/_data
+      type: Directory
+    name: var-home-apinter-project-minecraft-foreever-world-minecraft5--data-host-0
+
