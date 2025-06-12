@@ -43,8 +43,8 @@ if status is-interactive
     export GEM_HOME="$XDG_DATA_HOME"/gem
     export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
     export TMUX_CONF=~/.config/tmux/tmux.conf
-    export EDITOR=vim
-    export VISUAL=vim
+    export EDITOR=nvim
+    export VISUAL=nvim
     export GPG_TTY=$(tty)
 
     ## NIX stuff
