@@ -169,6 +169,7 @@ return {
 								completion = true,
 								hover = true,
 								schemas = {
+									kubernetes = "*.{yaml,yml}",
 									["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
 									["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.4-standalone-strict/all.json"] = "/**/*.{yml,yaml}",
 									["https://json.schemastore.org/kustomization.json"] = "kustomization.{yml,yaml}",
