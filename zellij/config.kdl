@@ -55,6 +55,7 @@ keybinds clear-defaults=true {
         bind "t" { SwitchToMode "normal"; }
         bind "x" { CloseTab; SwitchToMode "locked"; }
         bind "tab" { ToggleTab; }
+        bind "m" { Run "zellij-renumber-tabs"; }
     }
     resize {
         bind "left" { Resize "Increase left"; }

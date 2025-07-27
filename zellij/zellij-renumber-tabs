@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+# Configuration options (can be overridden by environment variables)
+DEFAULT_TAB_NAME=${DEFAULT_TAB_NAME:-""}
+NUMBERING_FORMAT=${NUMBERING_FORMAT:-"NUMBER"}
+ADD_NUMBERS_TO_UNNAMED=${ADD_NUMBERS_TO_UNNAMED:-true}
+NUMBER_POSITION=${NUMBER_POSITION:-"end"}  # Options: "start" or "end"
+MARKER="__TEMP_CURRENT_TAB_MARKER__"
+
+# Extract the custom name without the number
+extract_custom_name() {
+    local tab_name="$1"
+    local custom_name=""
+    
+    # Remove number pattern from end (e.g. "Coding #3" -> "Coding")
+    if [[ "$NUMBER_POSITION" == "end" ]]; then
+        custom_name=$(echo "$tab_name" | sed -E 's/ #[0-9]+$|#[0-9]+$|-[0-9]+$|[0-9]+$//g')
+    # Remove number pattern from start (e.g. "3. Coding" -> "Coding")
+    elif [[ "$NUMBER_POSITION" == "start" ]]; then
+        custom_name=$(echo "$tab_name" | sed -E 's/^[0-9]+\. |^[0-9]+\.|^[0-9]+ //g')
+    fi
+    
+    # If the name is empty or was just a number, use the default tab name
+    if [[ -z "$custom_name" || "$custom_name" == "$tab_name" ]]; then
+        if [[ "$tab_name" =~ ^Tab( #[0-9]+)?$ ]]; then
+            custom_name=""
+        fi
+    fi
+    # Trim whitespace
+    custom_name=$(echo "$custom_name" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//' -e 's/^Tab//')
+    
+    echo "$custom_name"
+}
+
+# Format the new tab name with number
+format_tab_name() {
+    local custom_name="$1"
+    local tab_number="$2"
+    local new_tab_name=""
+    
+    # Skip adding number if the tab has a custom name and ADD_NUMBERS_TO_UNNAMED is false
+    # if [[ "$custom_name" != "$DEFAULT_TAB_NAME" && "$ADD_NUMBERS_TO_UNNAMED" == "false" ]]; then
+    if [[ -n "$custom_name" && "$ADD_NUMBERS_TO_UNNAMED" == "false" ]]; then
+        new_tab_name="$custom_name"
+    else
+        local number_part=${NUMBERING_FORMAT/NUMBER/$tab_number}
+        
+        if [[ "$NUMBER_POSITION" == "end" ]]; then
+            new_tab_name="${custom_name}${number_part}"
+        elif [[ "$NUMBER_POSITION" == "start" ]]; then
+            new_tab_name="${tab_number}${number_part#NUMBER}${custom_name}"
+        fi
+    fi
+    
+    echo "$new_tab_name"
+}
+
+# Get all tab names
+ORIGINAL_TABS=$(zellij action query-tab-names)
+
+# Mark the current tab
+zellij action rename-tab "$MARKER"
+
+# Get new tab names to compare with original tab names to find name and index of current tab
+TABS=$(zellij action query-tab-names)
+
+mapfile -t ORIGINAL_TABS_ARRAY <<< "$ORIGINAL_TABS"
+mapfile -t TABS_ARRAY <<< "$TABS"
+
+# find the original name of the current tab
+CURRENT_ZELLIJ_TAB_INDEX=0
+
+for i in "${!ORIGINAL_TABS_ARRAY[@]}"; do
+    # If they're different and one is the marker
+    if [[ "${ORIGINAL_TABS_ARRAY[$i]}" != "${TABS_ARRAY[$i]}" ]]; then
+        if [[ "${TABS_ARRAY[$i]}" == "$MARKER" ]]; then
+            CURRENT_ZELLIJ_TAB_INDEX=$(($i + 1)) # zellij tabs start to count at 1
+            break
+        fi
+    fi
+done
+
+# Reset and go to first tab
+i=1
+zellij action go-to-tab 1
+
+# Rename all tabs
+while IFS= read -r TAB; do
+    custom_name=$(extract_custom_name "$TAB")
+    new_name=$(format_tab_name "$custom_name" "$i")
+    
+    zellij action rename-tab "$new_name"
+    
+    i=$((i + 1))
+    zellij action go-to-next-tab
+done <<< "$ORIGINAL_TABS"
+
+# Go back to the original tab
+zellij action go-to-tab "$CURRENT_ZELLIJ_TAB_INDEX"
+
+# By default Zellij will execute this script in a new pane that will not immediately close when the command exits.
+# Instead, it will show its exit status on the pane frame and allow users to press <ENTER> to re-run the command inside the same pane, or <Ctrl-c> to close the pane.
+# See https://zellij.dev/documentation/zellij-run
+zellij action close-pane
+
+exit 0
