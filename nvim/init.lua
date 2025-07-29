@@ -25,9 +25,9 @@ vim.opt.splitbelow = true
 
 -- autosave
 vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged", "FocusLost" }, {
-  pattern = "*",
-  command = "silent! write",
-  nested = true,
+	pattern = "*",
+	command = "silent! write",
+	nested = true,
 })
 
 vim.opt.updatetime = 40
@@ -38,14 +38,14 @@ local builtin = require("telescope.builtin")
 
 -- Spell check
 vim.api.nvim_create_autocmd("FileType", {
-  -- You can set pattern = "*" but it will also display spell errors in buffers like lazygit
-  pattern = { "lua", "javascript", "typescript", "python", "markdown" },
-  callback = function()
-    vim.opt_local.spell = true
-    vim.opt_local.spelllang = "en_us"
-    vim.opt_local.spelloptions = "camel"
-    vim.opt_local.spellcapcheck = ""
-  end,
+	-- You can set pattern = "*" but it will also display spell errors in buffers like lazygit
+	pattern = { "lua", "javascript", "typescript", "python", "markdown" },
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_us"
+		vim.opt_local.spelloptions = "camel"
+		vim.opt_local.spellcapcheck = ""
+	end,
 })
 
 -- vim.lsp.enable('terraformls')
@@ -57,14 +57,14 @@ vim.cmd([[let g:terraform_align=1]])
 
 -- Folding
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "yaml", "yml" },
-  callback = function()
-    vim.opt_local.foldmethod = "indent"
-    vim.opt_local.foldlevel = 1
+	pattern = { "yaml", "yml" },
+	callback = function()
+		vim.opt_local.foldmethod = "indent"
+		vim.opt_local.foldlevel = 1
 
-    vim.api.nvim_buf_set_keymap(0, "n", "zj", ':lua NavigateFold("j")<CR>', { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
-  end,
+		vim.api.nvim_buf_set_keymap(0, "n", "zj", ':lua NavigateFold("j")<CR>', { noremap = true, silent = true })
+		vim.api.nvim_buf_set_keymap(0, "n", "zk", ':lua NavigateFold("k")<CR>', { noremap = true, silent = true })
+	end,
 })
 
 -- remaps
@@ -81,13 +81,20 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true 
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>bN", ":bNext<CR>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>",
-  { desc = "Telescope find files" })
+vim.keymap.set(
+	"n",
+	"<leader>ff",
+	":Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>",
+	{ desc = "Telescope find files" }
+)
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
 
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", { noremap = true, silent = true })
 
 vim.keymap.set("n", "tn", ":tabnew<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "tk", ":tabnext<CR>", { noremap = true, silent = true })
@@ -126,11 +133,11 @@ vim.keymap.set("n", "<leader>yl", ":!yamllint %<CR>", { noremap = true, silent =
 -- Diagnostics
 
 local diagnostic_goto = function(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
-  end
+	local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+	severity = severity and vim.diagnostic.severity[severity] or nil
+	return function()
+		go({ severity = severity })
+	end
 end
 vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 vim.keymap.set("n", "]g", diagnostic_goto(true), { desc = "Next Diagnostic" })
