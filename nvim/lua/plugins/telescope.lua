@@ -1,4 +1,3 @@
--- init.lua:
 return {
   {
     'nvim-telescope/telescope.nvim',
@@ -23,6 +22,7 @@ return {
     opts = {
       defaults = {
         file_ignore_patterns = { "%.git/" },
+        hidden = true,
         vimgrep_arguments = {
           "rg",
           "--color=never",
@@ -33,7 +33,7 @@ return {
           "--smart-case",
           "--hidden"
         },
-        find_command = { 'rg', '--hidden', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-g', '!{.git,.svn,.hg}' }
+        find_command = { 'rg', '--hidden', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case', '-g', '!{.git,.svn,.hg}' },
       }
     }
   }
