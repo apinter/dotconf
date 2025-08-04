@@ -1,26 +1,40 @@
----
-apiVersion: v1
-kind: Pod
+apiVersion: ENC[AES256_GCM,data:gNs=,iv:BsuWAXw+nB5sGwVTzczkeX+wErn856NY3uFsxddNND8=,tag:zZEg1PqXkfrDvU+vMlLGTw==,type:str]
+kind: ENC[AES256_GCM,data:RAny,iv:PvN+CsHYl5rVY2N2h3C9T5OzFHlweCR6RChKsxtFv1k=,tag:EdZwUZ6PtaLxMcUfIZqJVw==,type:str]
 metadata:
-  annotations:
-    io.containers.autoupdate: registry
-  labels:
-    app: node-exporter-pod
-  name: node-exporter-pod
+    annotations:
+        io.containers.autoupdate: ENC[AES256_GCM,data:ifYxLs95Dno=,iv:sVhIkTf8uBuWj0bgrR7Ft+NWdQafzZXOfLufxKs3BdA=,tag:iiZzVtwGxZQiBKcDfgipkw==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:B1DcjTIhtVoYsWzY98DoL3U=,iv:LciZbst9JjzDXcwbS+rMXaju2hEnsdsFV3xLbFtEMHU=,tag:KLtGSlyxzLwM0iEFIqzJcQ==,type:str]
+    name: ENC[AES256_GCM,data:5Wu9fuhHA4hDPy1dQ1+fOLY=,iv:l7rBV0Ljhr1FOFb2vfIX9xc8Ax6Sa+c2+g++LEHf8fc=,tag:nqUDufCgjQ8a701lHsQj+A==,type:str]
 spec:
-  containers:
-  - name: node-exporter
-    image: quay.io/prometheus/node-exporter:latest
-    args:
-    - --path.rootfs=/host
-    volumeMounts:
-    - mountPath: /host
-      name: root-host-0
-      readOnly: true
-  hostNetwork: true
-  hostname: vegas
-  volumes:
-  - hostPath:
-      path: /
-      type: Directory
-    name: root-host-0
+    containers:
+        - name: ENC[AES256_GCM,data:00bVv5XenCi+w1X6Zg==,iv:LF4v2zthFxK276CZjUbe0XaeuD/lcq/wmOCSANWLFsM=,tag:CV4g08redODKdNSYsPJ4MQ==,type:str]
+          image: ENC[AES256_GCM,data:Mkc8BQvTiZHL9wfBDYXLU0ebck+lVQX0eTtRo2BMmANXy4rniVPb,iv:F+3JIS0O5DzKKOq02dS7YSE50rMJPJICGNub/jY0R+0=,tag:wO4pTahbjpvi0jYsX8NTbg==,type:str]
+          args:
+            - ENC[AES256_GCM,data:MP6GZKwoCrNtq0M6j9Lc4XU5hw==,iv:gKHgUIfhIdX/vGzDlAgnjt+1bID4gt2/A01ZfIKOrXQ=,tag:gCKEuAPGSUNKZ6Ao4PfD7w==,type:str]
+          volumeMounts:
+            - mountPath: ENC[AES256_GCM,data:NekWT2I=,iv:fubjRlJg/vTfbuZGnFDgEcTTgJfFP7bNzjBOmJvlDOk=,tag:38dCF4CH77xKzKN3wiOMrg==,type:str]
+              name: ENC[AES256_GCM,data:TVjcRzx0Wi45Jwg=,iv:MeVmUYelJD5IY/0ECnDgMQX2VdBahuJtVu6Jyoifumg=,tag:0uoLbacYjzBLtMWxzstsnw==,type:str]
+              readOnly: ENC[AES256_GCM,data:hO/t/g==,iv:IEwkBLEDugBnmlrlzZiOPWy72/x+Atp1ByZaxpsogS4=,tag:QPvEZCUJftwOeUeilSCWpw==,type:bool]
+    hostNetwork: ENC[AES256_GCM,data:8e+jWA==,iv:o4NKkJ3HBiZbBimyayASPM7BTBEKL2nK49IxRoLDQ/8=,tag:4/bgFrnnv7Ln7HIsrZHonw==,type:bool]
+    hostname: ENC[AES256_GCM,data:3h/veUI=,iv:3Xb2Wbd6SixaeBLX7rU85lpjWLky3jFEQAwNPqvQVCQ=,tag:VOIcYStVg02Y5Wx4lru7FQ==,type:str]
+    volumes:
+        - hostPath:
+            path: ENC[AES256_GCM,data:pg==,iv:ZdweFcY+GHiZv6/Y3DuvmAp5M8Ni4onyIs41K7hFewQ=,tag:T850ZaIE0WvdNtXwrNvf+A==,type:str]
+            type: ENC[AES256_GCM,data:d3bPU8HP3BlZ,iv:HM11F/F2IrMY0tcwYrWg4nJgVd0TYQoQDaxbfy6LRqk=,tag:lRe5F85x0pkgkoSIGipVPw==,type:str]
+          name: ENC[AES256_GCM,data:0/Z71/1BwXLoYEM=,iv:5uwIHqfGqlFzSgynx725UYAN57LJHXh+vF2qGjRDMEg=,tag:gz1JFs1uIEuUT6DwfPEIZw==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA4cHU3bS9sVjJZTTdvaTBn
+            NjMvZzZFZHh5dENHTkRJb0tGTlpPcWgrdGs0ClNMY1pTazY5UWN6Y0cwWElIVTZp
+            TExhOVA2QlFoMVR4RVhLdHFaaXIxdGcKLS0tIDhnb09WNVF3c2p2bndCVy8xUlQr
+            Uk0xeHl1VWpvcjZHekRWSTFOVjdRbzQKY8neF3BHisixPrgI1w7p8bUap4ilnPJk
+            HdD/yFQhcv3ve9k8Io/F0Sm+tTXnIHM8Rk+M3k339fVrom4WGYsXUw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:00:26Z"
+    mac: ENC[AES256_GCM,data:SAXcRM8M8Y5CdmyyqTpB4zpA2g1qe/RLlpqVtCdA85JgKQ+Ggg1Ljc3dGKrtxj7moZ/1EfoGrODPrL+jv93HQm80iDYl2PaXv1jq29UAp3NLulnoygs0DRgBuRb6x8klGMRgnG6VnDWB2MsiAENrUCmu0+rL7opo9suaWVwFVlY=,iv:fx4f3l3YbcHRfPccANrxDiCzGbuc9K2+jbPwDQYWByI=,tag:mCYSZ95Njle8r5tpd68CUw==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2

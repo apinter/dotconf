@@ -1,45 +1,58 @@
----
-apiVersion: v1
-kind: Pod
+apiVersion: ENC[AES256_GCM,data:sFM=,iv:VkkM/sqQZWAlEnJZoaYzUHSnQ6kj1mbZG+2qzzy13Uc=,tag:/hYXPEJfcw3jdC4gUPq1+w==,type:str]
+kind: ENC[AES256_GCM,data:U5c4,iv:vIfdnbJd+B+mGibt/BOTkvQtpiaS9n33621ulQun+tM=,tag:G39gtJaEsb/3qJFBrCLvLQ==,type:str]
 metadata:
-  annotations:
-    bind-mount-options: /var/home/apinter/Project/Minecraft_foreever_world/minecraft5/_data:z
-    io.containers.autoupdate: registry
-  labels:
-    app: minecraft-pod
-  name: minecraft-pod
+    annotations:
+        bind-mount-options: ENC[AES256_GCM,data:99FY+cNWOHPGmu9j3yLLP/ZRHEfeFZLs2CywIo3wmBtOwg8oK8+Q6wooppbjXWPMDhEdu6A1L/t0ORypO1HjlDyQy+jS,iv:R0gX/B+mb1jO7fCcXXuIc5O2AOUC42AE9FR8FvaKlOo=,tag:FiYOasbcr4ZvOY0IO09dvg==,type:str]
+        io.containers.autoupdate: ENC[AES256_GCM,data:TEmPVePl9M8=,iv:JefLXcSfh0y0Iu9ZIUDBUQtsDPXcQyieOYPwB4p5U0A=,tag:cL+UltdwKdf3PR58SmZIiQ==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:s4DHtPCo/01cJ5YfoA==,iv:RWcg4u4augsWpP21gUfBePj/C2zRNRrBQ3aU1/fMn5Q=,tag:C5f0kPrZkLk4t1fZCzGbyA==,type:str]
+    name: ENC[AES256_GCM,data:DHCxUCDOaN9vnq++SA==,iv:6VTF0bRHhAgnxeiL9E6953ivgTCez1JfCUbYeoXRgsc=,tag:DcBiLEv6L2iAG5ppbuBe3g==,type:str]
 spec:
-  containers:
-  - env:
-    - name: DIFFICULTY
-      value: normal
-    - name: SIMULATION_DISTANCE
-      value: "32"
-    - name: USE_AIKAR_FLAGS
-      value: "true"
-    - name: OPS
-      value: adathor,SlicedMother
-    - name: EULA
-      value: "TRUE"
-    - name: MEMORY
-      value: 6G
-    - name: ICON
-      value: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstaticg.sportskeeda.com%2Feditor%2F2022%2F12%2F31a05-16709054062680-1920.jpg
-    - name: ENABLE_COMMAND_BLOCK
-      value: "true"
-    - name: VIEW_DISTANCE
-      value: "32"
-    image: docker.io/itzg/minecraft-server:latest
-    name: minecraft
-    ports:
-    - containerPort: 25565
-      hostPort: 25565
-    volumeMounts:
-    - mountPath: /data
-      name: var-home-apinter-project-minecraft-foreever-world-minecraft5--data-host-0
-  volumes:
-  - hostPath:
-      path: /var/home/apinter/Project/Minecraft_foreever_world/minecraft5/_data
-      type: Directory
-    name: var-home-apinter-project-minecraft-foreever-world-minecraft5--data-host-0
-
+    containers:
+        - env:
+            - name: ENC[AES256_GCM,data:ebQgtSGNdMaE+g==,iv:PaP6Zat7hojNk54TUFKP4Ol5mHv8+PxAewndwDMofCE=,tag:TRd4D8AAaJZRhdYmociYag==,type:str]
+              value: ENC[AES256_GCM,data:z/gvQHvj,iv:zlnlbDaPCoa7yFTCmpcSHA8/an9MfM4ePyQI4QAz3l0=,tag:wnJ8Fv2qmJvL8ALTwmqIyw==,type:str]
+            - name: ENC[AES256_GCM,data:dXK66Zt4UYlnn6ftce7hWr4zJA==,iv:S2dR9UTIAsJ+P7Hi6qU1QP4NM71Fv/krRpHinXgywA8=,tag:ylgH/UhSuJi2YizNYYGJnQ==,type:str]
+              value: ENC[AES256_GCM,data:tsA=,iv:cHJ0PZjH4OHt40AnOHovo+118wAyBj1XrndQuL1Z4OA=,tag:mC6s2qPRPpNqyggXQOvyXg==,type:str]
+            - name: ENC[AES256_GCM,data:4I7+EqAsk/0VEIUgmpg3,iv:VXOrUvoE8CYL+JGo1uH+HrH7oCGiqOiCBHKoJeLQirQ=,tag:4lTio/tkc6MKLxQ7bzqdsA==,type:str]
+              value: ENC[AES256_GCM,data:4Njj3w==,iv:w8xrYxVRBV+suVWRSVSvs9zAoGKkrQTVSpjPxsm8b9c=,tag:EAPWoQ/gHPfE0U+5dbmqZg==,type:str]
+            - name: ENC[AES256_GCM,data:t+9o,iv:JJ49Hymy9vjvPhFSWYYaW/ADKcG+E7emnlyzP9JfNIA=,tag:6jRaaOpWzU2ex1K8oClI0g==,type:str]
+              value: ENC[AES256_GCM,data:h/U/O8GNm/EeKTgHv8LFQGRBMR4=,iv:McElpA0knp3geXc8ebntprTDRnnHwPGDy7j84EelG6Q=,tag:DCw8Gvbx/nYLD1+hN6UfOw==,type:str]
+            - name: ENC[AES256_GCM,data:21fspQ==,iv:GkPSeKB7hT+isiIfQjvTCBe3dfjAlVnrbiNh3Kbt0LI=,tag:lXmhYqDYw9yRIqqCc4n2OQ==,type:str]
+              value: ENC[AES256_GCM,data:1pWOiA==,iv:7zoOfaflagJH61h5eibUJJCizd2VjIh++hTSGg1igo0=,tag:eF4w5/t3tnlDDYuBfCAqyw==,type:str]
+            - name: ENC[AES256_GCM,data:4xtrw3iw,iv:7G+W33MSjjlIm0tt5Q2GqzdyTshw0Pgm5euTS0q42fA=,tag:tS5BB+Sw1WC/oEvtePJv+A==,type:str]
+              value: ENC[AES256_GCM,data:a2Q=,iv:5Hyck1deqD2gFGFp1INvTSPCKVNi0WjbA2Bc09eVjt4=,tag:dyI3oJrZuabaNRFO2K5o3Q==,type:str]
+            - name: ENC[AES256_GCM,data:8ZshKQ==,iv:xiMzHxITwA2t34Jd2Ri3Z2pIvZnrg0Zam/wjcoNQrq0=,tag:vW8spDnMK+BO8gWRDtIe2Q==,type:str]
+              value: ENC[AES256_GCM,data:8mmy7leNzcRYpVtR3SqqGm8FJ6BSrhyBhE3Q/EYPD4kqD2rr9Sl+08eNijkst8X7+g4I/XKQjeSwHWvDEcOXVIN8cn/USSRFmWVtXEhpd0wHiqziZFJK/n08bIEKMYa5lD80CGiw7Qaq1fI7FLY7PfVajQDMhSGhRrcQc3F9OFDgmB2rMDKTdw==,iv:HwRQjfHtgTNIxzmVoFK/tx7t4uKebllPYOLrOwXIoms=,tag:+Sl4Y74DsF5E+Mh0KfqaOQ==,type:str]
+            - name: ENC[AES256_GCM,data:smaqCTnWpdwS0LrZyC1Fvlfl9SI=,iv:g1nBUEOvi4HLFxh0/u95JF5dKpPyCdIHO8H0tUP18p8=,tag:sCr3JNz/Pm/BmQy3LL7mVA==,type:str]
+              value: ENC[AES256_GCM,data:IfWazA==,iv:XzQg1YwBnDvbl8By8/Q2fHJIZ07PWoiqfn9FU4aUHVY=,tag:FBXr60Ltq78lBgzHIYe01Q==,type:str]
+            - name: ENC[AES256_GCM,data:sPOVg/DibFqpp9R2mA==,iv:uRWuRbPa0VSNupNe3GgxZzLsJsMh1cWBr3rsoRFAKL8=,tag:H4+4brHfCDnGK19DAwmlvw==,type:str]
+              value: ENC[AES256_GCM,data:ils=,iv:OEFmGwAQCJ5R0FGhtiJY69VUo36Zt6FlVxYpvBSj0VQ=,tag:3dHOEkKx8I1lGgwXSvlfSA==,type:str]
+          image: ENC[AES256_GCM,data:v4+el3JLw6l7X+Lt7Dw7i12EH5X15rWLLqAufbkIdbNYWXKYYMI=,iv:3fAGFbx0mISk6uF1xbMA0JnDjc6Ki/ZPLJX27536jIE=,tag:r1hW7P7BiO1M9J0xTHD9vQ==,type:str]
+          name: ENC[AES256_GCM,data:S2zSPdvLCvfY,iv:+/MJnuZvIr9VWv/fg94M/6N+IZCgBTGsRwf0LML3KP8=,tag:ZiVM3Iaxvk6GfD4507p4DA==,type:str]
+          ports:
+            - containerPort: ENC[AES256_GCM,data:TkVfPQM=,iv:YPEa5U/hu0nGcAfnrK74oKIpCJdf8fH4Ty6ozsGPvrY=,tag:jUF+oOoelwxjJ9eCTuYMog==,type:int]
+              hostPort: ENC[AES256_GCM,data:juZshhQ=,iv:OdiQicc6KZLHn7/avHBUZr59xRehf9Ck8d4m61wBfAM=,tag:F6hd9dQgh3adW6KsU9lh+Q==,type:int]
+          volumeMounts:
+            - mountPath: ENC[AES256_GCM,data:4kzUx4g=,iv:BG4Avoqdk9tSJ9ZsBHlz6ENeXqNPjNZfDPCSNqe5Bec=,tag:4W7jnTQxzsdVi3yjcKtKvA==,type:str]
+              name: ENC[AES256_GCM,data:G1/O2afmFeteu7w+icuIO6YqaUpg0dWsqviG/Oyg2FU02rnO0udCI0xJaPQG7aryi5K7W7YZVczDXm0U+dTelG6xCk29zIVgHQ==,iv:py8L5VCI2KXj5llT0U2ZH8UNFaIf4YTs/ElyfAt21Xo=,tag:AtgIFZ51AhwfuD/7FtjlXQ==,type:str]
+    volumes:
+        - hostPath:
+            path: ENC[AES256_GCM,data:0d5ViwbSiRDKF7u8O8RfX7e0A+Ru9UTPtSmLJ0tURsYvWrei08Me6NJWYWlVm9vAfdckrxzcq/PsmrdUvDJ3Mlyf9g==,iv:FTmn7hN5LPq6Vb/uP6C3/Q6ADuvG5x1wdp7rlZgIfAE=,tag:ORKuDCwwcsgBLWC38uxSbA==,type:str]
+            type: ENC[AES256_GCM,data:SjJHhHH3NfVf,iv:nzK+9215ufNDf3qg0xRH50q0nyCqfa8GTGKlXXW7fAI=,tag:L8xatdpH4J57S4TeituCmA==,type:str]
+          name: ENC[AES256_GCM,data:UmMv3Wl5Xf6jP/U64Qpbr2b5mPkPYaQAllw8NHg+ZZYtiUD3zSwjhe7tLK6vvilbXsHec1bZWqduLX0/nHVEHjQ4cMLvB+aRMQ==,iv:8rrZVUQWYRcLXqLE7CYiLP710/qI9R6YhyWsFc3dgEU=,tag:mgV2gYpbYuDRm5eBrnsCPA==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBQb3ZFanArei9wbUY4V29t
+            dytnY3BCUTBvRklpN3BvcUlQWm9WNWZKb0VjCnRIa2RjajJseGp4TVpnem1TOHNo
+            anNMNEhxZUtIRHh1OHduWXFwWHdaa0UKLS0tIHJ3T0Z5OXg1MzJjSFE3NkV2WDJT
+            cEZFT3Q3NFhQN21mUUp3VldHR3dGSmcKMoYacPhsAxqQX40KDtuHpWZaoOgpTgXd
+            sy+ARArfUoZOWerWw0qRVLqo8fVdfUxnGZ5zoyNw2PeS5H1QyZwALQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:00:26Z"
+    mac: ENC[AES256_GCM,data:i0LwAJgddIs7CmLJXjws5XoGK6otQ5238Q++BeEeSUdEBZ85fY7Qesu1aPXiSG4cK56PiQXfQNS8BI/U0FQpeNSPf50w47UupjnYCGNqaKXiOns/XZ0YUouxULBIx07z4oZlOCZtDZs8VzrrAzCnLp4ylAnULlReUXk70YlNYgg=,iv:T2DhSxfwM1WN09svtkXuRWkaSSFJAcL7L2opTOqczKg=,tag:rRnsK9tS404mJgMMvxcj7Q==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2

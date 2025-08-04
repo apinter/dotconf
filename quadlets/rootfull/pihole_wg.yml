@@ -1,74 +1,118 @@
----
-apiVersion: v1
-kind: Pod
+apiVersion: ENC[AES256_GCM,data:0Ws=,iv:7Bb5vCXmaKTn5xTVVr9cUMr8TJvQfaiicX0C7/nPMoQ=,tag:sh3ViatS4qdV1VcGDTFnJA==,type:str]
+kind: ENC[AES256_GCM,data:rwPb,iv:E9gftKdt0srqehkoKlVf61+VVaSRqpWLWboMRp77GvQ=,tag:LkipORlShsNP/3q2q2ktEA==,type:str]
 metadata:
-  annotations:
-    io.containers.autoupdate/pihole: image
-  labels:
-    app: pihole-pod
-  name: pihole-pod
+    annotations:
+        io.containers.autoupdate/pihole: ENC[AES256_GCM,data:ipZARBk=,iv:JrimwLf4jKtnY/AN8jK2PtOaz6J4xp9Sqx+K0D5p5Z4=,tag:Ay+4KvaB/gbeC7tZdzvYsw==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:2CRanyS2qbhQGQ==,iv:ug7BDcp+vHTr1a2nELTQQHYaWItSWBTVa4GzArPKb6g=,tag:O92TPgw7PRNYCzpmnvJldw==,type:str]
+    name: ENC[AES256_GCM,data:kiWGqANkXHtmYg==,iv:/g2/CIszXAlaiGUVMAERAUUCtPs3pf+lEtgRjO8yflo=,tag:h1MImOugBwbwSJYRBuSFbw==,type:str]
 spec:
-  containers:
-  - name: pihole
-    image: docker.io/pihole/pihole:latest
-    env:
-    - name: ServerIP
-      value: 127.0.0.1
-    - name: TZ
-      value: Asia/Jakarta
-    - name: VIRTUAL_HOST
-      value: pi.hole
-    - name: PROXY_LOCATION
-      value: pi_hole
-    - name: WEBPASSWORD
-      value: minad1234
-    ports:
-    - containerPort: 53
-      hostIP: 10.222.0.1
-      hostPort: 53
-    - containerPort: 443
-      hostIP: 10.222.0.1
-      hostPort: 4443
-    - containerPort: 80
-      hostIP: 10.222.0.1
-      hostPort: 8082
-    - containerPort: 53
-      hostIP: 10.222.0.1
-      hostPort: 53
-      protocol: UDP
-    securityContext:
-      capabilities:
-        add:
-        - CAP_NET_ADMIN
-    volumeMounts:
-    - mountPath: /etc/pihole
-      name: etc-pihole-pvc
-    - mountPath: /etc/dnsmasq.d
-      name: etc-dnsmasq-pvc
-  volumes:
-  - name: etc-pihole-pvc
-    persistentVolumeClaim:
-      claimName: etc-pihole
-  - name: etc-dnsmasq-pvc
-    persistentVolumeClaim:
-      claimName: etc-dnsmasq
+    containers:
+        - name: ENC[AES256_GCM,data:dPahdLEJ,iv:GCoqBeQBvM7F/DHO17NocekkDqdsrNFOgu/KHSYceXY=,tag:p6VY+aSV0PbWq6VolPcqVA==,type:str]
+          image: ENC[AES256_GCM,data:nvjwsbPKjOl6dIq2SYtJkmjvX/FxqMgauglU7qMt,iv:z3ABH9QC3/KOg7rLHVhnsfdDBrPtAA9R+cU+ONBkkfk=,tag:6kFVIauNJqqhE34ZjkEERw==,type:str]
+          env:
+            - name: ENC[AES256_GCM,data:ogLyr2YQnaw=,iv:BJaBa42qqtT2t+b1FzNqwWKT0J6j+Iu6zwHIPU6J77c=,tag:k+jOqG4Ly5PoMFYme7HLKg==,type:str]
+              value: ENC[AES256_GCM,data:mPd0dA+niM3q,iv:rl3Ai62deEIVUGjAUiK0fZvGw1cD1CkA6dlqYKLWo8c=,tag:TOTnPGOAXNDIiTMLhGiK6w==,type:str]
+            - name: ENC[AES256_GCM,data:JJo=,iv:fnRvLi+Pd/zf+NQUHlARfmj8ZT6jIKXRpuNX8XdlCEo=,tag:kXKvl0fzO+t13XKUmzvA3A==,type:str]
+              value: ENC[AES256_GCM,data:PUbBNqOvYq01O26P,iv:H4f1sqdq+e9HINzeV/zWOFlvKwvl58We2o45ZrrhpPU=,tag:o0XZCkqdopv+kc8qUmqqpw==,type:str]
+            - name: ENC[AES256_GCM,data:flzklP4MWus0x189,iv:xYhMLtkCAiIktabA2qJQYqUH4cXZnew5N/MKmm7wgNA=,tag:/PvDwDG3SFsayqVngz6aUg==,type:str]
+              value: ENC[AES256_GCM,data:hr4UGWgY8A==,iv:v6VGAKp/6eahBZNidnM9r+87zfYeJhmuTRyOUY6EEuQ=,tag:SWdGxqkSxPvhgzmAE4aayQ==,type:str]
+            - name: ENC[AES256_GCM,data:pHWCAFKNV7hgMu3UGOE=,iv:855Fir1NSXiI/8Ih3io3HbcQTdddkpeaL6iQ7Wt+Kn4=,tag:QCzxlBbRgTtcboEp1hJ6YA==,type:str]
+              value: ENC[AES256_GCM,data:Md6wNIOpHA==,iv:rkASHV1iOP6mL/Eg/KVFC1tslOetS5IRevX7s5r4WTw=,tag:GZU4gYti3MsfTbUmSUxWMw==,type:str]
+            - name: ENC[AES256_GCM,data:JTi1sI+ilroGl74=,iv:5DdnUI9Q8zXspVNw/7HBqP9E8VPVQDUo53vpmAUWh3k=,tag:xQvu/oBEm7hALNKVKk8Rjw==,type:str]
+              value: ENC[AES256_GCM,data:Ec3ZElSxE8O5,iv:vlSc4w73G9ru2NxoS+jTHpEGZl9s0fMqccHHeT+Sge4=,tag:zcDPjwy212YC3gqgprfRKw==,type:str]
+          ports:
+            - containerPort: ENC[AES256_GCM,data:9A0=,iv:7mmQF39VFsDmks3xMu1vIp9MbTGjHkW6pasEqCAgGEc=,tag:YcRjfMorIE1jC4Kj/DRU/A==,type:int]
+              hostIP: ENC[AES256_GCM,data:WXswvila05RuHg==,iv:dqCi/1/5omzIFOSuuno/VVKy1kXbj5J0Oz2uYCPoHOU=,tag:qd1nI4OtrBk3m8pjZwYgCg==,type:str]
+              hostPort: ENC[AES256_GCM,data:YEQ=,iv:I6V5w23nezoAfyGOzTatnp5gPf+0NNz4mcWWKHjj2FU=,tag:smV/50woLAmWY0WHRttRfg==,type:int]
+            - containerPort: ENC[AES256_GCM,data:nkBK,iv:ZUEWUNR5iTueBLM8FLfkFBHaVMASNSJe5XaWW5SMkmM=,tag:fpW5Q0X3DaYJtta6BQzbdQ==,type:int]
+              hostIP: ENC[AES256_GCM,data:VJbZuX4UcQdzjQ==,iv:Z05+7Ut9EWXtQ/oiX/YYujEQIv8AMEI288O2tAsa1cc=,tag:vLtsiR1P5A37a7dD134woQ==,type:str]
+              hostPort: ENC[AES256_GCM,data:Jv5TDA==,iv:PEY48CorZ4U9y8PYW/TVFL8ilEDLEvyJOBWQLoC3e3U=,tag:pJpj0Be54a8D+ZsZHkbQwQ==,type:int]
+            - containerPort: ENC[AES256_GCM,data:dwo=,iv:sfDe6SToe+3a9/rt1A4GZJQhplbh6TjgU3pjgbuT2mg=,tag:n+qIxIdjYgyAofd4LyzekA==,type:int]
+              hostIP: ENC[AES256_GCM,data:S1YH76vuQQ3eyQ==,iv:w9tzG7KoF3w3ZEV8YWT+JfGu1F5Y0oUGIJbj3SyUltk=,tag:rOjI3C16Selwgzf6adM7oQ==,type:str]
+              hostPort: ENC[AES256_GCM,data:AzyGIA==,iv:s+c6w4xpzOOMijxdzZigcg0w30e+lHmY2ApqLFaEHrU=,tag:5GY6fo5rjijO4Z5p0PEp1g==,type:int]
+            - containerPort: ENC[AES256_GCM,data:EiA=,iv:R7kOEYyTsYRqpojr9zlb01iBPTrSGEDJKSQgB/8JD+4=,tag:HXeyGgyqr4YW1BjKwiD3AA==,type:int]
+              hostIP: ENC[AES256_GCM,data:RWbdFLWUQHBm/Q==,iv:IVUKQ4lBQipYKcG6h2Xam0DbyOqqlpY/pTnqOnyO8Yg=,tag:3+XcpFgbmA+FOkXkaVpbTg==,type:str]
+              hostPort: ENC[AES256_GCM,data:aQI=,iv:d6E9+7qecfSQxC7s70RX9OijVON9zipJlM7nfrOTpGY=,tag:mmmjuAdssixDZU/KWGOh4w==,type:int]
+              protocol: ENC[AES256_GCM,data:aO9V,iv:ujMlqIsUqfwnjJr3Khx1M4Ba3xGcuqdr8Roy3m0neO8=,tag:dmcvSDxuE2fXfKqlQg0ScA==,type:str]
+          securityContext:
+            capabilities:
+                add:
+                    - ENC[AES256_GCM,data:uRhKbkN2WdEZ9pUBnA==,iv:v+joYuJlELLMa+qyyjDoTo4nv6tmCTBdVss2ioE8454=,tag:PFOGzWNc/SObiAOTmmJWNQ==,type:str]
+          volumeMounts:
+            - mountPath: ENC[AES256_GCM,data:DMxCKRjw47ZDwV8=,iv:rO+3mBv8e+dnugP34i79XzqeH6APh2M6jI2TltI5T60=,tag:WDztO65VxWWQ6ZDXQnL4Jw==,type:str]
+              name: ENC[AES256_GCM,data:QZhMBDk4SRvFjz1Z3kk=,iv:Ec2JsY/dI5LcyLZiZBwLMAALGy5N1LMFIJMGjdho6FY=,tag:q8xryAs23uAXqFVnEKhMzg==,type:str]
+            - mountPath: ENC[AES256_GCM,data:MfpBDOPLek8Um5rMu1E=,iv:KAAUVBS4aMPzdLT6pcXxRlexI5Kf59iNIhC2iHer45Q=,tag:2YqVRERdP4cLDUDKCnx75w==,type:str]
+              name: ENC[AES256_GCM,data:PzBqYIdq49ZfvDb1HnPz,iv:HRzXsdqLoGJtte+Ph1RNCllat6jlQ0mlRT01AeD5U/8=,tag:t7+r4+PuUrSGVD7AeEe9TQ==,type:str]
+    volumes:
+        - name: ENC[AES256_GCM,data:0XQb3DEoX5F9VMu55tM=,iv:o0toc380sgG6Uv/DGzAPwUsNOxivKptz/rnyIUQ1X/k=,tag:EZw+OMcj0hifLPRZG8g18g==,type:str]
+          persistentVolumeClaim:
+            claimName: ENC[AES256_GCM,data:A02pwZ91BRUoDQ==,iv:rlMMJSJe6rm1BI8/rATD76iDbwGguHtvChI4a4bjLv0=,tag:10yiJQcRrKFpnYIHTSFAPg==,type:str]
+        - name: ENC[AES256_GCM,data:KzxLa4pBw7a+A+/Das/E,iv:DOgHiW4F5zan+onDVWa3iPPJDHzXgu+DRcxvKDg07+8=,tag:/GkonTQYOsr1U7naWawv9A==,type:str]
+          persistentVolumeClaim:
+            claimName: ENC[AES256_GCM,data:D58gK/sgDne0x3A=,iv:y7j1L6ZamQ9UGrG95zGNiLBtt+Hw4QhHhUOpEajRAkY=,tag:GesILvMd7Y61rc06AvOvIw==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmUVJqKzQ1U1lRQktGcGhv
+            VktvNHdZZ25KQjVnS1orb3ZkWGZaeGtXM2prCkNYaGNiQWxwN0lSVnZGZng3MVQ5
+            Zno5UmRJSThaeXV2QUQzZ1l5STNDOVEKLS0tIEhqUUxDK09pSTJabmVUbXVCL3dG
+            Y0tFUW5yQnNlOGxTc09VMkNnQ29RTUUKIuff4tEri/rBZtcLfg2EkSf3pmeEgl7A
+            6AYkdFyYdVEhjWiqiA882bCYfzBpd8c1X5ccKyOCFVRHuujDAWzUhQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:00:26Z"
+    mac: ENC[AES256_GCM,data:FRd4SoP4PEEdQae52gaG/zeYgLoJLs0rhP0Mz2iQqNVkuh4gxoumyoYBHbWBh91OQS68z1EN7v2Al5efo17cnlRTOuzmFZalHxQfvhT6r5W24KVpG935as9SzGIv9s9irNdrWjM+oeGMq5+nCNfMd6gqIDzsZVt99mCZEQxJAfk=,iv:pvTcosJWcNY98Gg3uXBaiDm2Mm7JhXob2sJaLcnX1lI=,tag:yUCI4oRJO72ODEOFOctITg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: ENC[AES256_GCM,data:gAU=,iv:CX+gFLVne+96qa9sBBPfdJrEehvRpenJ3QhizUlm5Dg=,tag:0pdPcH6L5y8CGqD0RD9qPw==,type:str]
+kind: ENC[AES256_GCM,data:cUZI4Tfq+nkxvf6H9ymYJEZyRZ66,iv:s7G2LhHYA04CxNXvK7RHMYiEdmIJdxDOWToKweXvEsA=,tag:aEhJm+Y2uNXKuFmdvKDyZw==,type:str]
 metadata:
-  name: etc-dnsmasq
-  labels:
-    app: pihole-pod
+    name: ENC[AES256_GCM,data:NvL/JEKJOVG3Hcg=,iv:R7q2oJ6UCdXUxzgi6J2cq2c3wMUfwlJhW2+16heP3eo=,tag:j2e5y+Q1aRWvxFNMvChDeQ==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:YhKlgEZbW4Encg==,iv:s5KceEDKYBkqaenUcnQRnxy6Hv8dGo8DlBW0MMIcS0g=,tag:ILHEfDFKS8/qH/+ZeHUSRw==,type:str]
 spec:
-  accessModes:
-    - ReadWriteOnce
+    accessModes:
+        - ENC[AES256_GCM,data:SiVY5l4AuSnimC4WEw==,iv:fImpM647jr0K81Rliz9LS6u36nS6ev9ssFargbxtWRg=,tag:iL8QAVzDiE45/kIaUPOiLg==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmUVJqKzQ1U1lRQktGcGhv
+            VktvNHdZZ25KQjVnS1orb3ZkWGZaeGtXM2prCkNYaGNiQWxwN0lSVnZGZng3MVQ5
+            Zno5UmRJSThaeXV2QUQzZ1l5STNDOVEKLS0tIEhqUUxDK09pSTJabmVUbXVCL3dG
+            Y0tFUW5yQnNlOGxTc09VMkNnQ29RTUUKIuff4tEri/rBZtcLfg2EkSf3pmeEgl7A
+            6AYkdFyYdVEhjWiqiA882bCYfzBpd8c1X5ccKyOCFVRHuujDAWzUhQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:00:26Z"
+    mac: ENC[AES256_GCM,data:FRd4SoP4PEEdQae52gaG/zeYgLoJLs0rhP0Mz2iQqNVkuh4gxoumyoYBHbWBh91OQS68z1EN7v2Al5efo17cnlRTOuzmFZalHxQfvhT6r5W24KVpG935as9SzGIv9s9irNdrWjM+oeGMq5+nCNfMd6gqIDzsZVt99mCZEQxJAfk=,iv:pvTcosJWcNY98Gg3uXBaiDm2Mm7JhXob2sJaLcnX1lI=,tag:yUCI4oRJO72ODEOFOctITg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: ENC[AES256_GCM,data:xQw=,iv:pac42D3a5MnDBs/pLc89A7eFIwYASTaTvbJ10H+ePJo=,tag:5o5CI7aHFErSNtnmBxjR3A==,type:str]
+kind: ENC[AES256_GCM,data:nttnn0nJtmQ3pmH8Qaj2MPl2x7IL,iv:TY42c+uon6OoRP/2csbVAog8WUMFKDbpoFClwzjy3Xc=,tag:57zoOR/nhVstYiYU/HWAVg==,type:str]
 metadata:
-  name: etc-pihole
-  labels:
-    app: pihole-pod
+    name: ENC[AES256_GCM,data:R2cLN2RQVGV5zw==,iv:r5dMg6UlrnRgRkiC/FmbkYk8rlK3AiIGIKWejNxXrlY=,tag:Af7IcqrRAipWH70c+BoFeg==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:q27MSDdlid7LkQ==,iv:uKh4Ni+l64/nEMBXSWlajJ6m8ewo+R+syraarvKam14=,tag:yGSJZU39ZK3buh/ie9EQ0w==,type:str]
 spec:
-  accessModes:
-    - ReadWriteOnce
+    accessModes:
+        - ENC[AES256_GCM,data:TBf68f8ZgeBvMqJwsA==,iv:wc7WqAsNAwBrcB79+Ef4IuQ6C5GkWkk42ThHffOld8Q=,tag:AL7k1E78IqMxS/zgmuyjWw==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBmUVJqKzQ1U1lRQktGcGhv
+            VktvNHdZZ25KQjVnS1orb3ZkWGZaeGtXM2prCkNYaGNiQWxwN0lSVnZGZng3MVQ5
+            Zno5UmRJSThaeXV2QUQzZ1l5STNDOVEKLS0tIEhqUUxDK09pSTJabmVUbXVCL3dG
+            Y0tFUW5yQnNlOGxTc09VMkNnQ29RTUUKIuff4tEri/rBZtcLfg2EkSf3pmeEgl7A
+            6AYkdFyYdVEhjWiqiA882bCYfzBpd8c1X5ccKyOCFVRHuujDAWzUhQ==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:00:26Z"
+    mac: ENC[AES256_GCM,data:FRd4SoP4PEEdQae52gaG/zeYgLoJLs0rhP0Mz2iQqNVkuh4gxoumyoYBHbWBh91OQS68z1EN7v2Al5efo17cnlRTOuzmFZalHxQfvhT6r5W24KVpG935as9SzGIv9s9irNdrWjM+oeGMq5+nCNfMd6gqIDzsZVt99mCZEQxJAfk=,iv:pvTcosJWcNY98Gg3uXBaiDm2Mm7JhXob2sJaLcnX1lI=,tag:yUCI4oRJO72ODEOFOctITg==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2

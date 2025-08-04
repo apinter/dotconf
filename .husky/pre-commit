@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# terraform -version >/dev/null
+# terraform_installed=$?
+# if [ $terraform_installed -ne 0 ]; then
+#     echo "Terraform not found"
+#     brew tap hashicorp/tap
+#     brew install hashicorp/tap/terraform
+#     terraform -version >/dev/null
+#     terraform_installed=$?
+#     if [ $terraform_installed -ne 0 ]; then
+#         echo "Error installing terraform. Please install manually!!!"
+#     fi
+# fi
+
+if ! command -v semgrep &> /dev/null; then
+    echo "SEMGREP not found"
+    if brew list "python" &>/dev/null; then
+        echo "Starting brew install..."
+        brew install semgrep
+    else
+        echo "Starting pip install..."
+        python3 -m pip install semgrep
+    fi
+
+    if ! command -v semgrep &> /dev/null; then
+        echo "Error installing SEMGREP. Please install manually!!!"
+    fi
+fi
+
+git_index=$GIT_INDEX_FILE
+unset GIT_INDEX_FILE
+
+semgrep scan --config "p/secrets" --baseline-commit=HEAD --error --quiet
+scan_result=$?
+
+export GIT_INDEX_FILE=$git_index
+
+if [ $scan_result -ne 0 ]; then
+  exit 1
+fi

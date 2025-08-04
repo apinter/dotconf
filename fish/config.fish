@@ -31,6 +31,7 @@ if status is-interactive
     export XDG_STATE_HOME=$HOME/.local/state
 
     ## Envs
+    export SOPS_AGE_KEY_FILE="$HOME"/.sops/key.txt
     export MANPAGER='nvim +Man!'
     export AWS_SHARED_CREDENTIALS_FILE="$XDG_CONFIG_HOME"/aws/credentials
     export AWS_CONFIG_FILE="$XDG_CONFIG_HOME"/aws/config
@@ -71,14 +72,14 @@ if status is-interactive
     abbr gap 'ga --patch'
     abbr gb 'git branch'
     abbr gba 'gb --all'
-    abbr gc 'git commit -s'
+    abbr gc 'git commit -s -m'
     abbr gca 'gc --amend --no-edit'
     abbr gce 'gc --amend'
     abbr gsw 'git switch'
     abbr gcl 'git clone --recursive'
     abbr gd 'git diff --output-indicator-new=" " --output-indicator-old=" "'
     abbr gds 'gd --staged'
-    abbr gi 'git init'
+    abbr gi 'git init --initial-branch=main'
     abbr gl 'git log --graph --all --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(blue)  %D%n%s%n"'
     abbr gm 'git merge'
     abbr gn 'git switch -c'
@@ -86,6 +87,10 @@ if status is-interactive
     abbr gr 'git reset'
     abbr gs 'git status --short'
     abbr gu 'git pull'
+    abbr gw 'git worktree'
+    abbr gwa 'git worktree add'
+    abbr gwl 'git worktree list'
+    abbr gwr 'git worktree remove'
 
     ## Copilot
     abbr copilot 'gh copilot'

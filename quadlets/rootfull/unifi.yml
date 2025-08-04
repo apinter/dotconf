@@ -1,42 +1,70 @@
----
-apiVersion: v1
-kind: Pod
+apiVersion: ENC[AES256_GCM,data:9zs=,iv:tp/gGKUh3U/Vc9GW4wVm7xNkT99XfajZ5NyEP3fat5k=,tag:QvHWVTFI/1Z0flU9nSR99Q==,type:str]
+kind: ENC[AES256_GCM,data:r9vd,iv:H+DxLNPozwhAeSqZXW5TTVHo3qcdsIvEEi021gq3lXs=,tag:oizlBRTUnYpvm7alo0f1+g==,type:str]
 metadata:
-  annotations:
-    io.containers.autoupdate: registry
-  labels:
-    app: unifi-controller-pod
-  name: unifi-controller-pod
+    annotations:
+        io.containers.autoupdate: ENC[AES256_GCM,data:FyE/mF9HgJE=,iv:9iuWHckW3Mba1EM6qEmizr+BWLO5L9SyFErhhtiozLI=,tag:iedtfxt6WHZmMC0RnFlg/Q==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:ZDrd0J9p8fIX4N3pJZ+PW68DuCI=,iv:Q1NPqDIuYwJP4Qi4DcX4uCVmJZ59pKYpT2yd3LUu1KU=,tag:87iYBYlz8MZeQ61B443fVg==,type:str]
+    name: ENC[AES256_GCM,data:5UEsSVsDgi/fPESnHpINy7EQD8E=,iv:WmoOUzBiYVruRrGfXw9k4isHLeWdQQ3lafLkwJg560k=,tag:aR7ol9jsz4YFu5S7Oy28Aw==,type:str]
 spec:
-  containers:
-  - name: unifi-controller
-    image: docker.io/linuxserver/unifi-controller:latest
-    env:
-    - name: MEM_STARTUP
-      value: "1024"
-    - name: MEM_LIMIT
-      value: "1024"
-    - name: PUID
-      value: "1000"
-    - name: PGID
-      value: "1000"
-    volumeMounts:
-    - mountPath: /config
-      name: unifi-pvc
-  hostNetwork: true
-  hostname: vegas
-  volumes:
-  - name: unifi-pvc
-    persistentVolumeClaim:
-      claimName: unifi
+    containers:
+        - name: ENC[AES256_GCM,data:UCIsxJs/4hrdC71fYNptyQ==,iv:R6fJDu8WxwWJ3XPXL/25gWp4XINRTsfrMOIBqJLM3BE=,tag:Hy8DqWvplbyr/13WDnWMKA==,type:str]
+          image: ENC[AES256_GCM,data:1TrB3i2HkpRXqr77LkXzDnEA9tcaWhjWYQS45iEF5JkZDOFFkdkmA9MGdQN7,iv:3yh+oHHGzwDQiFjcmtuMd9ohnZci162KJTcqsamGGhg=,tag:sDdSmF+NM2eSNJT7LfH2+g==,type:str]
+          env:
+            - name: ENC[AES256_GCM,data:qWSTIEHL1TTEfjI=,iv:2djfiGBlKrLvFnM0wNTSMeifcOPWPzSAMlTzpa2nq7w=,tag:yJNF9alYilY9VY8tjfYWMQ==,type:str]
+              value: ENC[AES256_GCM,data:yhZcCw==,iv:yUpqPgRwSs/43ybdBPEJLVi57sOravp1EtB+UK9NYfg=,tag:6MoM/NaFZvlWFVbnQB0ehA==,type:str]
+            - name: ENC[AES256_GCM,data:0EnnU8lJnpxT,iv:x3rdd85ud0f2mfIrxl0XhGGgReuHaUnfxg3tMkULTdY=,tag:t4uGgdFTJ8VaKPWLwBU5VQ==,type:str]
+              value: ENC[AES256_GCM,data:rVj1Hw==,iv:tkXxeG3Ihk5uNOO1KpLkDBX4CKnTMn4fw1xoJrnLSMA=,tag:pqQWWaL56J/S53C9gob8lA==,type:str]
+            - name: ENC[AES256_GCM,data:nvVzpw==,iv:37MJlzXN3RjRVY0sYPaSx1Gi1otYvnv+t/6twaLVrgY=,tag:aU6GfC6e2EThGrNeHzjR3A==,type:str]
+              value: ENC[AES256_GCM,data:gfR5DA==,iv:kNHS3opbKS59zfpssdyteBpsc4qW00h+ipc0CWBPpPk=,tag:5GbsULbqZfqMoJDDUc6wcQ==,type:str]
+            - name: ENC[AES256_GCM,data:SvH4AA==,iv:kYX+K+fz/p6zVwqn1o+8gZH16mtq0GF9s/yPKFtT9sY=,tag:2sR+/8YNSXrhJymutuMBmQ==,type:str]
+              value: ENC[AES256_GCM,data:fMomwQ==,iv:pfsCJ2ZJ27fMDl85Kg3khX1ijjzOI4f5cLc0SzIZRWo=,tag:eaWPAFmBDP6QwJENGyW6HQ==,type:str]
+          volumeMounts:
+            - mountPath: ENC[AES256_GCM,data:9PhTIlGkLQ==,iv:T/2EYpxGC8p+9qLDos27Pv/VECH0AK8ybt1snU6x+Ao=,tag:YST8eMxE5rCZU0JAZLhTCg==,type:str]
+              name: ENC[AES256_GCM,data:KMSQI91QZGpz,iv:0rbzbsqu3HJe5QqnrQQrO1QlHfSD7pKFATJxgdF+Eh0=,tag:d6n8MseSZ8TXfvfyF6UFdQ==,type:str]
+    hostNetwork: ENC[AES256_GCM,data:cJ92YQ==,iv:OpS2FbhWOzxBtHegTe9kbFSyfS+wniznBm49QCzoCjM=,tag:GWZtpfNbM3jHGQTsLXr1mQ==,type:bool]
+    hostname: ENC[AES256_GCM,data:Bk17iIE=,iv:vcY6vSeRdwe0kcGU1j1H/+2NT6DB7gBq338QVc9YVfk=,tag:QUAdMBu+l3tyh+M+neoRDQ==,type:str]
+    volumes:
+        - name: ENC[AES256_GCM,data:abKc+LQ0wNlY,iv:hIPbDsTWwNsZcRHB36kusmAWbfwJfQtV9Jr8vBL1NiQ=,tag:iSHpNsRgePwJezfalVAcuw==,type:str]
+          persistentVolumeClaim:
+            claimName: ENC[AES256_GCM,data:73S1288=,iv:crkXvpEZXlBVL4PCqWHJjUUSPCfU+5pE/xLlwphsjHI=,tag:QQJoSjoFiGtYojaMKDrfCA==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZdWJBQVRHS1RUN0xDMFRq
+            WkhpMFBsMGF0ZTkzMURnbEtJcXZUb2NmV1RBClB2SlRHTkJSQ0ZIdzNLcEgrMzVG
+            M3IvOHVwc2xUWENzNTNiUGhFVWYrSFkKLS0tIEl5L09sMTJabjFqY1JtaExGbEEz
+            OXFGcXMwNkkvYVJYcUV3bno4WWNxS1kKcxplMhNp5wUkEAWb7egfZwn6TMLu34Ct
+            X8Emc9jxpOqn/wEkX0ChIhcLntRDdMyJ0O/jTPZ3B6Lk7qZV4ao6Uw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:01:23Z"
+    mac: ENC[AES256_GCM,data:MMz+yr+/PlPF+pd3RQeHcZKvb6rvmUSSEU8yULhBhUL05r22GNz922NWRSJpjS8Kp8UeisiIuTrNxwWisowQiP+W98Jh4xENHkmpwdumwJOIN36nFT5dPNmKItQMHcJYjc00+bMIpd68e+C7+4vDIgU6UDy6BkuqLQu527vceM8=,iv:DaECRB3BZtniZhhk2hMYETz6Sbjsr82foq1AH084eDE=,tag:EnmrmR6IM8lNAohsl6/QuQ==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2
 ---
-apiVersion: v1
-kind: PersistentVolumeClaim
+apiVersion: ENC[AES256_GCM,data:3a8=,iv:14qs5zLtMazHVYZifHoJf9vMKun2p4qOubuw7/lL6wM=,tag:x+05SAMIHjjcsiE1lVV1Xw==,type:str]
+kind: ENC[AES256_GCM,data:E7R93nCiGeeDYHhku5T8hifQ0Bt5,iv:AJVzzxUZYqfV6FhSd1NnL1psxgFkQFnnSvdEYjwAKXQ=,tag:sLjfyfs+vDGORYSPXlVhUA==,type:str]
 metadata:
-  name: unifi
-  labels:
-    app: unifi-controller-pod
+    name: ENC[AES256_GCM,data:gkLFIQs=,iv:reYLnZmQ6He6v4bgdcmtyk6uCwHAlPyEOh2nTtCqafY=,tag:HDQugHjYfSCvyrjNyGD/Ow==,type:str]
+    labels:
+        app: ENC[AES256_GCM,data:GTEhefOCYH3yrMG/hpoAuW7h5Fc=,iv:LS2DBxFvFKq4/dFjsIiFgBWbo9HpO3o+ASG8rn9Q05I=,tag:+DpU4FyjPke4+uIcOWl9vQ==,type:str]
 spec:
-  accessModes:
-    - ReadWriteOnce
-
+    accessModes:
+        - ENC[AES256_GCM,data:c86zDFUIL+u7ciL2Ag==,iv:nLY/2rYoPNVlcaiuqDZiV+IaAtwuqhcJuqnqrGu77po=,tag:xoTyl9tRJKGJtg/s3S0pqw==,type:str]
+sops:
+    age:
+        - recipient: age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZdWJBQVRHS1RUN0xDMFRq
+            WkhpMFBsMGF0ZTkzMURnbEtJcXZUb2NmV1RBClB2SlRHTkJSQ0ZIdzNLcEgrMzVG
+            M3IvOHVwc2xUWENzNTNiUGhFVWYrSFkKLS0tIEl5L09sMTJabjFqY1JtaExGbEEz
+            OXFGcXMwNkkvYVJYcUV3bno4WWNxS1kKcxplMhNp5wUkEAWb7egfZwn6TMLu34Ct
+            X8Emc9jxpOqn/wEkX0ChIhcLntRDdMyJ0O/jTPZ3B6Lk7qZV4ao6Uw==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2025-08-04T01:01:23Z"
+    mac: ENC[AES256_GCM,data:MMz+yr+/PlPF+pd3RQeHcZKvb6rvmUSSEU8yULhBhUL05r22GNz922NWRSJpjS8Kp8UeisiIuTrNxwWisowQiP+W98Jh4xENHkmpwdumwJOIN36nFT5dPNmKItQMHcJYjc00+bMIpd68e+C7+4vDIgU6UDy6BkuqLQu527vceM8=,iv:DaECRB3BZtniZhhk2hMYETz6Sbjsr82foq1AH084eDE=,tag:EnmrmR6IM8lNAohsl6/QuQ==,type:str]
+    unencrypted_suffix: _unencrypted
+    version: 3.10.2

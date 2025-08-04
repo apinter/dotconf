@@ -1,3 +1,4 @@
+node_modules
 /fish/fish_variables
 bw.session
 nvim/lazy-lock.json
