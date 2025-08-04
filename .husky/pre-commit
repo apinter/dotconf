@@ -1,5 +1,6 @@
 #!/bin/sh
 
+## Attribution: Originally from http://github.com/vmarci94
 # terraform -version >/dev/null
 # terraform_installed=$?
 # if [ $terraform_installed -ne 0 ]; then
