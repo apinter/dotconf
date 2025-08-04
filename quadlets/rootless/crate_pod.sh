@@ -1,23 +1,15 @@
-#!/bin/bash
-
-set -e
-
-podman pod rm crate -f || true
-
-podman pull --authfile=$HOME/.secret/auth.json docker.io/redis && \
-sleep 3 && \
-podman pull --authfile=$HOME/.secret/auth.json docker.io/postgres:15-alpine && \
-sleep 3 && \
-podman pull --authfile=$HOME/.secret/auth.json registry.adathor.com/crate/crate:latest && \
-sleep 3 && \
-podman pull --authfile=$HOME/.secret/auth.json registry.adathor.com/crate/crate-nginx
-sleep 3 && \
-podman pod create --name crate -p 8888:80 && \
-sleep 3 && \
-podman run -d --pod crate --authfile=$HOME/.secret/auth.json --name crate-redis --label io.containers.autoupdate=image docker.io/redis && \
-sleep 3 && \
-podman run -d --pod crate -v crate_db:/var/lib/postgresql/data:z --name crate-db -e POSTGRES_USER=synopses0935 -e POSTGRES_PASSWORD=pRPPjG2S4TqGnrg7B45tMPpSm62XaSUq3kckoSrvjyQ3vezqsQg6gS4YhdYGv98HsqFK7xUjLGCQGM9jDKQbeCr4X9DAAQxM docker.io/postgres:15-alpine && \
-sleep 3 && \
-podman run -d --pod crate --authfile=$HOME/.secret/auth.json --name crate-app --label io.containers.autoupdate=image -v crate-www:/var/www/html:z -v /home/podman_vol/crate/data/osc:/var/www/html/data registry.adathor.com/crate/crate:latest && \
-sleep 3 && \
-podman run -d --pod crate --authfile=$HOME/.secret/auth.json --name crate-www --label io.containers.autoupdate=image --volumes-from crate-app:ro registry.adathor.com/crate/crate-nginx
+{
+	"data": "ENC[AES256_GCM,data:GnLO4MFn1jBumLb83zyDGBs8MsWejbo/h/t3Md/4U6V/ecsWYsQddDQNWEAki/5iPxrqUj36PODxfJmkuz8zk/y3Kji5fIIiD8MIy8G/lePWx6Mr2NidrYF2CuEG6YM5ARorqvFZBY2EojjIZARCe/s4Oa6bpg0n35ZVCfy1R1Ivky1cKfqPa2a9Pjf2KOPM1oIWZ73Qf4jTwv89MHIkfoY2ZR6gFvgxbG73ppgr2NfohVdW2H4TYpdfCIjQ+XcASiuac77L+wqfL2a+wG5BBGfnZyApFo59oEaVWUHMhFqemqhJNZR0/cEFbnWEQXKe9kp+a+Kq5EzTs19gic7D6aXLL6dvBXVMP/rc/HAa2mFFccYx5IeAt35Ba8VTYDwWNaY9oeYCZW1v9pnDDpNbVpy4Ek3i3cQK/ctzRM2LtkZg7U3Yp96lnO2G1iVLZ+rngwYVVdPNfgAxoATJGGhbU9y35byHNbWI2T66tVhMG7eg6Dj39jaOc1MpOqKPVt5rtXWfznOsM70axe+hf9+rwEqvCOWSYAz1BxsVRvIuMXx/6sa/dkMbc4zOVoX4kel2JJxfHznBcz3bH/saI56HVTrTckKJkki9XrzL+eSBcU6XpsVF9wrwSLYRFgPV1N/+BviVOAhGpOXJkWjHOoTSBygquZFOXglvqhFF2p8ZK6S0Iit/33vpJAvdSZazwrBPGy4AxH+YBOT9x/Z9Fl7sqmp5/eJyuCTDh3jsjEN2Sv0Yz2yRBC5Bp6WUvRiNXuVgfWpuajrD154h/gs06mIHxqxyYaTsITajISVrbMHcqAF93Nt/Ol6QXfVNlMnYvVDo4azwVJZls1drjTJUHc4Hl4w41qvZZvThTMRh4rxQrQlCnIvGUjwhHRNSgi0Mzavt3jtn94jVC2jB2JfRmyM0hqYIlSr1MRN2TM+BAI1WPlsifP2YWJm4/flB1QCxt61dBb1+sK5cadAFl6yFPvsPhzugxzi4LwXhlnJ+QxaJnJsuubiwt36pBtHNO/2cDiqjx/oWNA8vJuHUO5cZ9rjAzjkI2xaKycx1XSK+oLTFrWp+BTOaa9zi8hE9itHaE8Bv+9Iy1ufEb+Kh+BxQZzXIaMMwnmKuRJcuvipOgzUX442qI3lxzy9eJ24L32Cd2fXrvRye15xiM2qOcaIA97kdqCyUno5yrGsI7bNel/m/sU39uMl9l0cPvLlY6Tww7bH8rUjUTPqhd9x2lcmrgLaF4s/Yzv5mtBv+glyzNuWZTEc82ammFVBk6kLpmvsS+CM6CuITQv1tLCZLahMWGgpBa7ryQB52EI3L65jyVbiNZfvRbaKKyKHAEx+990kmwy5yOg/yimPEd8ML8AkHFGCqmJu5XrEXwkP7YoX+vi8RwM18ezn81q3iwmsx6qfiSsbtMCzfa1HI1jTl/9YMK1cfOrQPGUK2vfFNJxHofVmI63S9j/1ASWAGzQYrduhChmcSfBdmWNV7zDwQm+BzZgdXmiuYnLBxyUcWRJfqYUoLpRf0gkk5bhFJdXiPAloy+ZapIt7a4wTUey/C3UsqYQb/nWJMNI6OD2GF9yyfmQZo5V9yxjWyW4inFjIwRIqIjF5wA0N0LZUwBvv8hG/CeK93Rkfbv/ePww1Wx0yIhv4LRHxqn5toXZMG+uGr18ANK53mpAUKrXrc0T2sH4p8Ah2oZSpea0WuxlUrBG/DwOcXNozl2tmWuBXeuYrDMi3ZEhajqZncpdepXZI4EQDgBarkL+bLHCWYLw9TYievtqJ7HW8GydM=,iv:vqs31Pwom0LwJQoEj/X2CuP6Bl5Q1ov1JbC9NPMP+fQ=,tag:KdK4SbPrecCAOOWvP4rO0g==,type:str]",
+	"sops": {
+		"age": [
+			{
+				"recipient": "age1dnmrt6dak3mkfwe8tdnn3vtnpdwekw75cru072g5zpgfr2tv8ycqtcrfat",
+				"enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBXdndMLy8vM1BaNmlNWEhW\nS2tVU2NPTFVaT2RnWGhadEo4dXVycDh1WGlrCjNtTjZCU0NhUXNBdFFzQ0VWdUNH\nZGk3dnIzUW5qMGxnWWhDYTIwMXUwcXMKLS0tIEFNMEJyTWw3SWFBNGFXaWRmdVZL\nSzJ5dDM1WEJ4b05HOHdLMXZsajdEbUEKeVVms76IPisqhQ0M7ey0zWLqZV454x5/\noC9q61HSUX+vLRK8/veqVY77fW/pmV6bKBwKcjcXhW5D1xMaivHxOg==\n-----END AGE ENCRYPTED FILE-----\n"
+			}
+		],
+		"lastmodified": "2025-08-04T01:38:52Z",
+		"mac": "ENC[AES256_GCM,data:a9gTbQL+kG0R5HNXW0NhrqLBM8GkRsH/QZCE8k2Yp+vrZrxKUqQdD99dc3uHbcEARlSswGakeRKGhIo9J9cInMrcc2B7SkeLTkqXG6PAA09iajQY8QOAVrw3IqVePbdJVTy1um5PhZHPDgl6Huuch8wygu2RiZebNGbMkAqzRMY=,iv:eruRPFqfU+vWOfSdND2k2i/3M2OMKyfsIm7tNJQguY4=,tag:QdFAYvaxpfm9J3Z2k+Gdog==,type:str]",
+		"unencrypted_suffix": "_unencrypted",
+		"version": "3.10.2"
+	}
+}
