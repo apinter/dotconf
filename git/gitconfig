@@ -34,6 +34,7 @@
 
 [core]
 	editor = code-insiders --wait
+	autocrlf = input
 
 [diff]
 	external = difft
