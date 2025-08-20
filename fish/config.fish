@@ -136,7 +136,7 @@ if status is-interactive
     abbr ddf "distrobox-enter devops"
     abbr dar "distrobox-enter arch-box"
     abbr dhe distrobox-host-exec
-    abbr ll "eza -l --icons=auto --group-directories-first"
+    abbr ll "eza -la --icons=auto --group-directories-first"
     abbr lt "eza -l --sort oldest --icons=auto --group-directories-first"
     abbr l. "eza -d .*"
     abbr ls eza
