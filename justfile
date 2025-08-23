@@ -149,7 +149,7 @@ qdecrypt:
 
 # bw backup
 bw-backup:
-  bash $HOME/Vaults/Knox/bw_bk.sh
+  bash $HOME/Vaults/Knex/bw_bk.sh
 
 # Set Kitty terminfo on remote
 ks target:
