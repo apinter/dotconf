@@ -76,6 +76,9 @@ vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
 
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+
 vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
 
