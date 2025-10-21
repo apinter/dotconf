@@ -276,3 +276,7 @@ end
 
 set -gx PATH $PATH $HOME/.krew/bin
 source $XDG_CONFIG_HOME/fish/functions/fish_prompt.fish
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[ -f /var/home/apinter/.cache/yay/scratchjr-desktop-git/src/ScratchJr-Desktop/node_modules/tabtab/.completions/electron-forge.fish ]; and . /var/home/apinter/.cache/yay/scratchjr-desktop-git/src/ScratchJr-Desktop/node_modules/tabtab/.completions/electron-forge.fish
