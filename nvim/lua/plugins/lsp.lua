@@ -295,6 +295,7 @@ return {
 						luasnip = "⋗",
 						buffer = "Ω",
 						path = "🖫",
+						["vim-dadbod-completion"] = "[DB]",
 					}
 
 					item.menu = menu_icon[entry.source.name]
@@ -302,6 +303,14 @@ return {
 				end,
 			},
 		})
+
+		cmp.setup.filetype({ "sql" }, {
+			sources = {
+				{ name = "vim-dadbod-completion" },
+				{ name = "buffer" },
+			},
+		})
+
 		vim.diagnostic.config({
 			-- update_in_insert = true,
 			float = {
