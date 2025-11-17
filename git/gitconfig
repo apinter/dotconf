@@ -40,7 +40,7 @@
 	external = difft
 
 [gpg]
-	program = /usr/bin/gpg2
+	program = /home/apinter/.nix-profile/bin/gpg2
 
 [blame]
     coloring = highlightRecent
