@@ -117,7 +117,8 @@ distrobox-ubuntu:
 update:
   flatpak upgrade --user -y
   distrobox upgrade -a
-  brew upgrade
+  cd $HOME/.config/home-manager/ && git pull && home-manager switch
+  # brew upgrade
 
 # Update some pip packages
 pip-update:
