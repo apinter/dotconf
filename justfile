@@ -118,6 +118,7 @@ update:
   flatpak upgrade --user -y
   distrobox upgrade -a
   cd $HOME/.config/home-manager/ && git pull && home-manager switch
+  home-manager expire-generations "-7 days"
   # brew upgrade
 
 # Update some pip packages
