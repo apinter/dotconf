@@ -53,6 +53,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- vim.lsp.enable('terraformls')
 -- vim.lsp.enable('yamlls')
+vim.lsp.enable('nixd')
 
 -- Terraform
 vim.cmd([[let g:terraform_fmt_on_save=1]])

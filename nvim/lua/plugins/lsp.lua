@@ -99,6 +99,15 @@ return {
 					vim.g.zig_fmt_autosave = 0
 				end,
 
+				["nixd"] = function()
+					local lspconfig = require("lspconfig")
+					lspconfig.lspconfig.setup({
+						cmd = { "nixd" },
+						filetypes = { "nix" },
+						root_markers = { "flake.nix", ".git" },
+					})
+				end,
+
 				["bashls"] = function()
 					local lspconfig = require("lspconfig")
 					lspconfig.lspconfig.setup({
