@@ -74,6 +74,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- remaps
 vim.keymap.set({ "n", "v", "x" }, "<leader>y", '"+y<CR>')
 vim.keymap.set({ "n", "v", "x" }, "<leader>d", '"+d<CR>')
+vim.keymap.set({ "n", "v", "x" }, "p", "P")
 
 vim.keymap.set("n", "<leader>L", ":Lazy<Return>")
 
