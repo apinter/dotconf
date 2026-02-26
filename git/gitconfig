@@ -71,6 +71,9 @@
 [includeIf "gitdir:~/Project/git/Work/"]
   path = .gitconfig-adathor-gl
 
+[includeIf "gitdir:~/Project/git/codeberg/"]
+  path = .gitconfig-adathor-codeberg
+
 [color "branch"]
     current  = magenta
     local    = default
