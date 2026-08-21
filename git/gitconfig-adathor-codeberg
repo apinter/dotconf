@@ -7,5 +7,5 @@
 [core]
     sshCommand = "ssh -o IdentitiesOnly=yes -i ~/.ssh/adathor-codeberg -F /dev/null"
 [gpg]
-    program = /usr/bin/gpg
+	program = /home/apinter/.nix-profile/bin/gpg2
 
